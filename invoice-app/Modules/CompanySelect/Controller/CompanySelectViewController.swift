@@ -17,6 +17,7 @@ class CompanySelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        print("loaded company select")
     }
     
     // MARK: - Setup

@@ -1,3 +1,4 @@
+
 import Foundation
 import Swinject
 
@@ -7,3 +8,4 @@ class InitializationAssembly {
         appDelegate.appCoordinator = assembler.resolver.resolve(AppCoordinator.self)
     }
 }
+    

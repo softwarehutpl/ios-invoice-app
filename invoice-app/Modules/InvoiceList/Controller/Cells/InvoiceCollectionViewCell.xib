@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InvoiceCollectionViewCell" id="gTV-IL-0wX" customClass="InvoiceCollectionViewCell" customModule="invoice_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="156"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="156"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invoice Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qj-rl-gd7">
+                        <rect key="frame" x="10" y="38" width="200" height="80"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="JNn-KH-cpF"/>
+                            <constraint firstAttribute="width" constant="200" id="n46-3F-nao"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invoice Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2M-6n-W9s">
+                        <rect key="frame" x="220" y="38" width="132" height="80"/>
+                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="FyG-k8-pAE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Z2M-6n-W9s" secondAttribute="trailing" constant="10" id="6BJ-v7-RP3"/>
+                <constraint firstItem="1Qj-rl-gd7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="BpT-fV-AVC"/>
+                <constraint firstItem="Z2M-6n-W9s" firstAttribute="leading" secondItem="1Qj-rl-gd7" secondAttribute="trailing" constant="10" id="OuF-uJ-t7r"/>
+                <constraint firstItem="1Qj-rl-gd7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="gT2-42-us2"/>
+                <constraint firstItem="Z2M-6n-W9s" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="s37-zr-C0K"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="362" height="156"/>
+            <connections>
+                <outlet property="invoicePrice" destination="Z2M-6n-W9s" id="zaF-XB-gD8"/>
+                <outlet property="invoiceTitle" destination="1Qj-rl-gd7" id="5Jj-tj-yFx"/>
+            </connections>
+            <point key="canvasLocation" x="201.44927536231884" y="88.392857142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>
