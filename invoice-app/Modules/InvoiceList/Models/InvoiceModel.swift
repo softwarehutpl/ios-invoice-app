@@ -9,6 +9,10 @@
 import Foundation
 
 struct InvoiceModel {
-    let name: String
-    let price: String
+    
+    let title: String
+    let clientName: String
+    let date: String
+    let amount: String
+    let status: Bool
 }

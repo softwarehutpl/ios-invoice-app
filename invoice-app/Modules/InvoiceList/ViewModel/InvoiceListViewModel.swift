@@ -14,11 +14,15 @@ class InvoiceListViewModel {
     }
     private func loadTestData() {
         for _ in 0...30 {
-            let testInvoice = InvoiceModel(name: "InvoiceTestLabel", price: "1000$")
+            let uniqueTitle = UUID().uuidString
+            let uniquePrice = UUID().hashValue
+            let randomStatus = Bool.random()
+            let testInvoice = InvoiceModel(title: "Title \(uniqueTitle)", clientName: "ClientName", date: "08-08-2019", amount: "PLN \(uniquePrice)", status: randomStatus)
             testData.append(testInvoice)
         }
     }
 }
+
 
 extension InvoiceListViewModel: InvoiceListViewModelType {
     var invoiceCount: Int {

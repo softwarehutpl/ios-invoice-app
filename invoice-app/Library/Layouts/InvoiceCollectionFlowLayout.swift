@@ -9,10 +9,15 @@
 import UIKit
 
 class InvoiceCollectionFlowLayout: UICollectionViewFlowLayout {
-   
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let layoutAttributes = super.layoutAttributesForElements(in: rect)
-        return layoutAttributes
-    }
     
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
+    override func prepare() {
+        super.prepare()
+        minimumLineSpacing = 0.5
+        itemSize = CGSize(width: screenWidth, height: screenHeight / 8)
+    }
 }
+
+
