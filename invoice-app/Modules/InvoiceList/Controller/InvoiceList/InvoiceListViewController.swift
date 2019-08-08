@@ -7,7 +7,6 @@ class InvoiceListViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private
-    
     private let viewModel: InvoiceListViewModelType
     
     // MARK: - Lifecycle
@@ -20,6 +19,7 @@ class InvoiceListViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Collection View Setup
     private func setupCollectionView() {
         //Cells register
         let nib = UINib(nibName: InvoiceCollectionViewCell.identyfier, bundle: nil)
@@ -48,8 +48,9 @@ extension InvoiceListViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 100)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.showInvoiceDetailView(source: self)
+    }
 }
+
 

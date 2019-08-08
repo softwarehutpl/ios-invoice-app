@@ -21,4 +21,3 @@ class ViewControllerAssembly: Assembly {
         }
     }
 }
-

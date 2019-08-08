@@ -11,6 +11,7 @@ import UIKit
 
 class InvoiceCollectionViewCell: UICollectionViewCell {
     
+    // Cell id
     static let identyfier = "InvoiceCollectionViewCell"
     
     @IBOutlet weak var invoiceTitle: UILabel!
@@ -18,7 +19,7 @@ class InvoiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var amount: UILabel!
     
-    
+    // UI Setup
     func viewSetup() {
         amount.layer.borderWidth = 1
         amount.layer.borderColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
@@ -42,6 +43,7 @@ class InvoiceCollectionViewCell: UICollectionViewCell {
             amount.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewSetup()

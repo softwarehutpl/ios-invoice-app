@@ -12,6 +12,7 @@ class InvoiceListViewModel {
         self.sceneCoordinator = sceneCoordinator
         loadTestData()
     }
+    // Loading fake data into view
     private func loadTestData() {
         for _ in 0...30 {
             let uniqueTitle = UUID().uuidString
@@ -25,9 +26,14 @@ class InvoiceListViewModel {
 
 
 extension InvoiceListViewModel: InvoiceListViewModelType {
+    func showInvoiceDetailView(source: UIViewController) {
+        print("Showing detail view")
+    }
+    
     var invoiceCount: Int {
         return testData.count
     }
+    
     func getTestData(indexPath: Int) -> InvoiceModel {
         return testData[indexPath]
     }

@@ -1,6 +1,7 @@
 import UIKit
 
 class CompanySelectViewModel {
+    
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
     

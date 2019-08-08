@@ -14,10 +14,8 @@ import UIKit
 extension UICollectionViewFlowLayout {
     private static func newInstance(minimalSpacing: CGFloat,backgroundColor: UIColor) -> UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
-        
         flowLayout.minimumLineSpacing = minimalSpacing
         flowLayout.collectionView?.backgroundColor = backgroundColor
-        
         return flowLayout
     }
     
