@@ -33,6 +33,14 @@
 		0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB968A22F81BD7000781E5 /* InvoiceListViewModel.swift */; };
 		0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */; };
 		0FDB968F22F81C01000781E5 /* InvoiceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */; };
+		592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */; };
+		592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */; };
+		5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934C8F522F96337001A8292 /* InvoiceModel.swift */; };
+		5934C8FA22F96477001A8292 /* InvoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934C8F822F96477001A8292 /* InvoiceCollectionViewCell.swift */; };
+		5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5934C8F922F96477001A8292 /* InvoiceCollectionViewCell.xib */; };
+		59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */; };
+		59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */; };
+		59CA9F3822FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */; };
 		E12702C4B10F016B6EA6D44B /* Pods_invoice_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6095893B07F4534388E44CAF /* Pods_invoice_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +74,14 @@
 		0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
 		0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceListViewController.xib; sourceTree = "<group>"; };
 		2CAE98E5C520527D407163D0 /* Pods-invoice-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-invoice-app.release.xcconfig"; path = "Target Support Files/Pods-invoice-app/Pods-invoice-app.release.xcconfig"; sourceTree = "<group>"; };
+		592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionFlowLayout + \"\".swift"; sourceTree = "<group>"; };
+		5934C8F522F96337001A8292 /* InvoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
+		5934C8F822F96477001A8292 /* InvoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		5934C8F922F96477001A8292 /* InvoiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
+		59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailViewController.xib; sourceTree = "<group>"; };
+		59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewControllerType.swift; sourceTree = "<group>"; };
 		6095893B07F4534388E44CAF /* Pods_invoice_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_invoice_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E080F474F34AB30220EEED /* Pods-invoice-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-invoice-app.debug.xcconfig"; path = "Target Support Files/Pods-invoice-app/Pods-invoice-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,19 +167,13 @@
 		0FDB964F22F80DEA000781E5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				592B11CE22FA98E30068772E /* Extensions */,
+				5934C8FC22F96C9A001A8292 /* Layouts */,
 				0FDB968122F819CB000781E5 /* Controllers */,
 				0FDB965622F80FDB000781E5 /* Coordinator */,
 				0FDB965122F80E00000781E5 /* Constants */,
-				0FDB965022F80DF2000781E5 /* Extensions */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		0FDB965022F80DF2000781E5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0FDB965122F80E00000781E5 /* Constants */ = {
@@ -273,8 +283,8 @@
 		0FDB967922F8195A000781E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */,
-				0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */,
+				592B11D222FAB7CC0068772E /* InvoiceDetails */,
+				592B11D122FAB7BF0068772E /* InvoiceList */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +301,7 @@
 		0FDB967B22F8195A000781E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5934C8F522F96337001A8292 /* InvoiceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +328,52 @@
 				2CAE98E5C520527D407163D0 /* Pods-invoice-app.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		592B11CE22FA98E30068772E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		592B11D122FAB7BF0068772E /* InvoiceList */ = {
+			isa = PBXGroup;
+			children = (
+				0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */,
+				0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */,
+				5934C8F722F96457001A8292 /* Cells */,
+			);
+			path = InvoiceList;
+			sourceTree = "<group>";
+		};
+		592B11D222FAB7CC0068772E /* InvoiceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */,
+				59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */,
+				59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */,
+			);
+			name = InvoiceDetails;
+			path = ../../../..;
+			sourceTree = "<group>";
+		};
+		5934C8F722F96457001A8292 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5934C8F822F96477001A8292 /* InvoiceCollectionViewCell.swift */,
+				5934C8F922F96477001A8292 /* InvoiceCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5934C8FC22F96C9A001A8292 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		F4CCCBF1B3EA42DEAA5971D9 /* Frameworks */ = {
@@ -387,8 +444,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */,
 				0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */,
 				0FDB968722F81A50000781E5 /* CompanySelectViewController.xib in Resources */,
+				59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */,
 				0FDB968F22F81C01000781E5 /* InvoiceListViewController.xib in Resources */,
 				0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */,
 			);
@@ -445,17 +504,22 @@
 			files = (
 				0FDB967E22F8196D000781E5 /* CompanySelectViewModelType.swift in Sources */,
 				0FDB966F22F81808000781E5 /* AppCoordinatorType.swift in Sources */,
+				5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */,
 				0FDB967222F818A3000781E5 /* StartupScene.swift in Sources */,
 				0FDB965B22F813F1000781E5 /* SceneType.swift in Sources */,
 				0FDB965D22F813F1000781E5 /* SceneCoordinator.swift in Sources */,
 				0FDB968322F819E7000781E5 /* BaseViewController.swift in Sources */,
+				59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */,
 				0FDB966D22F817DB000781E5 /* AppCoordinator.swift in Sources */,
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
+				592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */,
 				0FDB966822F81611000781E5 /* CoordinatorAssembly.swift in Sources */,
 				0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */,
 				0FDB965C22F813F1000781E5 /* SceneCoordinatorType.swift in Sources */,
 				0FDB966022F8141E000781E5 /* ViewControllerResolver.swift in Sources */,
 				0FDB966A22F8166F000781E5 /* ViewModelAssembly.swift in Sources */,
+				5934C8FA22F96477001A8292 /* InvoiceCollectionViewCell.swift in Sources */,
+				59CA9F3822FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift in Sources */,
 				0FDB968922F81BC3000781E5 /* InvoiceListViewModelType.swift in Sources */,
 				0FDB968022F8198B000781E5 /* CompanySelectViewModel.swift in Sources */,
 				0FDB968622F81A50000781E5 /* CompanySelectViewController.swift in Sources */,
@@ -463,6 +527,7 @@
 				0FDB966222F81435000781E5 /* ViewControllerResolverType.swift in Sources */,
 				0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */,
 				0FDB963A22F80C76000781E5 /* AppDelegate.swift in Sources */,
+				592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */,
 				0FDB965522F80FA9000781E5 /* InitializationAssembly.swift in Sources */,
 				0FDB965E22F813F1000781E5 /* SceneTransitionType.swift in Sources */,
 			);
