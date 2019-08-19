@@ -33,14 +33,39 @@
 		0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB968A22F81BD7000781E5 /* InvoiceListViewModel.swift */; };
 		0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */; };
 		0FDB968F22F81C01000781E5 /* InvoiceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */; };
+		59026368230411AB0017C4D5 /* CustomerAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59026366230411AB0017C4D5 /* CustomerAddressCell.swift */; };
+		59026369230411AB0017C4D5 /* CustomerAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59026367230411AB0017C4D5 /* CustomerAddressCell.xib */; };
+		5902636B230411F60017C4D5 /* CustomerAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5902636A230411F60017C4D5 /* CustomerAddressView.xib */; };
+		5902636D230412150017C4D5 /* CustomerAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902636C230412150017C4D5 /* CustomerAddressView.swift */; };
+		590B98F62302B7F80006FCA6 /* CustomerDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590B98F42302B7F80006FCA6 /* CustomerDetailsCell.swift */; };
+		590B98F72302B7F80006FCA6 /* CustomerDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590B98F52302B7F80006FCA6 /* CustomerDetailsCell.xib */; };
+		590B98FD2302BA1B0006FCA6 /* CustomerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590B98FC2302BA1B0006FCA6 /* CustomerDetailView.xib */; };
+		590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590B98FE2302BA2E0006FCA6 /* CustomerDetailView.swift */; };
 		592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */; };
 		592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */; };
 		5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934C8F522F96337001A8292 /* InvoiceModel.swift */; };
 		5934C8FA22F96477001A8292 /* InvoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934C8F822F96477001A8292 /* InvoiceCollectionViewCell.swift */; };
 		5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5934C8F922F96477001A8292 /* InvoiceCollectionViewCell.xib */; };
+		5938D1B9230A933A0067C295 /* NewInvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1B8230A933A0067C295 /* NewInvoiceViewModel.swift */; };
+		5938D1BB230A93490067C295 /* NewInvoiceViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1BA230A93490067C295 /* NewInvoiceViewModelType.swift */; };
+		5938D1BE230AA59A0067C295 /* InvoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1BD230AA59A0067C295 /* InvoiceService.swift */; };
+		5940B446230A6A2300BE234A /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940B444230A6A2300BE234A /* NewInvoiceViewController.swift */; };
+		5940B447230A6A2300BE234A /* NewInvoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5940B445230A6A2300BE234A /* NewInvoiceViewController.xib */; };
+		596390A522FF740600C21658 /* menuBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596390A422FF740600C21658 /* menuBar.xib */; };
+		596390A722FF747300C21658 /* menuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596390A622FF747300C21658 /* menuBar.swift */; };
+		59922758230292FD0055C41B /* InvoiceDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59922757230292FD0055C41B /* InvoiceDetailModel.swift */; };
+		599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */; };
+		599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */; };
+		599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C0C9E2303DB1900CA7DB4 /* CellError.swift */; };
 		59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */; };
 		59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */; };
-		59CA9F3822FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */; };
+		59CA9F6D22FD4625000C6AA9 /* InvoiceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F6C22FD4625000C6AA9 /* InvoiceDetailViewModel.swift */; };
+		59CA9F6F22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F6E22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift */; };
+		59CA9F7422FD73C8000C6AA9 /* UILabel + Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F7322FD73C8000C6AA9 /* UILabel + Padding.swift */; };
+		59D0E2D02305D2B8005D6795 /* CustomerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D0E2CE2305D2B8005D6795 /* CustomerItemsCell.swift */; };
+		59D0E2D12305D2B8005D6795 /* CustomerItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59D0E2CF2305D2B8005D6795 /* CustomerItemsCell.xib */; };
+		59D0E2D42305D357005D6795 /* CustomerItemsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59D0E2D32305D357005D6795 /* CustomerItemsView.xib */; };
+		59D0E2D62305D363005D6795 /* CustomerItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D0E2D52305D363005D6795 /* CustomerItemsView.swift */; };
 		E12702C4B10F016B6EA6D44B /* Pods_invoice_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6095893B07F4534388E44CAF /* Pods_invoice_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,14 +99,39 @@
 		0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
 		0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceListViewController.xib; sourceTree = "<group>"; };
 		2CAE98E5C520527D407163D0 /* Pods-invoice-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-invoice-app.release.xcconfig"; path = "Target Support Files/Pods-invoice-app/Pods-invoice-app.release.xcconfig"; sourceTree = "<group>"; };
+		59026366230411AB0017C4D5 /* CustomerAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAddressCell.swift; sourceTree = "<group>"; };
+		59026367230411AB0017C4D5 /* CustomerAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerAddressCell.xib; sourceTree = "<group>"; };
+		5902636A230411F60017C4D5 /* CustomerAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerAddressView.xib; sourceTree = "<group>"; };
+		5902636C230412150017C4D5 /* CustomerAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAddressView.swift; sourceTree = "<group>"; };
+		590B98F42302B7F80006FCA6 /* CustomerDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailsCell.swift; sourceTree = "<group>"; };
+		590B98F52302B7F80006FCA6 /* CustomerDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerDetailsCell.xib; sourceTree = "<group>"; };
+		590B98FC2302BA1B0006FCA6 /* CustomerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerDetailView.xib; sourceTree = "<group>"; };
+		590B98FE2302BA2E0006FCA6 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
 		592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionFlowLayout + \"\".swift"; sourceTree = "<group>"; };
 		5934C8F522F96337001A8292 /* InvoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
 		5934C8F822F96477001A8292 /* InvoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		5934C8F922F96477001A8292 /* InvoiceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		5938D1B8230A933A0067C295 /* NewInvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModel.swift; sourceTree = "<group>"; };
+		5938D1BA230A93490067C295 /* NewInvoiceViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModelType.swift; sourceTree = "<group>"; };
+		5938D1BD230AA59A0067C295 /* InvoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceService.swift; sourceTree = "<group>"; };
+		5940B444230A6A2300BE234A /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
+		5940B445230A6A2300BE234A /* NewInvoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewInvoiceViewController.xib; sourceTree = "<group>"; };
+		596390A422FF740600C21658 /* menuBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = menuBar.xib; sourceTree = "<group>"; };
+		596390A622FF747300C21658 /* menuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuBar.swift; sourceTree = "<group>"; };
+		59922757230292FD0055C41B /* InvoiceDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailModel.swift; sourceTree = "<group>"; };
+		599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailTopView.xib; sourceTree = "<group>"; };
+		599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailTopView.swift; sourceTree = "<group>"; };
+		599C0C9E2303DB1900CA7DB4 /* CellError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellError.swift; sourceTree = "<group>"; };
 		59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
 		59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailViewController.xib; sourceTree = "<group>"; };
-		59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewControllerType.swift; sourceTree = "<group>"; };
+		59CA9F6C22FD4625000C6AA9 /* InvoiceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewModel.swift; sourceTree = "<group>"; };
+		59CA9F6E22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewModelType.swift; sourceTree = "<group>"; };
+		59CA9F7322FD73C8000C6AA9 /* UILabel + Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Padding.swift"; sourceTree = "<group>"; };
+		59D0E2CE2305D2B8005D6795 /* CustomerItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemsCell.swift; sourceTree = "<group>"; };
+		59D0E2CF2305D2B8005D6795 /* CustomerItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerItemsCell.xib; sourceTree = "<group>"; };
+		59D0E2D32305D357005D6795 /* CustomerItemsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerItemsView.xib; sourceTree = "<group>"; };
+		59D0E2D52305D363005D6795 /* CustomerItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerItemsView.swift; sourceTree = "<group>"; };
 		6095893B07F4534388E44CAF /* Pods_invoice_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_invoice_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E080F474F34AB30220EEED /* Pods-invoice-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-invoice-app.debug.xcconfig"; path = "Target Support Files/Pods-invoice-app/Pods-invoice-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +183,8 @@
 		0FDB964B22F80D3B000781E5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				599331BA23028DAB00C024EC /* NewInvoice */,
+				592B11D222FAB7CC0068772E /* InvoiceDetails */,
 				0FDB967822F8193E000781E5 /* InvoiceList */,
 				0FDB967322F8191A000781E5 /* CompanySelect */,
 			);
@@ -167,6 +219,8 @@
 		0FDB964F22F80DEA000781E5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				5938D1BC230AA5890067C295 /* Service */,
+				599C0C9D2303DB0200CA7DB4 /* Errors */,
 				592B11CE22FA98E30068772E /* Extensions */,
 				5934C8FC22F96C9A001A8292 /* Layouts */,
 				0FDB968122F819CB000781E5 /* Controllers */,
@@ -283,8 +337,8 @@
 		0FDB967922F8195A000781E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				592B11D222FAB7CC0068772E /* InvoiceDetails */,
-				592B11D122FAB7BF0068772E /* InvoiceList */,
+				0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */,
+				0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +363,9 @@
 		0FDB967C22F8195A000781E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				596390A422FF740600C21658 /* menuBar.xib */,
+				596390A622FF747300C21658 /* menuBar.swift */,
+				5934C8F722F96457001A8292 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,33 +387,44 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		590B98EA2302AF390006FCA6 /* CustomerDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				590B98EB2302AF4C0006FCA6 /* CustomerDetailsView */,
+				590B98F42302B7F80006FCA6 /* CustomerDetailsCell.swift */,
+				590B98F52302B7F80006FCA6 /* CustomerDetailsCell.xib */,
+			);
+			path = CustomerDetailsCell;
+			sourceTree = "<group>";
+		};
+		590B98EB2302AF4C0006FCA6 /* CustomerDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				590B98FE2302BA2E0006FCA6 /* CustomerDetailView.swift */,
+				590B98FC2302BA1B0006FCA6 /* CustomerDetailView.xib */,
+			);
+			path = CustomerDetailsView;
+			sourceTree = "<group>";
+		};
 		592B11CE22FA98E30068772E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */,
+				59CA9F7322FD73C8000C6AA9 /* UILabel + Padding.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		592B11D122FAB7BF0068772E /* InvoiceList */ = {
-			isa = PBXGroup;
-			children = (
-				0FDB968C22F81C01000781E5 /* InvoiceListViewController.swift */,
-				0FDB968D22F81C01000781E5 /* InvoiceListViewController.xib */,
-				5934C8F722F96457001A8292 /* Cells */,
-			);
-			path = InvoiceList;
 			sourceTree = "<group>";
 		};
 		592B11D222FAB7CC0068772E /* InvoiceDetails */ = {
 			isa = PBXGroup;
 			children = (
-				59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */,
-				59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */,
-				59CA9F3722FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift */,
+				59CA9F6722FD45D3000C6AA9 /* Controller */,
+				59CA9F6522FD45BD000C6AA9 /* ViewModel */,
+				59CA9F6622FD45CC000C6AA9 /* Models */,
+				59CA9F7222FD5D72000C6AA9 /* Views */,
 			);
 			name = InvoiceDetails;
-			path = ../../../..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		5934C8F722F96457001A8292 /* Cells */ = {
@@ -374,6 +442,157 @@
 				592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		5938D1BC230AA5890067C295 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5938D1BD230AA59A0067C295 /* InvoiceService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		599331B8230159E500C024EC /* InvoiceDetailViewControllerTopView */ = {
+			isa = PBXGroup;
+			children = (
+				599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */,
+				599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */,
+			);
+			path = InvoiceDetailViewControllerTopView;
+			sourceTree = "<group>";
+		};
+		599331BA23028DAB00C024EC /* NewInvoice */ = {
+			isa = PBXGroup;
+			children = (
+				599331BB23028DBB00C024EC /* Controller */,
+				599331BD23028DCD00C024EC /* ViewModel */,
+				599331BC23028DC100C024EC /* Models */,
+				599331BE23028DD600C024EC /* Views */,
+			);
+			path = NewInvoice;
+			sourceTree = "<group>";
+		};
+		599331BB23028DBB00C024EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5940B444230A6A2300BE234A /* NewInvoiceViewController.swift */,
+				5940B445230A6A2300BE234A /* NewInvoiceViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		599331BC23028DC100C024EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		599331BD23028DCD00C024EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5938D1B8230A933A0067C295 /* NewInvoiceViewModel.swift */,
+				5938D1BA230A93490067C295 /* NewInvoiceViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		599331BE23028DD600C024EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		599C0C972303D7FD00CA7DB4 /* CustomerAddressCell */ = {
+			isa = PBXGroup;
+			children = (
+				599C0CAB2303ED9900CA7DB4 /* CustomerAddressView */,
+				59026366230411AB0017C4D5 /* CustomerAddressCell.swift */,
+				59026367230411AB0017C4D5 /* CustomerAddressCell.xib */,
+			);
+			path = CustomerAddressCell;
+			sourceTree = "<group>";
+		};
+		599C0C9D2303DB0200CA7DB4 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				599C0C9E2303DB1900CA7DB4 /* CellError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		599C0CAB2303ED9900CA7DB4 /* CustomerAddressView */ = {
+			isa = PBXGroup;
+			children = (
+				5902636A230411F60017C4D5 /* CustomerAddressView.xib */,
+				5902636C230412150017C4D5 /* CustomerAddressView.swift */,
+			);
+			path = CustomerAddressView;
+			sourceTree = "<group>";
+		};
+		59CA9F6522FD45BD000C6AA9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				59CA9F6C22FD4625000C6AA9 /* InvoiceDetailViewModel.swift */,
+				59CA9F6E22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		59CA9F6622FD45CC000C6AA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59922757230292FD0055C41B /* InvoiceDetailModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		59CA9F6722FD45D3000C6AA9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				599331B8230159E500C024EC /* InvoiceDetailViewControllerTopView */,
+				59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */,
+				59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		59CA9F6922FD45E5000C6AA9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				590B98EA2302AF390006FCA6 /* CustomerDetailsCell */,
+				599C0C972303D7FD00CA7DB4 /* CustomerAddressCell */,
+				59D0E2CD2305D29C005D6795 /* CustomerItemsCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		59CA9F7222FD5D72000C6AA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				59CA9F6922FD45E5000C6AA9 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		59D0E2CD2305D29C005D6795 /* CustomerItemsCell */ = {
+			isa = PBXGroup;
+			children = (
+				59D0E2CE2305D2B8005D6795 /* CustomerItemsCell.swift */,
+				59D0E2CF2305D2B8005D6795 /* CustomerItemsCell.xib */,
+				59D0E2D22305D349005D6795 /* CustomerItemsView */,
+			);
+			path = CustomerItemsCell;
+			sourceTree = "<group>";
+		};
+		59D0E2D22305D349005D6795 /* CustomerItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				59D0E2D32305D357005D6795 /* CustomerItemsView.xib */,
+				59D0E2D52305D363005D6795 /* CustomerItemsView.swift */,
+			);
+			path = CustomerItemsView;
 			sourceTree = "<group>";
 		};
 		F4CCCBF1B3EA42DEAA5971D9 /* Frameworks */ = {
@@ -446,10 +665,19 @@
 			files = (
 				5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */,
 				0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */,
+				599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */,
 				0FDB968722F81A50000781E5 /* CompanySelectViewController.xib in Resources */,
+				59026369230411AB0017C4D5 /* CustomerAddressCell.xib in Resources */,
 				59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */,
+				590B98F72302B7F80006FCA6 /* CustomerDetailsCell.xib in Resources */,
+				5902636B230411F60017C4D5 /* CustomerAddressView.xib in Resources */,
 				0FDB968F22F81C01000781E5 /* InvoiceListViewController.xib in Resources */,
+				5940B447230A6A2300BE234A /* NewInvoiceViewController.xib in Resources */,
+				590B98FD2302BA1B0006FCA6 /* CustomerDetailView.xib in Resources */,
+				596390A522FF740600C21658 /* menuBar.xib in Resources */,
+				59D0E2D12305D2B8005D6795 /* CustomerItemsCell.xib in Resources */,
 				0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */,
+				59D0E2D42305D357005D6795 /* CustomerItemsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,13 +731,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FDB967E22F8196D000781E5 /* CompanySelectViewModelType.swift in Sources */,
+				5938D1BE230AA59A0067C295 /* InvoiceService.swift in Sources */,
 				0FDB966F22F81808000781E5 /* AppCoordinatorType.swift in Sources */,
 				5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */,
 				0FDB967222F818A3000781E5 /* StartupScene.swift in Sources */,
 				0FDB965B22F813F1000781E5 /* SceneType.swift in Sources */,
 				0FDB965D22F813F1000781E5 /* SceneCoordinator.swift in Sources */,
 				0FDB968322F819E7000781E5 /* BaseViewController.swift in Sources */,
+				59026368230411AB0017C4D5 /* CustomerAddressCell.swift in Sources */,
+				599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */,
+				590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */,
+				590B98F62302B7F80006FCA6 /* CustomerDetailsCell.swift in Sources */,
 				59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */,
+				59CA9F6D22FD4625000C6AA9 /* InvoiceDetailViewModel.swift in Sources */,
 				0FDB966D22F817DB000781E5 /* AppCoordinator.swift in Sources */,
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
 				592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */,
@@ -519,14 +753,24 @@
 				0FDB966022F8141E000781E5 /* ViewControllerResolver.swift in Sources */,
 				0FDB966A22F8166F000781E5 /* ViewModelAssembly.swift in Sources */,
 				5934C8FA22F96477001A8292 /* InvoiceCollectionViewCell.swift in Sources */,
-				59CA9F3822FBFEB4000C6AA9 /* InvoiceDetailViewControllerType.swift in Sources */,
+				596390A722FF747300C21658 /* menuBar.swift in Sources */,
 				0FDB968922F81BC3000781E5 /* InvoiceListViewModelType.swift in Sources */,
 				0FDB968022F8198B000781E5 /* CompanySelectViewModel.swift in Sources */,
+				5940B446230A6A2300BE234A /* NewInvoiceViewController.swift in Sources */,
+				59D0E2D62305D363005D6795 /* CustomerItemsView.swift in Sources */,
+				59CA9F7422FD73C8000C6AA9 /* UILabel + Padding.swift in Sources */,
 				0FDB968622F81A50000781E5 /* CompanySelectViewController.swift in Sources */,
 				0FDB966622F815D2000781E5 /* ServiceAssembly.swift in Sources */,
+				599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */,
+				59922758230292FD0055C41B /* InvoiceDetailModel.swift in Sources */,
 				0FDB966222F81435000781E5 /* ViewControllerResolverType.swift in Sources */,
+				5902636D230412150017C4D5 /* CustomerAddressView.swift in Sources */,
+				59CA9F6F22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift in Sources */,
 				0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */,
+				5938D1BB230A93490067C295 /* NewInvoiceViewModelType.swift in Sources */,
 				0FDB963A22F80C76000781E5 /* AppDelegate.swift in Sources */,
+				5938D1B9230A933A0067C295 /* NewInvoiceViewModel.swift in Sources */,
+				59D0E2D02305D2B8005D6795 /* CustomerItemsCell.swift in Sources */,
 				592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */,
 				0FDB965522F80FA9000781E5 /* InitializationAssembly.swift in Sources */,
 				0FDB965E22F813F1000781E5 /* SceneTransitionType.swift in Sources */,
@@ -668,8 +912,9 @@
 			baseConfigurationReference = F0E080F474F34AB30220EEED /* Pods-invoice-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PY36A6DHWC;
 				INFOPLIST_FILE = "$(SRCROOT)/invoice-app/Configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -688,8 +933,9 @@
 			baseConfigurationReference = 2CAE98E5C520527D407163D0 /* Pods-invoice-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PY36A6DHWC;
 				INFOPLIST_FILE = "$(SRCROOT)/invoice-app/Configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
