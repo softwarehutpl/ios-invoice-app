@@ -1,6 +1,7 @@
 import Foundation
 import Swinject
 
+
 class CoordinatorAssembly: Assembly {
     var coordinatorAssembler: Assembler {
         return Assembler([self, ViewControllerAssembly()])

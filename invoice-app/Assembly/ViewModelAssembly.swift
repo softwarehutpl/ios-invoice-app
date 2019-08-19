@@ -2,6 +2,7 @@ import Foundation
 import Swinject
 
 class ViewModelAssembly: Assembly {
+    
     func assemble(container: Container) {
         container.register(CompanySelectViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
