@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06AB2C7423013B890087B9BB /* CompanyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */; };
+		06AB2C7623013BAC0087B9BB /* CompanyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */; };
+		06AB2C7923013C9E0087B9BB /* CompanyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */; };
+		06AB2C7B23013CB20087B9BB /* CompanyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */; };
+		06AB2C7E23013D780087B9BB /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7C23013D780087B9BB /* CompanyCell.swift */; };
+		06AB2C7F23013D780087B9BB /* CompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7D23013D780087B9BB /* CompanyCell.xib */; };
+		06AB2C8123015CDE0087B9BB /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C8023015CDE0087B9BB /* CompanyModel.swift */; };
 		0FDB963A22F80C76000781E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB963922F80C76000781E5 /* AppDelegate.swift */; };
 		0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB964022F80C77000781E5 /* Assets.xcassets */; };
 		0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB964222F80C77000781E5 /* LaunchScreen.storyboard */; };
@@ -37,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailView.swift; sourceTree = "<group>"; };
+		06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyDetailView.xib; sourceTree = "<group>"; };
+		06AB2C7C23013D780087B9BB /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		06AB2C7D23013D780087B9BB /* CompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCell.xib; sourceTree = "<group>"; };
+		06AB2C8023015CDE0087B9BB /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyModel.swift; path = "invoice-app/Modules/CompanySelect/Views/CompanyModel.swift"; sourceTree = SOURCE_ROOT; };
 		0FDB963622F80C76000781E5 /* invoice-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "invoice-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDB963922F80C76000781E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FDB964022F80C77000781E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,6 +262,7 @@
 		0FDB967622F8192D000781E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06AB2C8023015CDE0087B9BB /* CompanyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +270,12 @@
 		0FDB967722F81934000781E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */,
+				06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */,
+				06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */,
+				06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */,
+				06AB2C7C23013D780087B9BB /* CompanyCell.swift */,
+				06AB2C7D23013D780087B9BB /* CompanyCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,9 +409,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */,
+				06AB2C7F23013D780087B9BB /* CompanyCell.xib in Resources */,
 				0FDB968722F81A50000781E5 /* CompanySelectViewController.xib in Resources */,
 				0FDB968F22F81C01000781E5 /* InvoiceListViewController.xib in Resources */,
 				0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */,
+				06AB2C7623013BAC0087B9BB /* CompanyHeaderView.xib in Resources */,
+				06AB2C7B23013CB20087B9BB /* CompanyDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,10 +471,13 @@
 				0FDB966F22F81808000781E5 /* AppCoordinatorType.swift in Sources */,
 				0FDB967222F818A3000781E5 /* StartupScene.swift in Sources */,
 				0FDB965B22F813F1000781E5 /* SceneType.swift in Sources */,
+				06AB2C7423013B890087B9BB /* CompanyHeaderView.swift in Sources */,
 				0FDB965D22F813F1000781E5 /* SceneCoordinator.swift in Sources */,
 				0FDB968322F819E7000781E5 /* BaseViewController.swift in Sources */,
+				06AB2C7923013C9E0087B9BB /* CompanyDetailView.swift in Sources */,
 				0FDB966D22F817DB000781E5 /* AppCoordinator.swift in Sources */,
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
+				06AB2C7E23013D780087B9BB /* CompanyCell.swift in Sources */,
 				0FDB966822F81611000781E5 /* CoordinatorAssembly.swift in Sources */,
 				0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */,
 				0FDB965C22F813F1000781E5 /* SceneCoordinatorType.swift in Sources */,
@@ -459,6 +486,7 @@
 				0FDB968922F81BC3000781E5 /* InvoiceListViewModelType.swift in Sources */,
 				0FDB968022F8198B000781E5 /* CompanySelectViewModel.swift in Sources */,
 				0FDB968622F81A50000781E5 /* CompanySelectViewController.swift in Sources */,
+				06AB2C8123015CDE0087B9BB /* CompanyModel.swift in Sources */,
 				0FDB966622F815D2000781E5 /* ServiceAssembly.swift in Sources */,
 				0FDB966222F81435000781E5 /* ViewControllerResolverType.swift in Sources */,
 				0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */,
