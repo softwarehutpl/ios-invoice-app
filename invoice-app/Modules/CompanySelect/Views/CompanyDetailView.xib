@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompanyDetailView" customModule="invoice_app" customModuleProvider="target">
+            <connections>
+                <outlet property="companyAddress" destination="ENw-lv-43Z" id="pVc-mA-CZ7"/>
+                <outlet property="companyEmail" destination="SOg-mD-fqs" id="Qsv-TF-FgB"/>
+                <outlet property="companyPhone" destination="rUr-Sh-j2u" id="LvR-0u-89C"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="gaJ-nU-q0c"/>
+                <outlet property="domainButton" destination="iLy-Me-oJs" id="Cof-cR-9gk"/>
+                <outlet property="stackView" destination="jHQ-Oe-ylB" id="1Dn-zO-4yj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="164"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jyg-Wj-9o1">
+                    <rect key="frame" x="30" y="20" width="136" height="124"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="jHQ-Oe-ylB">
+                            <rect key="frame" x="0.0" y="0.0" width="136" height="25"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="25" placeholderIntrinsicHeight="25" insetsLayoutMarginsFromSafeArea="NO" image="domain_icon" translatesAutoresizingMaskIntoConstraints="NO" id="6I4-Yt-poU">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="BAu-GL-74V"/>
+                                        <constraint firstAttribute="height" constant="25" id="ag6-Z0-ox7"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLy-Me-oJs">
+                                    <rect key="frame" x="83" y="0.0" width="53" height="25"/>
+                                    <state key="normal" title="Domain"/>
+                                    <connections>
+                                        <action selector="linkClicked:" destination="-1" eventType="touchUpInside" id="CLY-f7-Wzl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="iLy-Me-oJs" firstAttribute="leading" secondItem="6I4-Yt-poU" secondAttribute="trailing" constant="20" id="nPe-Yn-bTX"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="oyH-R6-9B0">
+                            <rect key="frame" x="0.0" y="33" width="136" height="25"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="25" placeholderIntrinsicHeight="25" insetsLayoutMarginsFromSafeArea="NO" image="phone_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dMM-e4-BRa">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="fwh-da-79a"/>
+                                        <constraint firstAttribute="height" constant="25" id="oQ2-0i-enN"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUr-Sh-j2u">
+                                    <rect key="frame" x="88" y="0.0" width="48" height="25"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rUr-Sh-j2u" firstAttribute="leading" secondItem="dMM-e4-BRa" secondAttribute="trailing" constant="20" id="N3J-D0-YvN"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-CD-yfk">
+                            <rect key="frame" x="0.0" y="66" width="136" height="25"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="25" placeholderIntrinsicHeight="25" insetsLayoutMarginsFromSafeArea="NO" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-Gr-WdA">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="2ti-Ic-NNg"/>
+                                        <constraint firstAttribute="width" constant="25" id="dGp-GI-e26"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOg-mD-fqs">
+                                    <rect key="frame" x="63" y="0.0" width="73" height="25"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="SOg-mD-fqs" firstAttribute="leading" secondItem="5Hi-Gr-WdA" secondAttribute="trailing" constant="20" id="EwE-E7-pTG"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="J2x-6A-nD6">
+                            <rect key="frame" x="0.0" y="99" width="136" height="25"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="25" placeholderIntrinsicHeight="25" insetsLayoutMarginsFromSafeArea="NO" image="address_icon" translatesAutoresizingMaskIntoConstraints="NO" id="epq-3o-ArJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="2cl-t7-wZE"/>
+                                        <constraint firstAttribute="width" constant="25" id="Lyu-lH-TEW"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENw-lv-43Z">
+                                    <rect key="frame" x="82" y="0.0" width="54" height="25"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ENw-lv-43Z" firstAttribute="leading" secondItem="epq-3o-ArJ" secondAttribute="trailing" constant="20" id="G1d-ro-rmp"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jyg-Wj-9o1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="HiH-ow-Lly"/>
+                <constraint firstItem="jyg-Wj-9o1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="b6x-A0-RSa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jyg-Wj-9o1" secondAttribute="bottom" constant="20" id="tel-fK-ZEP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-235" y="19"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="address_icon" width="64" height="64"/>
+        <image name="domain_icon" width="64" height="64"/>
+        <image name="email_icon" width="64" height="64"/>
+        <image name="phone_icon" width="64" height="64"/>
+    </resources>
+</document>

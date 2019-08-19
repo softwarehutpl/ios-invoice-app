@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06AB2C7423013B890087B9BB /* CompanyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */; };
+		06AB2C7623013BAC0087B9BB /* CompanyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */; };
+		06AB2C7923013C9E0087B9BB /* CompanyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */; };
+		06AB2C7B23013CB20087B9BB /* CompanyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */; };
+		06AB2C7E23013D780087B9BB /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C7C23013D780087B9BB /* CompanyCell.swift */; };
+		06AB2C7F23013D780087B9BB /* CompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AB2C7D23013D780087B9BB /* CompanyCell.xib */; };
+		06AB2C8123015CDE0087B9BB /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB2C8023015CDE0087B9BB /* CompanyModel.swift */; };
 		0FDB963A22F80C76000781E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB963922F80C76000781E5 /* AppDelegate.swift */; };
 		0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB964022F80C77000781E5 /* Assets.xcassets */; };
 		0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB964222F80C77000781E5 /* LaunchScreen.storyboard */; };
@@ -70,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailView.swift; sourceTree = "<group>"; };
+		06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyDetailView.xib; sourceTree = "<group>"; };
+		06AB2C7C23013D780087B9BB /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		06AB2C7D23013D780087B9BB /* CompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCell.xib; sourceTree = "<group>"; };
+		06AB2C8023015CDE0087B9BB /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyModel.swift; path = "invoice-app/Modules/CompanySelect/Views/CompanyModel.swift"; sourceTree = SOURCE_ROOT; };
 		0FDB963622F80C76000781E5 /* invoice-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "invoice-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDB963922F80C76000781E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FDB964022F80C77000781E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -312,6 +326,7 @@
 		0FDB967622F8192D000781E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06AB2C8023015CDE0087B9BB /* CompanyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +334,12 @@
 		0FDB967722F81934000781E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06AB2C7323013B890087B9BB /* CompanyHeaderView.swift */,
+				06AB2C7523013BAC0087B9BB /* CompanyHeaderView.xib */,
+				06AB2C7823013C9E0087B9BB /* CompanyDetailView.swift */,
+				06AB2C7A23013CB20087B9BB /* CompanyDetailView.xib */,
+				06AB2C7C23013D780087B9BB /* CompanyCell.swift */,
+				06AB2C7D23013D780087B9BB /* CompanyCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -666,6 +687,7 @@
 				5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */,
 				0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */,
 				599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */,
+				06AB2C7F23013D780087B9BB /* CompanyCell.xib in Resources */,
 				0FDB968722F81A50000781E5 /* CompanySelectViewController.xib in Resources */,
 				59026369230411AB0017C4D5 /* CustomerAddressCell.xib in Resources */,
 				59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */,
@@ -678,6 +700,8 @@
 				59D0E2D12305D2B8005D6795 /* CustomerItemsCell.xib in Resources */,
 				0FDB964122F80C77000781E5 /* Assets.xcassets in Resources */,
 				59D0E2D42305D357005D6795 /* CustomerItemsView.xib in Resources */,
+				06AB2C7623013BAC0087B9BB /* CompanyHeaderView.xib in Resources */,
+				06AB2C7B23013CB20087B9BB /* CompanyDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,16 +760,19 @@
 				5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */,
 				0FDB967222F818A3000781E5 /* StartupScene.swift in Sources */,
 				0FDB965B22F813F1000781E5 /* SceneType.swift in Sources */,
+				06AB2C7423013B890087B9BB /* CompanyHeaderView.swift in Sources */,
 				0FDB965D22F813F1000781E5 /* SceneCoordinator.swift in Sources */,
 				0FDB968322F819E7000781E5 /* BaseViewController.swift in Sources */,
 				59026368230411AB0017C4D5 /* CustomerAddressCell.swift in Sources */,
 				599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */,
 				590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */,
 				590B98F62302B7F80006FCA6 /* CustomerDetailsCell.swift in Sources */,
+				06AB2C7923013C9E0087B9BB /* CompanyDetailView.swift in Sources */,
 				59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */,
 				59CA9F6D22FD4625000C6AA9 /* InvoiceDetailViewModel.swift in Sources */,
 				0FDB966D22F817DB000781E5 /* AppCoordinator.swift in Sources */,
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
+				06AB2C7E23013D780087B9BB /* CompanyCell.swift in Sources */,
 				592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */,
 				0FDB966822F81611000781E5 /* CoordinatorAssembly.swift in Sources */,
 				0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */,
@@ -760,6 +787,7 @@
 				59D0E2D62305D363005D6795 /* CustomerItemsView.swift in Sources */,
 				59CA9F7422FD73C8000C6AA9 /* UILabel + Padding.swift in Sources */,
 				0FDB968622F81A50000781E5 /* CompanySelectViewController.swift in Sources */,
+				06AB2C8123015CDE0087B9BB /* CompanyModel.swift in Sources */,
 				0FDB966622F815D2000781E5 /* ServiceAssembly.swift in Sources */,
 				599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */,
 				59922758230292FD0055C41B /* InvoiceDetailModel.swift in Sources */,
