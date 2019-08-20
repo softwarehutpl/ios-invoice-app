@@ -26,13 +26,31 @@ class CompanySelectViewModel {
         }
     }
     
+    let persistanceManager: PersistanceManager
+    
+    func createCompany() {
+        let company = Company(context: persistanceManager.context)
+        company.name = "ABCDEFGH"
+        persistanceManager.save()
+    }
+    
+    func readCompany() {
+        let company = persistanceManager.fetch(Company.self)
+        company.forEach({ print($0.name) })
+    }
+
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
     
     // MARK: - Lifecycle
-    init(sceneCoordinator: SceneCoordinatorType) {
+    init(sceneCoordinator: SceneCoordinatorType, persistanceManager: PersistanceManager) {
         self.sceneCoordinator = sceneCoordinator
+        self.persistanceManager = persistanceManager
         loadTestCompany()
+        
+        persistanceManager.fetch(Company.self).forEach { (company) in
+            print(company)
+        }
     }
 }
 
@@ -44,7 +62,7 @@ extension CompanySelectViewModel: CompanySelectViewModelType {
     func companyModel(indexPath: Int) -> CompanyModel {
         return filteredCompanyModel[indexPath]
     }
-    
+
     var companyCount: Int {
         return filteredCompanyModel.count
     }
