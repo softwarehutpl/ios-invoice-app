@@ -6,6 +6,7 @@ def common_pods
   pod 'Swinject'
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.1'
+  pod 'TPKeyboardAvoiding'
 end
 
 target 'invoice-app' do

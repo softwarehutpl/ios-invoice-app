@@ -39,7 +39,7 @@ class InvoiceDetailViewController: BaseViewController {
     }
     
     func loadTopViewData() {
-        topView.loadData(topviewdata: viewModel.getTopViewData())
+        topView.loadData(invoice: viewModel.getDataForTopView())
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-final class InvoiceService {
+class InvoiceService {
     
     // MARK: - Core Data stack
     private init() {}
@@ -27,6 +27,7 @@ final class InvoiceService {
     }()
     
     lazy var context = persistentContainer.viewContext
+    
     // MARK: - Core Data Saving support
     
     func save() {
@@ -40,6 +41,7 @@ final class InvoiceService {
             }
         }
     }
+    
     // Fetching object from context
     func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
         
@@ -58,3 +60,5 @@ final class InvoiceService {
         
     }
 }
+
+//extension do zarzadzania ?????????????????

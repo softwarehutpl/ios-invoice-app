@@ -21,9 +21,10 @@ class InvoiceDetailTopView: UIView {
         commonInit()
     }
     
-    func loadData(topviewdata: TopViewData) {
-        dateLabel.text = topviewdata.date
-        amountLabel.text = ("PLN \(topviewdata.amount)")
+    func loadData(invoice: InvoiceModel) {
+        dateLabel.text = invoice.date
+        amountLabel.text = ("PLN \(invoice.amount)")
+        contentView.backgroundColor = invoice.status == true ? #colorLiteral(red: 0.1453877687, green: 0.4133757949, blue: 0.3077362776, alpha: 1) : #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

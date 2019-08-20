@@ -12,5 +12,5 @@ protocol InvoiceDetailViewModelType {
     func getCustomerDetails() -> Customer
     func getItemsDescriptions(indexPath: Int) -> ItemDescription
     func getItemsCount() -> Int
-    func getTopViewData() -> TopViewData
+    func getDataForTopView() -> InvoiceModel
 }

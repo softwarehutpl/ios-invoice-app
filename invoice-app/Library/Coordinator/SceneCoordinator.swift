@@ -8,6 +8,7 @@ enum CoordinatorError: Error {
 }
 
 class SceneCoordinator {
+    
     // MARK: - Private Properties
     private let resolver: ViewControllerResolverType
     

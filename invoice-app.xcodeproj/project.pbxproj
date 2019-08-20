@@ -48,6 +48,7 @@
 		590B98F72302B7F80006FCA6 /* CustomerDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590B98F52302B7F80006FCA6 /* CustomerDetailsCell.xib */; };
 		590B98FD2302BA1B0006FCA6 /* CustomerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590B98FC2302BA1B0006FCA6 /* CustomerDetailView.xib */; };
 		590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590B98FE2302BA2E0006FCA6 /* CustomerDetailView.swift */; };
+		5926DD45230BE92100D7CE29 /* UIView + Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926DD44230BE92100D7CE29 /* UIView + Shadow.swift */; };
 		592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */; };
 		592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */ = {isa = PBXBuildFile; fileRef = 592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */; };
 		5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934C8F522F96337001A8292 /* InvoiceModel.swift */; };
@@ -56,11 +57,15 @@
 		5938D1B9230A933A0067C295 /* NewInvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1B8230A933A0067C295 /* NewInvoiceViewModel.swift */; };
 		5938D1BB230A93490067C295 /* NewInvoiceViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1BA230A93490067C295 /* NewInvoiceViewModelType.swift */; };
 		5938D1BE230AA59A0067C295 /* InvoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1BD230AA59A0067C295 /* InvoiceService.swift */; };
+		5938D1C1230AB3B70067C295 /* InvoiceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1BF230AB3B70067C295 /* InvoiceModel.xcdatamodeld */; };
+		5938D1F4230AE38A0067C295 /* InvoiceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1F3230AE38A0067C295 /* InvoiceForm.swift */; };
+		5938D1F6230AE4A70067C295 /* InvoiceForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5938D1F5230AE4A70067C295 /* InvoiceForm.xib */; };
+		5938D1F8230AF3F00067C295 /* UITextField + Placeholder color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1F7230AF3F00067C295 /* UITextField + Placeholder color.swift */; };
+		5938D1FB230B40660067C295 /* UITextField + Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5938D1FA230B40660067C295 /* UITextField + Padding.swift */; };
 		5940B446230A6A2300BE234A /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940B444230A6A2300BE234A /* NewInvoiceViewController.swift */; };
 		5940B447230A6A2300BE234A /* NewInvoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5940B445230A6A2300BE234A /* NewInvoiceViewController.xib */; };
 		596390A522FF740600C21658 /* menuBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596390A422FF740600C21658 /* menuBar.xib */; };
 		596390A722FF747300C21658 /* menuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596390A622FF747300C21658 /* menuBar.swift */; };
-		59922758230292FD0055C41B /* InvoiceDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59922757230292FD0055C41B /* InvoiceDetailModel.swift */; };
 		599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */; };
 		599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */; };
 		599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C0C9E2303DB1900CA7DB4 /* CellError.swift */; };
@@ -121,6 +126,7 @@
 		590B98F52302B7F80006FCA6 /* CustomerDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerDetailsCell.xib; sourceTree = "<group>"; };
 		590B98FC2302BA1B0006FCA6 /* CustomerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerDetailView.xib; sourceTree = "<group>"; };
 		590B98FE2302BA2E0006FCA6 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
+		5926DD44230BE92100D7CE29 /* UIView + Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Shadow.swift"; sourceTree = "<group>"; };
 		592B11CA22F997E60068772E /* InvoiceCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionFlowLayout + \"\".swift"; sourceTree = "<group>"; };
 		5934C8F522F96337001A8292 /* InvoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
@@ -129,11 +135,15 @@
 		5938D1B8230A933A0067C295 /* NewInvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModel.swift; sourceTree = "<group>"; };
 		5938D1BA230A93490067C295 /* NewInvoiceViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModelType.swift; sourceTree = "<group>"; };
 		5938D1BD230AA59A0067C295 /* InvoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceService.swift; sourceTree = "<group>"; };
+		5938D1C0230AB3B70067C295 /* InvoiceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InvoiceModel.xcdatamodel; sourceTree = "<group>"; };
+		5938D1F3230AE38A0067C295 /* InvoiceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceForm.swift; sourceTree = "<group>"; };
+		5938D1F5230AE4A70067C295 /* InvoiceForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceForm.xib; sourceTree = "<group>"; };
+		5938D1F7230AF3F00067C295 /* UITextField + Placeholder color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Placeholder color.swift"; sourceTree = "<group>"; };
+		5938D1FA230B40660067C295 /* UITextField + Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Padding.swift"; sourceTree = "<group>"; };
 		5940B444230A6A2300BE234A /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
 		5940B445230A6A2300BE234A /* NewInvoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewInvoiceViewController.xib; sourceTree = "<group>"; };
 		596390A422FF740600C21658 /* menuBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = menuBar.xib; sourceTree = "<group>"; };
 		596390A622FF747300C21658 /* menuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuBar.swift; sourceTree = "<group>"; };
-		59922757230292FD0055C41B /* InvoiceDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailModel.swift; sourceTree = "<group>"; };
 		599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailTopView.xib; sourceTree = "<group>"; };
 		599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailTopView.swift; sourceTree = "<group>"; };
 		599C0C9E2303DB1900CA7DB4 /* CellError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellError.swift; sourceTree = "<group>"; };
@@ -376,6 +386,7 @@
 		0FDB967B22F8195A000781E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5938D1C2230AB5150067C295 /* CoreDataModel */,
 				5934C8F522F96337001A8292 /* InvoiceModel.swift */,
 			);
 			path = Models;
@@ -432,6 +443,9 @@
 			children = (
 				592B11CF22FA98FF0068772E /* UICollectionFlowLayout + "".swift */,
 				59CA9F7322FD73C8000C6AA9 /* UILabel + Padding.swift */,
+				5938D1F7230AF3F00067C295 /* UITextField + Placeholder color.swift */,
+				5938D1FA230B40660067C295 /* UITextField + Padding.swift */,
+				5926DD44230BE92100D7CE29 /* UIView + Shadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,6 +485,14 @@
 				5938D1BD230AA59A0067C295 /* InvoiceService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		5938D1C2230AB5150067C295 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				5938D1BF230AB3B70067C295 /* InvoiceModel.xcdatamodeld */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		599331B8230159E500C024EC /* InvoiceDetailViewControllerTopView */ = {
@@ -521,6 +543,8 @@
 		599331BE23028DD600C024EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5938D1F3230AE38A0067C295 /* InvoiceForm.swift */,
+				5938D1F5230AE4A70067C295 /* InvoiceForm.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -564,7 +588,6 @@
 		59CA9F6622FD45CC000C6AA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				59922757230292FD0055C41B /* InvoiceDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,9 +623,9 @@
 		59D0E2CD2305D29C005D6795 /* CustomerItemsCell */ = {
 			isa = PBXGroup;
 			children = (
+				59D0E2D22305D349005D6795 /* CustomerItemsView */,
 				59D0E2CE2305D2B8005D6795 /* CustomerItemsCell.swift */,
 				59D0E2CF2305D2B8005D6795 /* CustomerItemsCell.xib */,
-				59D0E2D22305D349005D6795 /* CustomerItemsView */,
 			);
 			path = CustomerItemsCell;
 			sourceTree = "<group>";
@@ -685,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5934C8FB22F96477001A8292 /* InvoiceCollectionViewCell.xib in Resources */,
+				5938D1F6230AE4A70067C295 /* InvoiceForm.xib in Resources */,
 				0FDB964422F80C77000781E5 /* LaunchScreen.storyboard in Resources */,
 				599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */,
 				06AB2C7F23013D780087B9BB /* CompanyCell.xib in Resources */,
@@ -772,6 +796,7 @@
 				59CA9F6D22FD4625000C6AA9 /* InvoiceDetailViewModel.swift in Sources */,
 				0FDB966D22F817DB000781E5 /* AppCoordinator.swift in Sources */,
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
+				5926DD45230BE92100D7CE29 /* UIView + Shadow.swift in Sources */,
 				06AB2C7E23013D780087B9BB /* CompanyCell.swift in Sources */,
 				592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */,
 				0FDB966822F81611000781E5 /* CoordinatorAssembly.swift in Sources */,
@@ -786,21 +811,24 @@
 				5940B446230A6A2300BE234A /* NewInvoiceViewController.swift in Sources */,
 				59D0E2D62305D363005D6795 /* CustomerItemsView.swift in Sources */,
 				59CA9F7422FD73C8000C6AA9 /* UILabel + Padding.swift in Sources */,
+				5938D1F8230AF3F00067C295 /* UITextField + Placeholder color.swift in Sources */,
 				0FDB968622F81A50000781E5 /* CompanySelectViewController.swift in Sources */,
 				06AB2C8123015CDE0087B9BB /* CompanyModel.swift in Sources */,
 				0FDB966622F815D2000781E5 /* ServiceAssembly.swift in Sources */,
 				599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */,
-				59922758230292FD0055C41B /* InvoiceDetailModel.swift in Sources */,
 				0FDB966222F81435000781E5 /* ViewControllerResolverType.swift in Sources */,
+				5938D1C1230AB3B70067C295 /* InvoiceModel.xcdatamodeld in Sources */,
 				5902636D230412150017C4D5 /* CustomerAddressView.swift in Sources */,
 				59CA9F6F22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift in Sources */,
 				0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */,
 				5938D1BB230A93490067C295 /* NewInvoiceViewModelType.swift in Sources */,
 				0FDB963A22F80C76000781E5 /* AppDelegate.swift in Sources */,
 				5938D1B9230A933A0067C295 /* NewInvoiceViewModel.swift in Sources */,
+				5938D1F4230AE38A0067C295 /* InvoiceForm.swift in Sources */,
 				59D0E2D02305D2B8005D6795 /* CustomerItemsCell.swift in Sources */,
 				592B11D022FA98FF0068772E /* UICollectionFlowLayout + "".swift in Sources */,
 				0FDB965522F80FA9000781E5 /* InitializationAssembly.swift in Sources */,
+				5938D1FB230B40660067C295 /* UITextField + Padding.swift in Sources */,
 				0FDB965E22F813F1000781E5 /* SceneTransitionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,6 +1027,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5938D1BF230AB3B70067C295 /* InvoiceModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5938D1C0230AB3B70067C295 /* InvoiceModel.xcdatamodel */,
+			);
+			currentVersion = 5938D1C0230AB3B70067C295 /* InvoiceModel.xcdatamodel */;
+			path = InvoiceModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0FDB962E22F80C76000781E5 /* Project object */;
 }

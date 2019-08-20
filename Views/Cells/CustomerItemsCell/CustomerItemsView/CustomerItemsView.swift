@@ -23,7 +23,8 @@ class CustomerItemsView: UIView {
     func prepareView(item: ItemDescription) {
         itemTitle.text = item.itemName
         amountAndPrice.text = ("\(item.amount)x PLN \(item.price)")
-//        totalPrice.text = String(totalPriceValue)
+        guard let amount = Double(item.amount), let price = Double(item.price) else { return }
+        totalPrice.text = "PLN \(Double(amount * price))"
         }
     
     

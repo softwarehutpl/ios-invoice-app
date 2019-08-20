@@ -29,9 +29,8 @@ extension InvoiceDetailViewModel {
         return customerDetails
     }
     
-    func getTopViewData() -> TopViewData {
-        let topviewdata = TopViewData(amount: invoice.amount, date: invoice.date)
-        return topviewdata
+    func getDataForTopView() -> InvoiceModel {
+        return invoice
     }
     
     func getItemsDescriptions(indexPath: Int) -> ItemDescription {

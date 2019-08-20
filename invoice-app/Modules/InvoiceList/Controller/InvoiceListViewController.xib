@@ -46,6 +46,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
             <constraints>
                 <constraint firstItem="Qa3-rX-Mwm" firstAttribute="top" secondItem="j9D-f5-s3f" secondAttribute="bottom" id="30q-4v-HKk"/>
                 <constraint firstItem="j9D-f5-s3f" firstAttribute="top" secondItem="VQu-fF-1dt" secondAttribute="bottom" constant="5" id="88A-ft-frp"/>
