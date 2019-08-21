@@ -69,6 +69,10 @@
 		599331B123014F3E00C024EC /* InvoiceDetailTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */; };
 		599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */; };
 		599C0C9F2303DB1900CA7DB4 /* CellError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C0C9E2303DB1900CA7DB4 /* CellError.swift */; };
+		59AB929D230D0C4C00AA747F /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB9298230D0C4300AA747F /* Company+CoreDataClass.swift */; };
+		59AB929E230D0C4C00AA747F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59AB9299230D0C4300AA747F /* CoreData.xcdatamodeld */; };
+		59AB929F230D0C4C00AA747F /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB929B230D0C4300AA747F /* Company+CoreDataProperties.swift */; };
+		59AB92A0230D0C4C00AA747F /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB929C230D0C4300AA747F /* PersistanceManager.swift */; };
 		59CA9F3522FBFE64000C6AA9 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */; };
 		59CA9F3622FBFE64000C6AA9 /* InvoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */; };
 		59CA9F6D22FD4625000C6AA9 /* InvoiceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA9F6C22FD4625000C6AA9 /* InvoiceDetailViewModel.swift */; };
@@ -147,6 +151,10 @@
 		599331B023014F3E00C024EC /* InvoiceDetailTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailTopView.xib; sourceTree = "<group>"; };
 		599331B223014F8A00C024EC /* InvoiceDetailTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailTopView.swift; sourceTree = "<group>"; };
 		599C0C9E2303DB1900CA7DB4 /* CellError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellError.swift; sourceTree = "<group>"; };
+		59AB9298230D0C4300AA747F /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		59AB929A230D0C4300AA747F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		59AB929B230D0C4300AA747F /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		59AB929C230D0C4300AA747F /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		59CA9F3322FBFE64000C6AA9 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
 		59CA9F3422FBFE64000C6AA9 /* InvoiceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailViewController.xib; sourceTree = "<group>"; };
 		59CA9F6C22FD4625000C6AA9 /* InvoiceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewModel.swift; sourceTree = "<group>"; };
@@ -243,6 +251,7 @@
 		0FDB964F22F80DEA000781E5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				59AB9296230D0C4300AA747F /* Services */,
 				5938D1BC230AA5890067C295 /* Service */,
 				599C0C9D2303DB0200CA7DB4 /* Errors */,
 				592B11CE22FA98E30068772E /* Extensions */,
@@ -576,6 +585,25 @@
 			path = CustomerAddressView;
 			sourceTree = "<group>";
 		};
+		59AB9296230D0C4300AA747F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				59AB9297230D0C4300AA747F /* Local */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		59AB9297230D0C4300AA747F /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				59AB9298230D0C4300AA747F /* Company+CoreDataClass.swift */,
+				59AB9299230D0C4300AA747F /* CoreData.xcdatamodeld */,
+				59AB929B230D0C4300AA747F /* Company+CoreDataProperties.swift */,
+				59AB929C230D0C4300AA747F /* PersistanceManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		59CA9F6522FD45BD000C6AA9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +808,7 @@
 			files = (
 				0FDB967E22F8196D000781E5 /* CompanySelectViewModelType.swift in Sources */,
 				5938D1BE230AA59A0067C295 /* InvoiceService.swift in Sources */,
+				59AB929E230D0C4C00AA747F /* CoreData.xcdatamodeld in Sources */,
 				0FDB966F22F81808000781E5 /* AppCoordinatorType.swift in Sources */,
 				5934C8F622F96337001A8292 /* InvoiceModel.swift in Sources */,
 				0FDB967222F818A3000781E5 /* StartupScene.swift in Sources */,
@@ -788,6 +817,7 @@
 				0FDB965D22F813F1000781E5 /* SceneCoordinator.swift in Sources */,
 				0FDB968322F819E7000781E5 /* BaseViewController.swift in Sources */,
 				59026368230411AB0017C4D5 /* CustomerAddressCell.swift in Sources */,
+				59AB929D230D0C4C00AA747F /* Company+CoreDataClass.swift in Sources */,
 				599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */,
 				590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */,
 				590B98F62302B7F80006FCA6 /* CustomerDetailsCell.swift in Sources */,
@@ -819,6 +849,7 @@
 				0FDB966222F81435000781E5 /* ViewControllerResolverType.swift in Sources */,
 				5938D1C1230AB3B70067C295 /* InvoiceModel.xcdatamodeld in Sources */,
 				5902636D230412150017C4D5 /* CustomerAddressView.swift in Sources */,
+				59AB929F230D0C4C00AA747F /* Company+CoreDataProperties.swift in Sources */,
 				59CA9F6F22FD4764000C6AA9 /* InvoiceDetailViewModelType.swift in Sources */,
 				0FDB968E22F81C01000781E5 /* InvoiceListViewController.swift in Sources */,
 				5938D1BB230A93490067C295 /* NewInvoiceViewModelType.swift in Sources */,
@@ -830,6 +861,7 @@
 				0FDB965522F80FA9000781E5 /* InitializationAssembly.swift in Sources */,
 				5938D1FB230B40660067C295 /* UITextField + Padding.swift in Sources */,
 				0FDB965E22F813F1000781E5 /* SceneTransitionType.swift in Sources */,
+				59AB92A0230D0C4C00AA747F /* PersistanceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1068,16 @@
 			);
 			currentVersion = 5938D1C0230AB3B70067C295 /* InvoiceModel.xcdatamodel */;
 			path = InvoiceModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		59AB9299230D0C4300AA747F /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				59AB929A230D0C4300AA747F /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 59AB929A230D0C4300AA747F /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
