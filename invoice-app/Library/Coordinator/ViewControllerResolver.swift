@@ -15,6 +15,7 @@ class  ViewControllerResolver {
 }
 
 extension ViewControllerResolver: ViewControllerResolverType {
+    
     func companySelectController() -> CompanySelectViewController? {
         return assembler.resolver.resolve(CompanySelectViewController.self)
     }
@@ -27,5 +28,10 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func newInvoiceViewController() -> NewInvoiceViewController? {
         return assembler.resolver.resolve(NewInvoiceViewController.self)
     }
-    
+    func clientsViewControler() -> ClientsViewController? {
+        return assembler.resolver.resolve(ClientsViewController.self)
+    }
+    func newClientViewController() -> NewClientViewController? {
+        return assembler.resolver.resolve(NewClientViewController.self)
+    }
 }

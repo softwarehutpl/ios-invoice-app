@@ -2,6 +2,7 @@ import UIKit
 
 class InvoiceListViewController: BaseViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var topBar: menuBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -15,18 +16,20 @@ class InvoiceListViewController: BaseViewController {
         super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - Actions
+    @objc private func rightNavBarButton() {
+        viewModel.showNewInvoiceView(source: self)
     }
     
-    // MARK: - Collection View Setup
+    // MARK: - Views Setup
     private func setupCollectionView() {
+        collectionView.collectionViewLayout = InvoiceCollectionFlowLayout()
+        collectionView.backgroundColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
         //Cells register
         let nib = UINib(nibName: InvoiceCollectionViewCell.identyfier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: InvoiceCollectionViewCell.identyfier)
     }
     
-    // MARK: - Navigation Bar Setup
     private func setupNavigationBar() {
         navigationItem.title = "Invoices"
         navigationController?.navigationBar.isTranslucent = false
@@ -36,17 +39,13 @@ class InvoiceListViewController: BaseViewController {
         let rightNavBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightNavBarButton))
         navigationItem.rightBarButtonItem = rightNavBarItem
     }
-
-    // MARK: - Search Bar Setup
-    private func setupSearchBar() {
-    if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
-        textField.borderStyle = .line
-        textField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    }
-}
     
-    @objc private func rightNavBarButton() {
-        viewModel.showNewInvoiceView(source: self)
+    private func setupSearchBar() {
+        if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
+            textField.borderStyle = .none
+            textField.layer.borderWidth = 1
+            textField.layer.borderColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
+        }
     }
     
     override func viewDidLoad() {
@@ -55,6 +54,10 @@ class InvoiceListViewController: BaseViewController {
         setupNavigationBar()
         setupSearchBar()
         topBar.delegate = self
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

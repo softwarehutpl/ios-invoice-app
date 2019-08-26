@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class InvoiceDetailViewController: BaseViewController {
     
     // MARK: - Outlets
@@ -23,15 +22,24 @@ class InvoiceDetailViewController: BaseViewController {
         super.init()
     }
     
+    //MARK: - Setup Views
     private func setupTableView() {
+        // Setup Table View
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.layer.cornerRadius = 10
+        tableView.clipsToBounds = true
+        
+        // Register Cells
         let customerDetailsNib = UINib(nibName: CustomerDetailsCell.identyfier, bundle: nil)
         tableView.register(customerDetailsNib, forCellReuseIdentifier: CustomerDetailsCell.identyfier)
         let customerAddressNib = UINib(nibName: CustomerAddressCell.identyfier, bundle: nil)
         tableView.register(customerAddressNib, forCellReuseIdentifier: CustomerAddressCell.identyfier)
         let customerItemsCellNib = UINib(nibName: CustomerItemsCell.identyfier, bundle: nil)
         tableView.register(customerItemsCellNib, forCellReuseIdentifier: CustomerItemsCell.identyfier)
-        
-        tableView.layer.cornerRadius = 10
     }
     
     private func setupNavigationBar() {
@@ -41,6 +49,7 @@ class InvoiceDetailViewController: BaseViewController {
     func loadTopViewData() {
         topView.loadData(invoice: viewModel.getDataForTopView())
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -58,9 +67,9 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label: EdgeInsetLabel = {
             let label = EdgeInsetLabel()
-            label.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             label.textInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-            label.backgroundColor = #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1)
+            label.backgroundColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
             label.font = UIFont.boldSystemFont(ofSize: 13)
             return label
         }()
@@ -92,10 +101,6 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -117,7 +122,6 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             }
             customerItemsCell.prepareView(item: viewModel.getItemsDescriptions(indexPath: indexPath.row))
             return customerItemsCell
-            
         default: return UITableViewCell()
         }
     }
@@ -125,9 +129,9 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 150
-        case 1: return 40
+        case 1: return 60
         case 2: return 70
-        case 3: return 500
+        case 3: return 300
         default: fatalError()
         }
     }

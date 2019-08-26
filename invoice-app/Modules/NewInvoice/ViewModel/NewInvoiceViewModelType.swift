@@ -8,5 +8,5 @@
 import UIKit
 
 protocol NewInvoiceViewModelType {
-   
+   func addingNewClientView(source: UIViewController)
 }

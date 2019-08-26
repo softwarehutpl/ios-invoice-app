@@ -14,6 +14,7 @@ class CustomerItemsCell: UITableViewCell {
     
     @IBOutlet weak var customView: CustomerItemsView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,9 +22,4 @@ class CustomerItemsCell: UITableViewCell {
     func prepareView(item: ItemDescription) {
         customView.prepareView(item: item)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }

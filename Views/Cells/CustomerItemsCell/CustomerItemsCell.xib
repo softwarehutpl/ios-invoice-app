@@ -35,7 +35,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="customView" destination="afw-JQ-qlZ" id="gUr-ef-pq3"/>
+                <outlet property="customView" destination="afw-JQ-qlZ" id="YG9-GN-cRM"/>
             </connections>
             <point key="canvasLocation" x="26.811594202898554" y="53.571428571428569"/>
         </tableViewCell>

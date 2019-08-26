@@ -5,6 +5,8 @@ enum StartupScene {
     case invoiceList
     case invoiceDetail(invoice: InvoiceModel)
     case newInvoice
+    case clientsView
+    case newClientView
 }
 
 extension StartupScene: SceneType {
@@ -14,6 +16,8 @@ extension StartupScene: SceneType {
         case .invoiceList: return resolver.invoiceListController()
         case .invoiceDetail(let invoice): return resolver.invoiceDetailController(invoice: invoice)
         case .newInvoice: return resolver.newInvoiceViewController()
+        case .clientsView: return resolver.clientsViewControler()
+        case .newClientView: return resolver.newClientViewController()
         }
     }
 }

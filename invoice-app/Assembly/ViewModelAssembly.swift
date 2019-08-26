@@ -5,6 +5,7 @@ class ViewModelAssembly: Assembly {
     
     func assemble(container: Container) {
         ServiceAssembly().assemble(container: container)
+        
         container.register(CompanySelectViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let persistanceManager = r.resolve(PersistanceManager.self)!
@@ -22,5 +23,16 @@ class ViewModelAssembly: Assembly {
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator)
         }
+        container.register(ClientViewModel.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let clientStorageService = r.resolve(ClientStorageService.self)!
+            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
+        }
+        container.register(NewClientViewModel.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let clientStorageService = r.resolve(ClientStorageService.self)!
+            return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
+        }
+        
     }
 }

@@ -21,5 +21,7 @@ class NewInvoiceViewModel {
 }
 
 extension NewInvoiceViewModel: NewInvoiceViewModelType {
-    
+    func addingNewClientView(source: UIViewController) {
+        sceneCoordinator.transition(to: StartupScene.clientsView, type: .push, source: source )
+    }
 }

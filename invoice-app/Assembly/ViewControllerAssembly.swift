@@ -29,9 +29,15 @@ class ViewControllerAssembly: Assembly {
             let viewModel = r.resolve(NewInvoiceViewModel.self)!
             return NewInvoiceViewController(with: viewModel)
         }
-
         
+        container.register(ClientsViewController.self) { r in
+            let viewModel = r.resolve(ClientViewModel.self)!
+            return ClientsViewController(with: viewModel)  
+        }
         
-        
+        container.register(NewClientViewController.self) { r in
+            let viewModel = r.resolve(NewClientViewModel.self)!
+            return NewClientViewController(with: viewModel)
+        }
     }
 }
