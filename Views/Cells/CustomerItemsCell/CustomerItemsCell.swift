@@ -19,7 +19,7 @@ class CustomerItemsCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func prepareView(item: ItemDescription) {
+    func prepareView(item: ItemModel) {
         customView.prepareView(item: item)
     }
 }

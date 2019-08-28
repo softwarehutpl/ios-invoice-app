@@ -9,6 +9,7 @@ import UIKit
 
 class NewClientDetailsView: UIView {
     
+    var callback: ((NewClientDetailModel) -> Void)?
     //MARK: - Outlets
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var clientName: UITextField!
@@ -16,15 +17,21 @@ class NewClientDetailsView: UIView {
     @IBOutlet weak var clientPhone: UITextField!
     
     //MARK: Loading Data
+    private func textFieldDelegate() {
+        clientName.delegate = self
+        clientEmail.delegate = self
+        clientPhone.delegate = self
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+        
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+        textFieldDelegate()
     }
     
     private func commonInit() {
@@ -34,5 +41,15 @@ class NewClientDetailsView: UIView {
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
+    }
+}
+
+extension NewClientDetailsView: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let clientName = clientName.text,
+                let clientEmail = clientEmail.text,
+                let clientPhone = clientPhone.text else { return }
+        let client = NewClientDetailModel(name: clientName, email: clientEmail, phone: clientPhone)
+        callback?(client)
     }
 }

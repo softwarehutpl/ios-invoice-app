@@ -10,29 +10,37 @@ import Foundation
 
 class ClientStorageService: ClientStorageServiceType {
     
-    let persistancemanager: PersistanceManager
+    let persistanceManager: PersistanceManager
     
-    init(persistancemanager: PersistanceManager) {
-        self.persistancemanager = persistancemanager
+    init(persistanceManager: PersistanceManager) {
+        self.persistanceManager = persistanceManager
     }
 }
 
 extension ClientStorageService {
+    
+    func addClient(client: ClientModel) {
+        let clientToAdd = Client(context: persistanceManager.context)
+        clientToAdd.name = client.name
+        clientToAdd.email = client.email
+        clientToAdd.phone = client.phone
+        clientToAdd.address = client.address
+        clientToAdd.postcode = client.postcode
+        clientToAdd.city = client.city
+        clientToAdd.country = client.country
+        persistanceManager.save()
+        print("saved client")
+    }
+    
     func fetchClients() -> [ClientModel] {
         var clients = [ClientModel]()
-        let clientsFromCoreData = persistancemanager.fetch(Client.self)
+        let clientsFromCoreData = persistanceManager.fetch(Client.self)
         clientsFromCoreData.forEach { (client) in
             let clientmodel = ClientModel(name: client.name, email: client.email, phone: client.phone, address: client.address, postcode: client.postcode, city: client.city, country: client.country)
             clients.append(clientmodel)
         }
-        print("fetched")
+        print("fetched clients")
         return clients
     }
     
-    func addClient(client: ClientModel) {
-        let clientToAdd = Client(context: persistancemanager.context)
-        clientToAdd.name = client.name
-        persistancemanager.save()
-        print("saved")
-    }
 }

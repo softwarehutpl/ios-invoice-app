@@ -10,10 +10,15 @@ import UIKit
 
 class NewClientAddressTableViewCell: UITableViewCell {
     
-    
+    var callback: ((NewClientAddressModel)->Void)?
+    @IBOutlet weak var customView: NewClientAddressView!
     static let identyfier = "NewClientAddressTableViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        customView.callback = { clientAddress in
+            self.callback?(clientAddress)
+        }
     }
 }
+

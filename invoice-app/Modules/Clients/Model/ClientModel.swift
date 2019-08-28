@@ -6,14 +6,15 @@
 //  Copyright © 2019 Softwarehut. All rights reserved.
 //
 
-import Foundation
-
-struct ClientModel {
-    let name: String
-    let email: String
-    let phone: String
-    let address: String
-    let postcode: String
-    let city: String
-    let country: String
-}
+//import Foundation
+//
+//struct ClientModel {
+//    
+//    var name: String
+//    var email: String
+//    var phone: String
+//    var address: String
+//    var postcode: String
+//    var city: String
+//    var country: String
+//}

@@ -16,8 +16,8 @@ class CustomerAddressCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    func prepareView(customer: Customer) {
-        customView.prepareView(customer: customer)
+    func prepareView(client: ClientModel) {
+        customView.prepareView(client: client)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

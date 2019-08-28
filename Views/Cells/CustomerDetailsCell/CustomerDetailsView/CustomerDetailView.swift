@@ -18,10 +18,10 @@ class CustomerDetailView: UIView {
     
     @IBOutlet var contentView: UIView!
     
-    func prepareView(customer: Customer) {
-        name.text = customer.name
-        email.text = customer.email
-        phone.text = customer.phone
+    func prepareView(client: ClientModel) {
+        name.text = client.name
+        email.text = client.email
+        phone.text = client.phone
     }
     // MARK: OUTLETS
     override init(frame: CGRect) {

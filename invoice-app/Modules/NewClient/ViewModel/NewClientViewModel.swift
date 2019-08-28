@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class NewClientViewModel: NewClientViewModelType {
-    
+
     // MARK: - Private
+    
     private let sceneCoordinator: SceneCoordinatorType
     private let clientStorageService: ClientStorageServiceType
     
@@ -23,7 +25,8 @@ class NewClientViewModel: NewClientViewModelType {
 }
 
 extension NewClientViewModel {
-    func createNewClient(client: ClientModel) {
+    func createNewClient(client: ClientModel, source: UIViewController) {
         clientStorageService.addClient(client: client)
+        sceneCoordinator.pop(source: source , animated: true)
     }
 }

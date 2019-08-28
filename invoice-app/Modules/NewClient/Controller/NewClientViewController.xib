@@ -40,7 +40,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="addClient:" destination="-1" eventType="touchUpInside" id="COY-Nw-wVw"/>
+                        <action selector="addClientTap:" destination="-1" eventType="touchUpInside" id="COY-Nw-wVw"/>
                     </connections>
                 </button>
             </subviews>

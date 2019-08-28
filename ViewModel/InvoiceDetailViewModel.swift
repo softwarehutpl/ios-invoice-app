@@ -10,7 +10,7 @@
 import UIKit
 
 class InvoiceDetailViewModel: InvoiceDetailViewModelType {
-        
+    
         // MARK: - Private
         private let sceneCoordinator: SceneCoordinatorType
         private let invoice: InvoiceModel
@@ -24,8 +24,8 @@ class InvoiceDetailViewModel: InvoiceDetailViewModelType {
 
 extension InvoiceDetailViewModel {
     
-    func getCustomerDetails() -> Customer {
-        let customerDetails = Customer(name: invoice.customer.name, email: invoice.customer.email, phone: invoice.customer.phone, address: invoice.customer.address)
+    func getCustomerDetails() -> ClientModel {
+        let customerDetails = ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.city)
         return customerDetails
     }
     
@@ -33,14 +33,14 @@ extension InvoiceDetailViewModel {
         return invoice
     }
     
-    func getItemsDescriptions(indexPath: Int) -> ItemDescription {
-        let items = invoice.itemDescription.map { (item) -> ItemDescription in
+    func getItemsDescriptions(indexPath: Int) -> ItemModel {
+        let items = invoice.items.map { (item) -> ItemModel in
             return item
         }
         return items[indexPath]
     }
     
     func getItemsCount() -> Int {
-        return invoice.itemDescription.count
+        return invoice.items.count
     }
 }

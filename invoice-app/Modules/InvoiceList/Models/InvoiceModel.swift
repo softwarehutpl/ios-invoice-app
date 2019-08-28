@@ -10,25 +10,24 @@
 struct InvoiceModel {
     let invoiceTitle: String
     let date: String
+    let dueDate: String
     let amount: String
     let status: Bool
-    let customer: Customer
-    let itemDescription: [ItemDescription]
+    let client: ClientModel
+    let items: [ItemModel]
 }
 
-struct Customer {
-    let name: String
-    let email: String
-    let phone: String
-    let address: String
+struct ClientModel {
+    var name: String
+    var email: String
+    var phone: String
+    var address: String
+    var postcode: String
+    var city: String
+    var country: String
 }
 
-struct TopViewData {
-    let amount: String
-    let date: String
-}
-
-struct ItemDescription {
+struct ItemModel {
     let itemName: String
     let amount: String
     let price: String

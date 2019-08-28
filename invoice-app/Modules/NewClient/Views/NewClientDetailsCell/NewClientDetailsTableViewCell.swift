@@ -10,19 +10,18 @@ import UIKit
 
 class NewClientDetailsTableViewCell: UITableViewCell {
     
-    static let identyfier = "NewClientDetailsViewCell"
-    // MARK: - Outlets
+    var callback: ((NewClientDetailModel) -> Void)?
     
+    static let identyfier = "NewClientDetailsViewCell"
+    
+    // MARK: - Outlets
+    @IBOutlet weak var customView: NewClientDetailsView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        customView.callback = { client in
+            self.callback?(client)
+        }
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

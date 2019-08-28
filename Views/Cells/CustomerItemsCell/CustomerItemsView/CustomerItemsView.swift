@@ -20,7 +20,7 @@ class CustomerItemsView: UIView {
         commonInit()
     }
     
-    func prepareView(item: ItemDescription) {
+    func prepareView(item: ItemModel) {
         itemTitle.text = item.itemName
         amountAndPrice.text = ("\(item.amount)x PLN \(item.price)")
         guard let amount = Double(item.amount), let price = Double(item.price) else { return }

@@ -15,6 +15,7 @@ class NewClientViewController: BaseViewController {
     
     //MARK: - Private
     private let viewModel: NewClientViewModelType
+    private var clientModel = ClientModel(name: "", email: "", phone: "", address: "", postcode: "", city: "", country: "")
     
     init(with viewmodel: NewClientViewModelType) {
         self.viewModel = viewmodel
@@ -23,14 +24,9 @@ class NewClientViewController: BaseViewController {
     
     //MARK: - Actions
     
-    @IBAction func addClient(_ sender: UIButton) {
-        
-        
-        //        guard let clientName = clientDetails.clientName.text else { return }
-        //        let client = ClientModel(name: clientName)
-        //        viewModel.createNewClient(client: client)
-        //        navigationController?.popViewController(animated: true)
-        print("button")
+    @IBAction func addClientTap(_ sender: UIButton) {
+        view.endEditing(true)
+        viewModel.createNewClient(client: clientModel, source: self)
     }
     
     //MARK: - Setup Views
@@ -58,7 +54,6 @@ class NewClientViewController: BaseViewController {
         tableView.register(newClientAddressCel, forCellReuseIdentifier: NewClientAddressTableViewCell.identyfier)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -85,20 +80,33 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.section {
         case 0:
             guard let newClientDetailsCell = tableView.dequeueReusableCell(withIdentifier: NewClientDetailsTableViewCell.identyfier) as? NewClientDetailsTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientDetailsTableViewCell.self, cellID: NewClientDetailsTableViewCell.identyfier))
+                
             }
-            //            newClientAddressCell.prepareView(customer: viewModel.getCustomerDetails())
+            newClientDetailsCell.callback = { client in
+                self.clientModel.name = client.name
+                self.clientModel.email = client.email
+                self.clientModel.phone = client.phone
+            }
             return newClientDetailsCell
         case 1:
-            guard let newClientAdressCell = tableView.dequeueReusableCell(withIdentifier: NewClientAddressTableViewCell.identyfier) as? NewClientAddressTableViewCell else {
+            guard let newClientAddressCell = tableView.dequeueReusableCell(withIdentifier: NewClientAddressTableViewCell.identyfier) as? NewClientAddressTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientAddressTableViewCell.self, cellID: NewClientAddressTableViewCell.identyfier))
             }
-            //            newClientDetailsCell.prepareView(item: viewModel.getItemsDescriptions(indexPath: indexPath.row))
-            return newClientAdressCell
+            newClientAddressCell.callback = { clientAddress in
+                self.clientModel.address = clientAddress.address
+                self.clientModel.postcode = clientAddress.postcode
+                self.clientModel.city = clientAddress.city
+                self.clientModel.country = clientAddress.country
+            }
+            return newClientAddressCell
+            
         default: return UITableViewCell()
+            
         }
     }
 }

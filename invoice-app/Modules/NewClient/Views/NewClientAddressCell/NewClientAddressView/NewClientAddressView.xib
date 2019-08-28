@@ -12,7 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewClientAddressView" customModule="invoice_app" customModuleProvider="target">
             <connections>
+                <outlet property="address" destination="kzv-NB-02g" id="2Ew-xM-PPG"/>
+                <outlet property="city" destination="pae-xi-BFV" id="BAn-FP-DQT"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="uyn-aT-2o2"/>
+                <outlet property="country" destination="tlt-mP-rGk" id="X7m-a1-Ez2"/>
+                <outlet property="postcode" destination="SMa-Ij-aTd" id="tmG-YF-oId"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

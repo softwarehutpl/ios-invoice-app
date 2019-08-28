@@ -74,8 +74,8 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             return label
         }()
         switch section {
-        case 0: label.text = "CUSTOMER DETAILS"
-        case 1: label.text = "CUSTOMER ADDRESS"
+        case 0: label.text = "CLIENT DETAILS"
+        case 1: label.text = "CLIENT ADDRESS"
         case 2: label.text = "ITEMS DESCRIPTION"
         case 3: label.text = "SOMETHING"
         default: fatalError()
@@ -108,13 +108,13 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             guard let customerDetailsCell = tableView.dequeueReusableCell(withIdentifier: CustomerDetailsCell.identyfier, for: indexPath) as? CustomerDetailsCell else {
                 fatalError(cellError.showError(cellTitle: CustomerDetailsCell.self, cellID: CustomerDetailsCell.identyfier))
             }
-            customerDetailsCell.prepareView(customer: viewModel.getCustomerDetails())
+            customerDetailsCell.prepareView(client: viewModel.getCustomerDetails())
             return customerDetailsCell
         case 1:
             guard let customerAddressCell = tableView.dequeueReusableCell(withIdentifier: CustomerAddressCell.identyfier) as? CustomerAddressCell else {
                 fatalError(cellError.showError(cellTitle: CustomerAddressCell.self, cellID: CustomerAddressCell.identyfier))
             }
-            customerAddressCell.prepareView(customer: viewModel.getCustomerDetails())
+            customerAddressCell.prepareView(client: viewModel.getCustomerDetails())
             return customerAddressCell
         case 2:
             guard let customerItemsCell = tableView.dequeueReusableCell(withIdentifier: CustomerItemsCell.identyfier) as? CustomerItemsCell else {

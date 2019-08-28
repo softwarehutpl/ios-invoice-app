@@ -9,8 +9,8 @@
 import UIKit
 
 protocol InvoiceDetailViewModelType {
-    func getCustomerDetails() -> Customer
-    func getItemsDescriptions(indexPath: Int) -> ItemDescription
+    func getCustomerDetails() -> ClientModel
+    func getItemsDescriptions(indexPath: Int) -> ItemModel
     func getItemsCount() -> Int
     func getDataForTopView() -> InvoiceModel
 }

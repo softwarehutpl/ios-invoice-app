@@ -8,7 +8,10 @@ class ServiceAssembly: Assembly {
             return PersistanceManager()
         }
         container.register(ClientStorageService.self) { r in
-            return ClientStorageService(persistancemanager: r.resolve(PersistanceManager.self)!)
+            return ClientStorageService(persistanceManager: r.resolve(PersistanceManager.self)!)
+        }
+        container.register(InvoiceStorageService.self) { r in
+            return InvoiceStorageService(persistanceManager: r.resolve(PersistanceManager.self)!)
         }
     }
 }

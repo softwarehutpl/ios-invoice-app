@@ -11,8 +11,11 @@ import UIKit
 class ClientCollectionViewCell: UICollectionViewCell {
 
     static let identyfier = "ClientCollectionViewCell"
+    
+    // MARK: - Outlets
     @IBOutlet weak var customView: ClientCellView!
     
+    // MARK: Setup View
     func prepareView(client: ClientModel) {
         customView.prepareView(client: client)
     }

@@ -24,8 +24,8 @@ class CustomerAddressView: UIView {
         commonInit()
     }
     
-    func prepareView(customer: Customer) {
-        address.text = customer.address
+    func prepareView(client: ClientModel) {
+        address.text = client.address
     }
     
     private func commonInit() {

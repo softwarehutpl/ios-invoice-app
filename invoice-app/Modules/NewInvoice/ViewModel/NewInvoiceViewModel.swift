@@ -12,16 +12,21 @@ class NewInvoiceViewModel {
     
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
+    private let invoiceStorageService: InvoiceStorageServiceType
     
     // MARK: - Lifecycle
-    init(sceneCoordinator: SceneCoordinatorType) {
+    init(sceneCoordinator: SceneCoordinatorType, invoiceStorageService: InvoiceStorageServiceType) {
         self.sceneCoordinator = sceneCoordinator
+        self.invoiceStorageService = invoiceStorageService
     }
     
 }
 
 extension NewInvoiceViewModel: NewInvoiceViewModelType {
-    func addingNewClientView(source: UIViewController) {
+    func selectClient(source: UIViewController) {
         sceneCoordinator.transition(to: StartupScene.clientsView, type: .push, source: source )
+    }
+    func addInvoice(invoice: InvoiceModel) {
+        invoiceStorageService.createInvoice(invoice: invoice)
     }
 }

@@ -17,8 +17,10 @@ class NewInvoiceViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomButton: UIButton!
     
+    
     // MARK: - Private
     private let viewModel: NewInvoiceViewModelType
+    
     
     // MARK: - Lifecycle
     init(with viewModel: NewInvoiceViewModelType) {
@@ -26,10 +28,15 @@ class NewInvoiceViewController: BaseViewController {
         super.init()
     }
 
+    
     // MARK: - Actions
     @IBAction func tapBottomButton(_ sender: UIButton) {
-        status == true ? print("true") : viewModel.addingNewClientView(source: self)
+        status == true ? print("true") : viewModel.selectClient(source: self)
+        let randomString = UUID().uuidString
+        let invoice1 = InvoiceModel(invoiceTitle: "TestTitle", date: "01-01-02", dueDate: "01-01-02", amount: "100", status: true, client: ClientModel(name: randomString, email: "abc@wp.pl", phone: "694521521", address: "adres", postcode: "postcode", city: "city", country: "country"), items: [ItemModel(itemName: "item", amount: "100", price: "200")])
+        viewModel.addInvoice(invoice: invoice1)
     }
+    
     
     //MARK: - Setup Views
     private func setupNavigationBar() {
@@ -62,6 +69,7 @@ class NewInvoiceViewController: BaseViewController {
         tableView.register(noClientAddedView, forCellReuseIdentifier: NoClientAddedTableViewCell.identyfier)
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -70,6 +78,7 @@ class NewInvoiceViewController: BaseViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
+
     }
 }
 
@@ -100,8 +109,8 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource{
                     fatalError(cellError.showError(cellTitle: ClientDetailsTableViewCell.self, cellID: ClientDetailsTableViewCell.identyfier))
                 }
                 //            clientDetailsView.prepareView(customer: viewModel.getCustomerDetails())
-                clientDetailsView.callback = {
-                    print("clicked")
+                clientDetailsView.callback = { 
+                    self.viewModel.selectClient(source: self)
                 }
                 return clientDetailsView
             case 1:

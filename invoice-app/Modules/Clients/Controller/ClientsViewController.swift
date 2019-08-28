@@ -65,6 +65,7 @@ class ClientsViewController: BaseViewController {
             textField.layer.borderColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         viewModel.fetchClientsFromCoreData()
         collectionView.reloadData()

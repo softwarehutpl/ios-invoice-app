@@ -36,7 +36,7 @@ class InvoiceCollectionViewCell: UICollectionViewCell {
     }
     
     func prepareCell(invoice: InvoiceModel) {
-        clientName.text = invoice.customer.name
+        clientName.text = invoice.client.name
         date.text = invoice.date
         amount.text = ("PLN \(invoice.amount)")
         if invoice.status == true {

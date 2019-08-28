@@ -71,7 +71,7 @@
                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </stackView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtG-uE-zIi">
-                    <rect key="frame" x="478.5" y="163.5" width="55.5" height="43"/>
+                    <rect key="frame" x="489.5" y="163.5" width="44.5" height="43"/>
                     <state key="normal" image="editbutton"/>
                     <connections>
                         <action selector="rightEditButtonTap:" destination="-1" eventType="touchUpInside" id="O2d-HW-GvF"/>
@@ -89,7 +89,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GtG-uE-zIi" secondAttribute="trailing" constant="20" id="aLx-Ze-hvO"/>
                 <constraint firstItem="9fh-8L-KWf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-80" id="e3p-1C-bD7"/>
                 <constraint firstItem="D3D-ou-eIV" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="fJD-nC-J5s"/>
-                <constraint firstItem="GtG-uE-zIi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.1" id="mxE-dn-erT"/>
+                <constraint firstItem="GtG-uE-zIi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.08" id="mxE-dn-erT"/>
                 <constraint firstItem="D3D-ou-eIV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="onI-rc-idR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
