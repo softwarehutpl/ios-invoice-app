@@ -13,7 +13,7 @@ class PersistanceManager {
     
     let persistentContainer = NSPersistentContainer(name: "CoreData")
     
-    init() {
+     init() {
         self.initalizeStack()
     }
     

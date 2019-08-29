@@ -2,7 +2,14 @@
 import UIKit
 
 protocol InvoiceListViewModelType {
-    var invoiceCount: Int { get }
-    func getTestData(indexPath: Int) -> InvoiceModel
-    func showInvoiceDetailView(source: UIViewController)
+    var getInvoiceCount: Int { get }
+    
+    func showInvoiceDetailView(source: UIViewController, invoice: InvoiceModel)
+    func showNewInvoiceView(source: UIViewController)
+    func fetchInvoicesFromCoreData()
+    func getInvoices(indexPath: Int) -> InvoiceModel
+    func changeFilteringType(index: Int)
+    func getFilteringIndex()
+    func searchingText(searchingText: String)
+    
 }
