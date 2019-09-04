@@ -8,8 +8,9 @@
 
 import UIKit
 
+
+
 class ClientsViewController: BaseViewController {
-    
     
     //MARK: - Outlets
     let refreshControl = UIRefreshControl()
@@ -17,7 +18,7 @@ class ClientsViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK: - Private
-    private let viewModel: ClientViewModelType
+    var viewModel: ClientViewModelType
     
     init(with viewmodel: ClientViewModelType) {
         self.viewModel = viewmodel
@@ -99,4 +100,12 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let client = viewModel.fetchClients(index: indexPath.item)
+        
+        viewModel.popToNewInvoiceView(source: self)
+        viewModel.passClientToNewInvoiceView(client: client)
+    }
 }
+
+

@@ -28,26 +28,26 @@
                     <color key="tintColor" red="0.1453877687" green="0.41337579489999998" blue="0.3077362776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-kh-eUP">
-                    <rect key="frame" x="136" y="54" width="484" height="234"/>
+                    <rect key="frame" x="136" y="49" width="484" height="244"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damian Szejnoch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="XQs-QM-UYR">
-                            <rect key="frame" x="0.0" y="0.0" width="484" height="75.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="484" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tel: 694 329 911" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PSK-Gb-npl">
-                            <rect key="frame" x="0.0" y="81.5" width="484" height="56.5"/>
+                            <rect key="frame" x="0.0" y="86" width="484" height="59.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: damian.szejnoch@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6tj-TA-vbG">
-                            <rect key="frame" x="0.0" y="144" width="484" height="90"/>
+                            <rect key="frame" x="0.0" y="151.5" width="484" height="92.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -62,9 +62,9 @@
                 <constraint firstItem="5I2-ca-r0w" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gdu-9j-JMv"/>
                 <constraint firstItem="5I2-ca-r0w" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Qp9-2S-Lve"/>
                 <constraint firstItem="5I2-ca-r0w" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="VBF-K2-l5Q"/>
-                <constraint firstItem="jI4-kh-eUP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-10" id="mX5-45-ooY"/>
+                <constraint firstItem="jI4-kh-eUP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-5" id="mX5-45-ooY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jI4-kh-eUP" secondAttribute="trailing" constant="20" id="shz-74-hqS"/>
-                <constraint firstItem="jI4-kh-eUP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="zIr-yp-8YQ"/>
+                <constraint firstItem="jI4-kh-eUP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="zIr-yp-8YQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

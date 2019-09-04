@@ -1,6 +1,6 @@
 import UIKit
 
-class InvoiceListViewController: BaseViewController {
+class InvoiceListViewController: BaseViewController{
     
     // MARK: - Outlets
     let refreshControl = UIRefreshControl()

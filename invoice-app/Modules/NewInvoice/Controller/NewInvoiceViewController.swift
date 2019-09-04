@@ -11,32 +11,33 @@ import UIKit
 
 class NewInvoiceViewController: BaseViewController {
     
-    var status = true
+    var clientSelected = false
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomButton: UIButton!
     
-    
     // MARK: - Private
-    private let viewModel: NewInvoiceViewModelType
-    
+    let viewModel: NewInvoiceViewModelType
     
     // MARK: - Lifecycle
     init(with viewModel: NewInvoiceViewModelType) {
         self.viewModel = viewModel
         super.init()
     }
-
     
     // MARK: - Actions
     @IBAction func tapBottomButton(_ sender: UIButton) {
-        status == true ? print("true") : viewModel.selectClient(source: self)
-        let randomString = UUID().uuidString
-        let invoice1 = InvoiceModel(invoiceTitle: "TestTitle", date: "01-01-02", dueDate: "01-01-02", amount: "100", status: true, client: ClientModel(name: randomString, email: "abc@wp.pl", phone: "694521521", address: "adres", postcode: "postcode", city: "city", country: "country"), items: [ItemModel(itemName: "item", amount: "100", price: "200")])
-        viewModel.addInvoice(invoice: invoice1)
+        view.endEditing(true)
+        if clientSelected == true {
+            let client = viewModel.getClient()
+            print(client?.name ?? "empty name")
+            viewModel.createNewInvoice()
+            viewModel.popToInvoiceList(source: self)
+        } else {
+          viewModel.selectClient(source: self)
+        }
     }
-    
     
     //MARK: - Setup Views
     private func setupNavigationBar() {
@@ -44,7 +45,7 @@ class NewInvoiceViewController: BaseViewController {
     }
     
     private func setupTableView() {
-        if status == true {
+        if clientSelected == true {
             tableView.isScrollEnabled = true
             bottomButton.setTitle("Add Invoice", for: .normal)
         } else {
@@ -69,23 +70,29 @@ class NewInvoiceViewController: BaseViewController {
         tableView.register(noClientAddedView, forCellReuseIdentifier: NoClientAddedTableViewCell.identyfier)
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // If client is not selected changing status to false
+        clientSelected = viewModel.getClientStatus()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
-
+        
     }
 }
 
-extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource{
+extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if status == true {
+        if clientSelected == true {
             return 2
         } else {
             return 1
@@ -102,23 +109,27 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if status == true {
+        if clientSelected == true {
             switch indexPath.section {
             case 0:
-                guard let clientDetailsView = tableView.dequeueReusableCell(withIdentifier: ClientDetailsTableViewCell.identyfier) as? ClientDetailsTableViewCell else {
+                guard let clientDetailCell = tableView.dequeueReusableCell(withIdentifier: ClientDetailsTableViewCell.identyfier) as? ClientDetailsTableViewCell else {
                     fatalError(cellError.showError(cellTitle: ClientDetailsTableViewCell.self, cellID: ClientDetailsTableViewCell.identyfier))
                 }
-                //            clientDetailsView.prepareView(customer: viewModel.getCustomerDetails())
-                clientDetailsView.callback = { 
+                clientDetailCell.callback = { 
                     self.viewModel.selectClient(source: self)
                 }
-                return clientDetailsView
+                clientDetailCell.prepareCell(client: viewModel.getClient()!)
+                return clientDetailCell
             case 1:
-                guard let invoiceFormView = tableView.dequeueReusableCell(withIdentifier: InvoiceFormTableViewCell.identyfier) as? InvoiceFormTableViewCell else {
+                guard let invoiceFormCell = tableView.dequeueReusableCell(withIdentifier: InvoiceFormTableViewCell.identyfier) as? InvoiceFormTableViewCell else {
                     fatalError(cellError.showError(cellTitle: InvoiceFormTableViewCell.self, cellID: InvoiceFormTableViewCell.identyfier))
                     
                 }
-                return invoiceFormView
+                invoiceFormCell.callback = { [weak self] invoiceForm in
+                    guard let `self` = self else { return }
+                    self.viewModel.getInvoiceFormModel(invoiceForm: invoiceForm)
+                }
+                return invoiceFormCell
             case 2: return UITableViewCell()
             default: return UITableViewCell()
             }
@@ -131,7 +142,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if status == true {
+        if clientSelected == true {
             switch indexPath.section {
             case 0: return 200
             case 1: return 620

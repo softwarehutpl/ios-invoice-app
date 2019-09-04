@@ -12,13 +12,24 @@ import UIKit
 class ClientDetailsView: UIView {
     
     var callback: (() -> Void)?
+    
+    // MARK: - Outlets
+    @IBOutlet weak var clientName: UILabel!
+    @IBOutlet weak var clientAddress: UILabel!
+    @IBOutlet weak var clientEmail: UILabel!
+    @IBOutlet weak var clientPhone: UILabel!
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var rightEditButton: UIButton!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
     // Mark: - Setup View
+    func prepareView(client: ClientModel) {
+        self.clientName.text = client.name
+        self.clientAddress.text = client.address
+        self.clientEmail.text = client.email
+        self.clientPhone.text = client.phone
+    }
+    
     private func setupOutlets() {
         rightEditButton.tintColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
     }
@@ -28,6 +39,11 @@ class ClientDetailsView: UIView {
         callback?()
     }
     
+    // Mark: - Lifecycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

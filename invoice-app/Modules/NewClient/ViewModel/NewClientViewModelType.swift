@@ -8,5 +8,8 @@
 import UIKit
 
 protocol NewClientViewModelType {
-    func createNewClient(client: ClientModel,source: UIViewController)
+    func createNewClient()
+    func popToClientsList(source: UIViewController)
+    func getNewClientDetailModel(clientDetails: NewClientDetailModel)
+    func getNewClientAddressModel(clientAddress: NewClientAddressModel)
 }

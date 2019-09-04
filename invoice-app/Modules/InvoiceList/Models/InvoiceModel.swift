@@ -8,27 +8,17 @@
 //
 
 struct InvoiceModel {
-    let invoiceTitle: String
-    let date: String
-    let dueDate: String
-    let amount: String
-    let status: Bool
-    let client: ClientModel
-    let items: [ItemModel]
-}
-
-struct ClientModel {
-    var name: String
-    var email: String
-    var phone: String
-    var address: String
-    var postcode: String
-    var city: String
-    var country: String
+    var invoiceTitle: String
+    var date: String
+    var dueDate: String
+    var amount: String
+    var status: Bool
+    var client: ClientModel
+    var items: [ItemModel]
 }
 
 struct ItemModel {
-    let itemName: String
-    let amount: String
-    let price: String
+    var itemName: String
+    var amount: String
+    var price: String
 }

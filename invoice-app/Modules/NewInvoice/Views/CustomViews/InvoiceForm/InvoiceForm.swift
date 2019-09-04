@@ -10,6 +10,8 @@ import UIKit
 
 class InvoiceForm: UIView {
     
+    var callback: ((InvoiceFormModel) -> Void)?
+    
     // MARK: - Outets
     @IBOutlet weak var invoiceTitle: UITextField!
     @IBOutlet weak var invoiceDate: UITextField!
@@ -17,6 +19,12 @@ class InvoiceForm: UIView {
     @IBOutlet weak var invoiceAmount: UITextField!
     @IBOutlet var contentView: UIView!
     
+    private func textFieldDelegate() {
+        invoiceTitle.delegate = self
+        invoiceDate.delegate = self
+        invoiceDueDate.delegate = self
+        invoiceAmount.delegate = self
+    }
     // MARK: - Actions
     private func setupTextFieldIcons() {
         invoiceTitle.setIcon(#imageLiteral(resourceName: "editbutton"), iconColor: #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1))
@@ -30,7 +38,6 @@ class InvoiceForm: UIView {
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -39,6 +46,7 @@ class InvoiceForm: UIView {
         super.init(coder: aDecoder)
         commonInit()
         setupTextFieldIcons()
+        textFieldDelegate()
         addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoiceAmount])
         
     }
@@ -50,5 +58,17 @@ class InvoiceForm: UIView {
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
+    }
+}
+
+extension InvoiceForm: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let invoiceTitle = invoiceTitle.text,
+            let invoiceDate = invoiceDate.text,
+            let invoiceDueDate = invoiceDueDate.text,
+            let invoiceAmount = invoiceAmount.text
+            else { return }
+        let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, amount: invoiceAmount)
+        callback?(invoiceForm)
     }
 }

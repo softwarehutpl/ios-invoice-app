@@ -12,21 +12,26 @@ class NewClientAddressView: UIView {
     
     var callback: ((NewClientAddressModel) -> Void)?
     
-    //MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var postcode: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var country: UITextField!
     
-    //MARK: Loading Data
     func textFieldDelegate() {
         address.delegate = self
         postcode.delegate = self
         city.delegate = self
         country.delegate = self
     }
-    
+    // MARK: - Setup View
+    private func addShadowToViews(views: [UITextField]) {
+        views.forEach { (view) in
+            view.addShadow(offset: CGSize.init(width: 0, height: 3), color: UIColor.gray, radius: 2.0, opacity: 0.35)
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -35,6 +40,7 @@ class NewClientAddressView: UIView {
         super.init(coder: aDecoder)
         commonInit()
         textFieldDelegate()
+        addShadowToViews(views: [address,postcode,city,country])
     }
     
     private func commonInit() {

@@ -3,7 +3,7 @@ import Swinject
 import RxCocoa
 import RxSwift
 
-class  ViewControllerResolver {
+class ViewControllerResolver {
     
     // MARK: - Private Properties
     private let assembler: Assembler
@@ -13,8 +13,8 @@ class  ViewControllerResolver {
         self.assembler = assembler
     }
 }
-
 extension ViewControllerResolver: ViewControllerResolverType {
+    
     
     func companySelectController() -> CompanySelectViewController? {
         return assembler.resolver.resolve(CompanySelectViewController.self)

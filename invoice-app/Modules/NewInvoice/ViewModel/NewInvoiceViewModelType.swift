@@ -8,6 +8,17 @@
 import UIKit
 
 protocol NewInvoiceViewModelType {
+    // Navigation
     func selectClient(source: UIViewController)
+    func popToInvoiceList(source: UIViewController)
+    
+    // Fetching data from forms
     func addInvoice(invoice: InvoiceModel)
+    func getInvoiceFormModel(invoiceForm: InvoiceFormModel)
+    
+    func createNewInvoice()
+    func getClient() -> ClientModel?
+    // Passing client to invoice view
+    func getClientStatus() -> Bool
+    
 }

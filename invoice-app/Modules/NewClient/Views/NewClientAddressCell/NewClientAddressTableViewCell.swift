@@ -10,7 +10,7 @@ import UIKit
 
 class NewClientAddressTableViewCell: UITableViewCell {
     
-    var callback: ((NewClientAddressModel)->Void)?
+    var callback: ((NewClientAddressModel) -> Void)?
     @IBOutlet weak var customView: NewClientAddressView!
     static let identyfier = "NewClientAddressTableViewCell"
     

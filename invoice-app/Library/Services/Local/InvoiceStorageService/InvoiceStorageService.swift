@@ -32,7 +32,7 @@ extension InvoiceStorageService {
         client.postcode = invoice.client.postcode
         client.email = invoice.client.email
         client.phone = invoice.client.phone
-        client.address = invoice.client.postcode
+        client.address = invoice.client.address
         client.city = invoice.client.city
         client.country = invoice.client.country
         

@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol ClientViewModelDelegate: AnyObject {
+    func shareClient(client: ClientModel)
+}
+
 class ClientViewModel: ClientViewModelType {
     
     // MARK: - Private
-    private var clients = [ClientModel]()
     private let clientStorageService: ClientStorageServiceType
     private let sceneCoordinator: SceneCoordinatorType
+    
+    weak var delegate: ClientViewModelDelegate?
+    var clients = [ClientModel]()
     
     // MARK: - Lifecycle
     init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType) {
@@ -22,10 +28,12 @@ class ClientViewModel: ClientViewModelType {
     }
 }
 
-extension ClientViewModel {
+extension ClientViewModel  {
+    
     func createNewClient(source: UIViewController) {
         sceneCoordinator.transition(to: StartupScene.newClientView, type: .push, source: source)
     }
+    
     func fetchClients(index: Int) -> ClientModel {
         return clients[index]
     }
@@ -35,7 +43,13 @@ extension ClientViewModel {
     }
     
     func getClientCount() -> Int {
-       return clients.count
+        return clients.count
     }
     
+    func popToNewInvoiceView(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
+    }
+    func passClientToNewInvoiceView(client: ClientModel) {
+        delegate?.shareClient(client: client)
+    }
 }

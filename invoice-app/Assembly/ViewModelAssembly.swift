@@ -35,7 +35,5 @@ class ViewModelAssembly: Assembly {
             let clientStorageService = r.resolve(ClientStorageService.self)!
             return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
         }
-        
-        
     }
 }

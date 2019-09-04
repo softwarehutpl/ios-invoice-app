@@ -9,8 +9,11 @@
 import UIKit
 
 protocol ClientViewModelType {
+    var delegate: ClientViewModelDelegate? { get set }
     func createNewClient(source: UIViewController)
     func fetchClientsFromCoreData()
     func getClientCount() -> Int
     func fetchClients(index: Int) -> ClientModel
+    func popToNewInvoiceView(source: UIViewController)
+    func passClientToNewInvoiceView(client: ClientModel)
 }

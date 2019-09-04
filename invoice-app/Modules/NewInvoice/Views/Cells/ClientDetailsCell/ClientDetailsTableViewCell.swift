@@ -16,12 +16,17 @@ class ClientDetailsTableViewCell: UITableViewCell {
     //MARK: - Outlets
     @IBOutlet weak var customView: ClientDetailsView!
     
+    //MARK: - View Setup
+    func prepareCell(client: ClientModel) {
+        customView.prepareView(client: client)
+    }
+    
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         customView.callback = {
             self.callback?()
         }
-        // Initialization code
     }
 
 }

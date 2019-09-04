@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientDetailsView" customModule="invoice_app" customModuleProvider="target">
             <connections>
+                <outlet property="clientAddress" destination="Wqj-hp-qwU" id="IIP-UN-DSb"/>
+                <outlet property="clientEmail" destination="DN9-Oe-Ucq" id="Qft-nj-dvS"/>
+                <outlet property="clientName" destination="sy0-Tu-408" id="iCa-6q-HEx"/>
+                <outlet property="clientPhone" destination="DuM-dh-wbQ" id="1Ww-Rv-Mi9"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="LEB-Om-amv"/>
                 <outlet property="rightEditButton" destination="GtG-uE-zIi" id="5gB-Ff-wjb"/>
             </connections>

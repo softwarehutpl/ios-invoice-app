@@ -10,6 +10,7 @@ import UIKit
 
 class NewClientViewController: BaseViewController {
     
+    
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +27,8 @@ class NewClientViewController: BaseViewController {
     
     @IBAction func addClientTap(_ sender: UIButton) {
         view.endEditing(true)
-        viewModel.createNewClient(client: clientModel, source: self)
+        viewModel.createNewClient()
+        viewModel.popToClientsList(source: self)
     }
     
     //MARK: - Setup Views
@@ -85,23 +87,19 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
         case 0:
             guard let newClientDetailsCell = tableView.dequeueReusableCell(withIdentifier: NewClientDetailsTableViewCell.identyfier) as? NewClientDetailsTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientDetailsTableViewCell.self, cellID: NewClientDetailsTableViewCell.identyfier))
-                
             }
-            newClientDetailsCell.callback = { client in
-                self.clientModel.name = client.name
-                self.clientModel.email = client.email
-                self.clientModel.phone = client.phone
+            newClientDetailsCell.callback = { [weak self] client in
+                guard let `self` = self else { return }
+                self.viewModel.getNewClientDetailModel(clientDetails: client)
             }
             return newClientDetailsCell
         case 1:
             guard let newClientAddressCell = tableView.dequeueReusableCell(withIdentifier: NewClientAddressTableViewCell.identyfier) as? NewClientAddressTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientAddressTableViewCell.self, cellID: NewClientAddressTableViewCell.identyfier))
             }
-            newClientAddressCell.callback = { clientAddress in
-                self.clientModel.address = clientAddress.address
-                self.clientModel.postcode = clientAddress.postcode
-                self.clientModel.city = clientAddress.city
-                self.clientModel.country = clientAddress.country
+            newClientAddressCell.callback = { [weak self] clientAddress in
+                guard let `self` = self else { return }
+                self.viewModel.getNewClientAddressModel(clientAddress: clientAddress)
             }
             return newClientAddressCell
             

@@ -68,14 +68,6 @@ class InvoiceListViewModel {
             }
         }
     }
-    // Loading fake data into view
-    private func loadTestData() {
-        //        let invoice1 = InvoiceModel(invoiceTitle: "TestTitle", date: "TestDate", dueDate: "01-01-01", amount: "100", status: true, client: ClientModel(name: "abc", email: "abc@wp.pl", phone: "694521521", address: "adres", postcode: "postcode", city: "city", country: "country"), items: [ItemModel(itemName: "item", amount: "100", price: "200")])
-        
-        //        baseInvoices += [invoice1]
-        //        invoicesToShow = baseInvoices
-        //    }
-    }
 }
 
 extension InvoiceListViewModel: InvoiceListViewModelType, SegmentControllerProtocol {

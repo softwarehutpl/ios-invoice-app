@@ -17,6 +17,10 @@ class NewClientViewModel: NewClientViewModelType {
     private let sceneCoordinator: SceneCoordinatorType
     private let clientStorageService: ClientStorageServiceType
     
+    private var clientDetailsModel: NewClientDetailModel?
+    private var clientAddressModel: NewClientAddressModel?
+    
+    
     // MARK: - Lifecycle
     init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType) {
         self.sceneCoordinator = sceneCoordinator
@@ -25,8 +29,21 @@ class NewClientViewModel: NewClientViewModelType {
 }
 
 extension NewClientViewModel {
-    func createNewClient(client: ClientModel, source: UIViewController) {
+        
+    func createNewClient() {
+        guard let clientDetails = clientDetailsModel, let clientAddress = clientAddressModel else { return }
+        let client = ClientModel(name: clientDetails.name, email: clientDetails.email, phone: clientDetails.phone, address: clientAddress.address, postcode: clientAddress.postcode, city: clientAddress.city, country: clientAddress.country)
         clientStorageService.addClient(client: client)
+    }
+    
+    func getNewClientDetailModel(clientDetails: NewClientDetailModel) {
+        clientDetailsModel = clientDetails
+    }
+    func getNewClientAddressModel(clientAddress: NewClientAddressModel) {
+        clientAddressModel = clientAddress
+    }
+    
+    func popToClientsList(source: UIViewController) {
         sceneCoordinator.pop(source: source , animated: true)
     }
 }

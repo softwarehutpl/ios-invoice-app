@@ -12,9 +12,20 @@ class SceneCoordinator {
     // MARK: - Private Properties
     private let resolver: ViewControllerResolverType
     
+    // MARK: - Properties
+    var currentViewController: UIViewController?
+    
     // MARK: - Lifecycle
     init(resolver: ViewControllerResolverType) {
         self.resolver = resolver
+    }
+    
+    func actualViewController(for viewController: UIViewController) -> UIViewController {
+        if let navigationController = viewController as? UINavigationController {
+            return navigationController.viewControllers.first!
+        } else {
+            return viewController
+        }
     }
 }
 
@@ -36,7 +47,7 @@ extension SceneCoordinator: SceneCoordinatorType {
                         .take(1)
                         .ignoreElements()
             }
-            let nvc = UINavigationController(rootViewController: viewController)
+            let nvc = BaseNavigationController(rootViewController: viewController)
             app.window?.rootViewController = nvc
             subject.onCompleted()
 
@@ -53,6 +64,7 @@ extension SceneCoordinator: SceneCoordinatorType {
                     .map { _ in }
                     .bind(to: subject)
             navController.pushViewController(viewController, animated: true)
+            currentViewController = actualViewController(for: viewController)
 
         case .modal:
             guard let source = source else {
@@ -61,6 +73,7 @@ extension SceneCoordinator: SceneCoordinatorType {
                         .take(1)
                         .ignoreElements()
             }
+            currentViewController = actualViewController(for: viewController)
             source.present(viewController, animated: true) {
                 subject.onCompleted()
             }
@@ -91,6 +104,7 @@ extension SceneCoordinator: SceneCoordinatorType {
             guard navigationController.popViewController(animated: animated) != nil else {
                 fatalError("can't navigate back from \(strongSource)")
             }
+            currentViewController = actualViewController(for: navigationController.viewControllers.last!)
         } else {
             fatalError("Not a modal, no navigation controller: can't navigate back from \(strongSource)")
         }
@@ -125,6 +139,7 @@ extension SceneCoordinator: SceneCoordinatorType {
                     .map { _ in }
                     .bind(to: subject)
             navigationController.popToViewController(destination, animated: true)
+            currentViewController = actualViewController(for: navigationController.viewControllers.last!)
         } else {
             fatalError("Not a modal, no navigation controller: can't navigate back from \(strongSource)")
         }

@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qa3-rX-Mwm">
-                    <rect key="frame" x="10" y="156" width="394" height="706"/>
+                    <rect key="frame" x="10" y="156" width="394" height="696"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KvF-Tg-OJe">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,7 +63,7 @@
                 <constraint firstItem="Qa3-rX-Mwm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="Xw8-t4-NSI"/>
                 <constraint firstItem="Qa3-rX-Mwm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bJX-Jm-aNj"/>
                 <constraint firstItem="j9D-f5-s3f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="k1a-dv-pgB"/>
-                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tAR-N5-Icv"/>
+                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-10" id="tAR-N5-Icv"/>
                 <constraint firstItem="VQu-fF-1dt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="1" id="wPB-Gd-jP6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

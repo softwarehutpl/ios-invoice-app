@@ -3,6 +3,8 @@ import RxSwift
 import Swinject
 
 protocol SceneCoordinatorType {
+    var currentViewController: UIViewController? { get }
+    
     @discardableResult
     func transition(to scene: SceneType, type: SceneTransitionType, source: UIViewController?) -> Completable
 
