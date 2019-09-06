@@ -5,6 +5,7 @@
         <attribute name="city" attributeType="String" syncable="YES"/>
         <attribute name="country" attributeType="String" syncable="YES"/>
         <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="phone" attributeType="String" syncable="YES"/>
         <attribute name="postcode" attributeType="String" syncable="YES"/>
@@ -27,7 +28,7 @@
         <attribute name="price" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="277.26953125" positionY="-59.4453125" width="128" height="163"/>
+        <element name="Client" positionX="277.26953125" positionY="-59.4453125" width="128" height="180"/>
         <element name="Company" positionX="-144.046875" positionY="-97.3671875" width="128" height="58"/>
         <element name="Invoice" positionX="95.77734375" positionY="-62.05859375" width="128" height="133"/>
         <element name="Item" positionX="-146.73046875" positionY="55.515625" width="128" height="88"/>

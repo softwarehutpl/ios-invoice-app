@@ -17,6 +17,7 @@ class InvoiceDetailViewController: BaseViewController {
     //MARK: - Private
     private let viewModel: InvoiceDetailViewModelType
     
+    //MARK: - Inits
     init(with viewmodel: InvoiceDetailViewModelType) {
         self.viewModel = viewmodel
         super.init()
@@ -49,9 +50,11 @@ class InvoiceDetailViewController: BaseViewController {
     func loadTopViewData() {
         topView.loadData(invoice: viewModel.getDataForTopView())
     }
+    
+    //MARK: - Lifecycle
     override func viewDidAppear(_ animated: Bool) {
-        topView.loadData(invoice: viewModel.getDataForTopView())
-    }
+    topView.loadData(invoice: viewModel.getDataForTopView())
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()

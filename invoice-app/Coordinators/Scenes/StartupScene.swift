@@ -2,11 +2,14 @@ import UIKit
 
 enum StartupScene {
     case companySelect
+    // Invoice
     case invoiceList
     case invoiceDetail(invoice: InvoiceModel)
     case newInvoice
+    // Client
     case clientsView
     case newClientView
+    case editClientView(client: ClientModel)
 }
 
 extension StartupScene: SceneType {
@@ -18,6 +21,7 @@ extension StartupScene: SceneType {
         case .newInvoice: return resolver.newInvoiceViewController()
         case .clientsView: return resolver.clientsViewControler()
         case .newClientView: return resolver.newClientViewController()
+        case .editClientView(let client): return resolver.editClientViewController(client: client)
         }
     }
 }

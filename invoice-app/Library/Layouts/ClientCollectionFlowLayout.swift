@@ -17,6 +17,6 @@ class ClientCollectionFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         minimumLineSpacing = 1
-        itemSize = CGSize(width: screenWidth, height: screenHeight / 10)
+        itemSize = CGSize(width: screenWidth, height: screenHeight / 8)
     }
 }

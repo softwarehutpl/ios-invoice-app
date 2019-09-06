@@ -2,7 +2,7 @@
 //  Client+CoreDataProperties.swift
 //  invoice-app
 //
-//  Created by Damian Szejnoch on 28/08/2019.
+//  Created by Damian Szejnoch on 06/09/2019.
 //  Copyright © 2019 Softwarehut. All rights reserved.
 //
 //
@@ -24,7 +24,8 @@ extension Client {
     @NSManaged public var name: String
     @NSManaged public var phone: String
     @NSManaged public var postcode: String
-    @NSManaged public var invoices: NSSet?
+    @NSManaged public var id: String
+    @NSManaged public var invoices: NSSet
 
 }
 

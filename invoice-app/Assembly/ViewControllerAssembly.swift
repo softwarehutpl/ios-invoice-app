@@ -39,5 +39,9 @@ class ViewControllerAssembly: Assembly {
             let viewModel = r.resolve(NewClientViewModel.self)!
             return NewClientViewController(with: viewModel)
         }
+        container.register(EditClientViewController.self) { (r, client: ClientModel) in
+            let viewModel = r.resolve(EditClientViewModel.self, argument: client)!
+            return EditClientViewController(with: viewModel)
+        }
     }
 }

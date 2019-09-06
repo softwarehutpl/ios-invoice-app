@@ -34,4 +34,7 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func newClientViewController() -> NewClientViewController? {
         return assembler.resolver.resolve(NewClientViewController.self)
     }
+    func editClientViewController(client: ClientModel) -> EditClientViewController? {
+        return assembler.resolver.resolve(EditClientViewController.self, argument: client)
+    }
 }

@@ -35,5 +35,16 @@ class ViewModelAssembly: Assembly {
             let clientStorageService = r.resolve(ClientStorageService.self)!
             return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
         }
+        container.register(NewClientViewModel.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let clientStorageService = r.resolve(ClientStorageService.self)!
+            return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
+        }
+        container.register(EditClientViewModel.self) { (r, client: ClientModel) in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let clientStorageService = r.resolve(ClientStorageService.self)!
+            return EditClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, client: client)
+        }
+        
     }
 }

@@ -35,6 +35,7 @@ extension InvoiceStorageService {
         client.address = invoice.client.address
         client.city = invoice.client.city
         client.country = invoice.client.country
+        client.id = invoice.client.id
         
         invoiceToAdd.client = client
         persistanceManager.save()
@@ -45,7 +46,7 @@ extension InvoiceStorageService {
         var invoices = [InvoiceModel]()
         let invoicesFromCoreData = persistanceManager.fetch(Invoice.self)
         invoicesFromCoreData.forEach { (invoice) in
-            let invoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle, date: invoice.date, dueDate: invoice.dueDate, amount: invoice.amount, status: true, client: ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.country), items: [ItemModel(itemName: "item", amount: "1", price: "300")])
+            let invoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle, date: invoice.date, dueDate: invoice.dueDate, amount: invoice.amount, status: true, client: ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.country, id: invoice.client.id), items: [ItemModel(itemName: "item", amount: "1", price: "300")])
             invoices.append(invoice)
         }
         print("fetched invoices")

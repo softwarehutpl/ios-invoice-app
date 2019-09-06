@@ -25,7 +25,7 @@ class InvoiceDetailViewModel: InvoiceDetailViewModelType {
 extension InvoiceDetailViewModel {
     
     func getCustomerDetails() -> ClientModel {
-        let customerDetails = ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.city)
+        let customerDetails = ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.city, id: invoice.client.id)
         return customerDetails
     }
     
