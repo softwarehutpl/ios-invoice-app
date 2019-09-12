@@ -7,14 +7,16 @@
 //
 import UIKit
 
-class NewClientDetailsView: UIView {
+class NewClientDetailsView: NibLoadingView {
     
     var callback: ((ClientDetailsModel) -> Void)?
+    
     // MARK: - Outlets
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var clientName: UITextField!
     @IBOutlet weak var clientEmail: UITextField!
     @IBOutlet weak var clientPhone: UITextField!
+    
     private func textFieldDelegate() {
         clientName.delegate = self
         clientEmail.delegate = self
@@ -34,27 +36,14 @@ class NewClientDetailsView: UIView {
         self.clientPhone.text = clientDetails.phone
     }
     
-    //MARK: Lifecycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-        
-    }
+    // MARK: - Lifecycle
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
         textFieldDelegate()
         addShadowToViews(views: [clientName,clientEmail,clientPhone])
     }
     
-    private func commonInit() {
-        let bundle = Bundle.init(for: type(of: self))
-        let nib = UINib(nibName: "NewClientDetailsView", bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
-    }
 }
 
 extension NewClientDetailsView: UITextFieldDelegate {

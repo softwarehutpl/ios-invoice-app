@@ -12,4 +12,5 @@ protocol ClientStorageServiceType {
     func fetchClients() -> [ClientModel]
     func addClient(client: ClientModel)
     func editClient(client: ClientModel)
+    func deleteClient(client: ClientModel)
 }

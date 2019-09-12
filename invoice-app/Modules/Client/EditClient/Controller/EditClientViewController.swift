@@ -48,7 +48,7 @@ class EditClientViewController: BaseViewController {
     //MARK: - Actions
     @IBAction func saveClientTap(_ sender: UIButton) {
         view.endEditing(true)
-        viewModel.editClient()
+        viewModel.editClientInCoreData()
         viewModel.popToClientList(source: self)
     }
     

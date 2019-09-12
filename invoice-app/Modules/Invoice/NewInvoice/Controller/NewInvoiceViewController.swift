@@ -30,8 +30,6 @@ class NewInvoiceViewController: BaseViewController {
     @IBAction func tapBottomButton(_ sender: UIButton) {
         view.endEditing(true)
         if clientSelected == true {
-            let client = viewModel.getClient()
-            print(client?.name ?? "empty name")
             viewModel.createNewInvoice()
             viewModel.popToInvoiceList(source: self)
         } else {
@@ -85,6 +83,7 @@ class NewInvoiceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        
     }
 }
 

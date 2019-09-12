@@ -44,11 +44,15 @@ extension ClientStorageService {
         return clients
     }
     
-    func editClient(client: ClientModel) {
-        let clientsFromCoreData = persistanceManager.fetch(Client.self)
+    // Finding client which is matching ID
+    func findClient(client: ClientModel) -> Client? {
+      let clientsFromCoreData = persistanceManager.fetch(Client.self)
         let editingClient = clientsFromCoreData.first(where:{$0.id == client.id})
-        guard let clientToEdit = editingClient else { return }
-        print(clientToEdit)
+        return editingClient
+    }
+    
+    func editClient(client: ClientModel) {
+        guard let clientToEdit = findClient(client: client) else { return }
         clientToEdit.name = client.name
         clientToEdit.email = client.email
         clientToEdit.phone = client.phone
@@ -57,6 +61,12 @@ extension ClientStorageService {
         clientToEdit.city = client.city
         clientToEdit.country = client.country
         clientToEdit.id = client.id
+        persistanceManager.save()
+    }
+    
+    func deleteClient(client: ClientModel) {
+        guard let clientToDelete = findClient(client: client) else { return }
+        persistanceManager.context.delete(clientToDelete)
         persistanceManager.save()
     }
 }

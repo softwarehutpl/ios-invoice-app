@@ -12,8 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompanySelectViewController" customModule="invoice_app" customModuleProvider="target">
             <connections>
-                <outlet property="searchBar" destination="jyi-0J-Rus" id="q5N-kc-E5A"/>
-                <outlet property="tableView" destination="60Q-Q1-wkR" id="Fgq-7n-mcj"/>
+                <outlet property="tableView" destination="5mk-xr-rF8" id="LRI-6Y-KbB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,31 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60Q-Q1-wkR">
-                    <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5mk-xr-rF8">
+                    <rect key="frame" x="10" y="30" width="355" height="627"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="vgv-Np-Spo"/>
-                        <outlet property="delegate" destination="-1" id="DLp-JT-HAb"/>
+                        <outlet property="dataSource" destination="-1" id="IrH-Ou-Luj"/>
+                        <outlet property="delegate" destination="-1" id="NCW-Ns-WpU"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-0J-Rus">
-                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="uzV-QQ-V6h"/>
-                    </connections>
-                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="60Q-Q1-wkR" firstAttribute="top" secondItem="jyi-0J-Rus" secondAttribute="bottom" id="6S4-JI-hpO"/>
-                <constraint firstItem="jyi-0J-Rus" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Ba-oG-WQp"/>
-                <constraint firstItem="jyi-0J-Rus" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AA0-NU-TeU"/>
-                <constraint firstAttribute="trailing" secondItem="60Q-Q1-wkR" secondAttribute="trailing" id="CSi-YI-Le9"/>
-                <constraint firstItem="60Q-Q1-wkR" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="P8A-gl-a8B"/>
-                <constraint firstItem="60Q-Q1-wkR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f2v-hU-usL"/>
-                <constraint firstItem="jyi-0J-Rus" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sqx-KF-xyx"/>
+                <constraint firstItem="5mk-xr-rF8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="9ib-GD-IQZ"/>
+                <constraint firstItem="5mk-xr-rF8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="I8B-kQ-Fyc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5mk-xr-rF8" secondAttribute="bottom" constant="10" id="We4-ui-0nR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5mk-xr-rF8" secondAttribute="trailing" constant="10" id="r9c-1Q-TP3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-201" y="-8"/>

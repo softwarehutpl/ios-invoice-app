@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ClientsViewController: BaseViewController {
     
     //MARK: - Outlets
@@ -65,6 +63,7 @@ class ClientsViewController: BaseViewController {
             textField.borderStyle = .none
             textField.layer.borderWidth = 1
             textField.layer.borderColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
+            searchBar.delegate = self
         }
     }
     
@@ -99,7 +98,8 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClientCollectionViewCell.identyfier, for: indexPath) as? ClientCollectionViewCell else {
             fatalError("Expected `\(ClientCollectionViewCell.self)` type for reuseIdentifier \(ClientCollectionViewCell.identyfier). Check the configuration")
         }
-        
+        cell.prepareForReuse()
+        cell.clipsToBounds = true
         cell.prepareView(client: viewModel.fetchClients(index: indexPath.item))
         cell.callback = { [weak self] in
             guard let `self` = self else { return }
@@ -113,10 +113,18 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let client = viewModel.fetchClients(index: indexPath.item)
-        
         viewModel.popToNewInvoiceView(source: self)
         viewModel.passClientToNewInvoiceView(client: client)
     }
 }
+
+extension ClientsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        viewModel.searchClient(searchClient: searchText)
+        collectionView.reloadData()
+    }
+}
+
 
 

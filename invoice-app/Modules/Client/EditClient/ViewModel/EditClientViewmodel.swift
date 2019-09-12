@@ -14,7 +14,6 @@ class EditClientViewModel: EditClientViewModelType {
     //MARK: - Propierties
     var client: ClientModel
     
-
     //MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
     private let clientStorageService: ClientStorageServiceType
@@ -31,34 +30,39 @@ class EditClientViewModel: EditClientViewModelType {
 }
 
 extension EditClientViewModel {
+    // Passing current Client data into view
     func fetchClientDetails() -> ClientDetailsModel {
         let clientDetails = ClientDetailsModel(name: client.name, email: client.email, phone: client.phone)
         return clientDetails
     }
+    
     func fetchClientAddressDetails() -> ClientAddressModel {
         let clientAddress = ClientAddressModel(address: client.address, postcode: client.postcode, city: client.city
             , country: client.country)
         return clientAddress
     }
-    func getClientData() -> String {
-        return client.id
-    }
-    func editClient() {
-        clientStorageService.editClient(client: client)
-    }
-    func popToClientList(source: UIViewController) {
-        sceneCoordinator.pop(source: source, animated: true)
-    }
+    
+    // Fetching edited data from cells
     func getEditedClientDetails(clientDetails: ClientDetailsModel) {
         self.client.name = clientDetails.name
         self.client.email = clientDetails.email
         self.client.phone = clientDetails.phone
     }
+    
     func getEditedClientAddress(clientAddress: ClientAddressModel) {
         self.client.address = clientAddress.address
         self.client.postcode = clientAddress.postcode
         self.client.city = clientAddress.city
         self.client.country = clientAddress.country
+    }
+    
+    // Saving in Core Data & Navigation
+    func editClientInCoreData() {
+        clientStorageService.editClient(client: client)
+    }
+    
+    func popToClientList(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
     }
 }
 

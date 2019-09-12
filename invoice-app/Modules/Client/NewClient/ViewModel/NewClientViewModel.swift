@@ -40,6 +40,7 @@ extension NewClientViewModel {
     func getNewClientDetailModel(clientDetails: ClientDetailsModel) {
         clientDetailsModel = clientDetails
     }
+    
     func getNewClientAddressModel(clientAddress: ClientAddressModel) {
         clientAddressModel = clientAddress
     }

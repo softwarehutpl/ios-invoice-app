@@ -5,7 +5,7 @@ protocol ViewControllerResolverType {
     func invoiceListController() -> InvoiceListViewController?
     func invoiceDetailController(invoice: InvoiceModel) -> InvoiceDetailViewController?
     func newInvoiceViewController() -> NewInvoiceViewController?
-    func clientsViewControler() -> ClientsViewController?
+    func clientsViewControler(delegate: ClientViewModelDelegate) -> ClientsViewController?
     func newClientViewController() -> NewClientViewController?
     func editClientViewController(client: ClientModel) -> EditClientViewController?
 }

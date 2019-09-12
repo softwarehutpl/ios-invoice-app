@@ -8,8 +8,7 @@ class ViewModelAssembly: Assembly {
         
         container.register(CompanySelectViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let persistanceManager = r.resolve(PersistanceManager.self)!
-            return CompanySelectViewModel(sceneCoordinator: sceneCoordinator, persistanceManager: persistanceManager)
+            return CompanySelectViewModel(sceneCoordinator: sceneCoordinator)
         }
         container.register(InvoiceListViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
@@ -25,10 +24,10 @@ class ViewModelAssembly: Assembly {
             let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
             return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
         }
-        container.register(ClientViewModel.self) { r in
+        container.register(ClientViewModel.self) { (r,delegate: ClientViewModelDelegate) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let clientStorageService = r.resolve(ClientStorageService.self)!
-            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
+            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, delegate: delegate)
         }
         container.register(NewClientViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!

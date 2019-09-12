@@ -12,7 +12,7 @@ protocol SegmentControllerProtocol {
     func passFilteringIndexType(index: Int)
 }
 
-class menuBar: UIView {
+class menuBar: NibLoadingView {
     
     static var selectedIndex: Int?
     var delegate: SegmentControllerProtocol?
@@ -34,23 +34,8 @@ class menuBar: UIView {
         topBarSegmentControl.layer.borderWidth = 1.5
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
         setupTopBarSegmentControl()
-    }
-    
-    private func commonInit() {
-        let bundle = Bundle.init(for: type(of: self))
-        let nib = UINib(nibName: "menuBar", bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
     }
 }

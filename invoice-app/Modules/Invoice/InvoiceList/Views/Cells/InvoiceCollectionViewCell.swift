@@ -9,7 +9,7 @@
 import UIKit
 
 
-class InvoiceCollectionViewCell: UICollectionViewCell {
+class InvoiceCollectionViewCell: UICollectionViewCell  {
     
     // Cell id
     static let identyfier = "InvoiceCollectionViewCell"
@@ -30,6 +30,7 @@ class InvoiceCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         clientName.text = ""
         date.text = ""
         amount.text = ""
@@ -37,7 +38,7 @@ class InvoiceCollectionViewCell: UICollectionViewCell {
     
     func prepareCell(invoice: InvoiceModel) {
         clientName.text = invoice.client.name
-        date.text = invoice.date
+        date.text = invoice.dueDate
         amount.text = ("PLN \(invoice.amount)")
         if invoice.status == true {
             amount.textColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)

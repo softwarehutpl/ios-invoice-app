@@ -30,11 +30,11 @@ class InvoiceListViewController: BaseViewController{
     
     // MARK: - Views Setup
     private func refreshControlSetup() {
-    refreshControl.tintColor = .white
-    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    collectionView.addSubview(refreshControl)
-    collectionView.alwaysBounceVertical = true
-}
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
+    }
     
     private func setupCollectionView() {
         collectionView.collectionViewLayout = InvoiceCollectionFlowLayout()
@@ -63,9 +63,10 @@ class InvoiceListViewController: BaseViewController{
     }
     
     //MARK: - Lifecycle
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchInvoicesFromCoreData()
         collectionView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -95,6 +96,7 @@ extension InvoiceListViewController: UICollectionViewDelegate, UICollectionViewD
         }
         cell.prepareForReuse()
         cell.prepareCell(invoice: viewModel.getInvoices(indexPath: indexPath.item))
+        cell.clipsToBounds = true
         return cell
     }
     
@@ -114,6 +116,8 @@ extension InvoiceListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchingText(searchingText: searchText)
         collectionView.reloadData()
+        
     }
 }
+
 

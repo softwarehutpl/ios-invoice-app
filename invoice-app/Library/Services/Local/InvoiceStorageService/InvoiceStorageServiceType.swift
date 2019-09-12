@@ -11,4 +11,5 @@ import UIKit
 protocol InvoiceStorageServiceType {
     func fetchInvoice() -> [InvoiceModel]
     func createInvoice(invoice: InvoiceModel)
+    func markAsPaid(invoice: InvoiceModel)
 }

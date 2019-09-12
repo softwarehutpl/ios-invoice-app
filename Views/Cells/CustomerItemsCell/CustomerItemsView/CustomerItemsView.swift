@@ -8,17 +8,12 @@
 
 import UIKit
 
-class CustomerItemsView: UIView {
+class CustomerItemsView: NibLoadingView {
     
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var amountAndPrice: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet var contentView: UIView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
     
     func prepareView(item: ItemModel) {
         itemTitle.text = item.itemName
@@ -26,19 +21,4 @@ class CustomerItemsView: UIView {
         guard let amount = Double(item.amount), let price = Double(item.price) else { return }
         totalPrice.text = "PLN \(Double(amount * price))"
         }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        let bundle = Bundle.init(for: type(of: self))
-        let nib = UINib(nibName: "CustomerItemsView", bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
-    }
 }

@@ -11,10 +11,10 @@ import UIKit
 
 class NewInvoiceViewModel: NewInvoiceViewModelType {
     
-    
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
     private let invoiceStorageService: InvoiceStorageServiceType
+    
     
     // MARK: - Data From Cells
     private var invoiceFormModel: InvoiceFormModel?
@@ -29,25 +29,15 @@ class NewInvoiceViewModel: NewInvoiceViewModelType {
 
 extension NewInvoiceViewModel {
     
+    func addInvoice(invoice: InvoiceModel) {
+        invoiceStorageService.createInvoice(invoice: invoice)
+    }
+    
     func getClient() -> ClientModel?{
         return clientModel
     }
     
-    func popToInvoiceList(source: UIViewController) {
-        sceneCoordinator.pop(source: source, animated: true)
-    }
-    
-    func selectClient(source: UIViewController) {
-        sceneCoordinator.transition(to: StartupScene.clientsView, type: .push, source: source)
-            
-        if let clientViewController =  sceneCoordinator.currentViewController as? ClientsViewController {
-            clientViewController.viewModel.delegate = self
-        }
-    }
     // Invoice Form Data
-    func addInvoice(invoice: InvoiceModel) {
-        invoiceStorageService.createInvoice(invoice: invoice)
-    }
     
     func getInvoiceFormModel(invoiceForm: InvoiceFormModel) {
         invoiceFormModel = invoiceForm
@@ -72,6 +62,15 @@ extension NewInvoiceViewModel {
     
     func getClientStatus() -> Bool {
        return clientModel == nil ? false : true
+    }
+    
+    // Navigation
+    func popToInvoiceList(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
+    }
+    
+    func selectClient(source: UIViewController) {
+        sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self), type: .push, source: source)
     }
 }
 

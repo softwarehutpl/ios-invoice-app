@@ -19,24 +19,20 @@ class InvoiceStorageService: InvoiceStorageServiceType {
 }
 
 extension InvoiceStorageService {
+    
     func createInvoice(invoice: InvoiceModel) {
         let invoiceToAdd = Invoice(context: persistanceManager.context)
-        let client = Client(context: persistanceManager.context)
+        
         invoiceToAdd.invoiceTitle = invoice.invoiceTitle
         invoiceToAdd.date = invoice.date
         invoiceToAdd.dueDate = invoice.dueDate
         invoiceToAdd.amount = invoice.amount
         invoiceToAdd.status = invoice.status
         
-        client.name = invoice.client.name
-        client.postcode = invoice.client.postcode
-        client.email = invoice.client.email
-        client.phone = invoice.client.phone
-        client.address = invoice.client.address
-        client.city = invoice.client.city
-        client.country = invoice.client.country
-        client.id = invoice.client.id
+        let clientsFromCoreData = persistanceManager.fetch(Client.self)
+        let clientToConnectWithInvoice = clientsFromCoreData.first(where:{$0.id == invoice.client.id})
         
+        guard let client = clientToConnectWithInvoice else { return }
         invoiceToAdd.client = client
         persistanceManager.save()
         print("saved invoice")
@@ -53,6 +49,9 @@ extension InvoiceStorageService {
         return invoices
     }
     
+    func markAsPaid(invoice: InvoiceModel) {
+        
+    }
 }
 
 

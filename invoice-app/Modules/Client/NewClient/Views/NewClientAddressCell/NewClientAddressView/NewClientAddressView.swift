@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewClientAddressView: UIView {
+class NewClientAddressView: NibLoadingView {
     
     var callback: ((ClientAddressModel) -> Void)?
     
@@ -39,26 +39,12 @@ class NewClientAddressView: UIView {
         country.text = clientAddress.country
     }
     
-    //MARK: - Lifecycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
         textFieldDelegate()
         addShadowToViews(views: [address,postcode,city,country])
     }
     
-    private func commonInit() {
-        let bundle = Bundle.init(for: type(of: self))
-        let nib = UINib(nibName: "NewClientAddressView", bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
-    }
 }
 
 extension NewClientAddressView: UITextFieldDelegate {

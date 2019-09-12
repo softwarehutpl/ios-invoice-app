@@ -13,38 +13,55 @@ protocol ClientViewModelDelegate: AnyObject {
 }
 
 class ClientViewModel: ClientViewModelType {
-
+    
+    
+   
+    
     // MARK: - Private
+    var delegate: ClientViewModelDelegate
+   
     private let clientStorageService: ClientStorageServiceType
     private let sceneCoordinator: SceneCoordinatorType
     
-    weak var delegate: ClientViewModelDelegate?
-    var clients = [ClientModel]()
+    private var clients = [ClientModel]()
+    private var clientsToShow = [ClientModel]()
+    private var searchingClient: String = "" {
+        didSet {
+            if searchingClient.isEmpty  {
+                clientsToShow = clients
+            } else {
+            clientsToShow.removeAll()
+            clientsToShow.append(contentsOf: clients.filter({$0.name.lowercased().contains(searchingClient.lowercased())}))
+            }
+        }
+    }
     
     // MARK: - Lifecycle
-    init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType) {
+    init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType,delegate: ClientViewModelDelegate) {
         self.sceneCoordinator = sceneCoordinator
         self.clientStorageService = clientStorageService
+        self.delegate = delegate
     }
 }
 
 extension ClientViewModel  {
-    // Operations on Core Data
     
+    // Operations on Core Data
     func createNewClient(source: UIViewController) {
         sceneCoordinator.transition(to: StartupScene.newClientView, type: .push, source: source)
     }
     
     func fetchClients(index: Int) -> ClientModel {
-        return clients[index]
+        return clientsToShow[index]
     }
     
     func fetchClientsFromCoreData() {
         self.clients = clientStorageService.fetchClients()
+        clientsToShow = clients
     }
     
     func getClientCount() -> Int {
-        return clients.count
+        return clientsToShow.count
     }
     
     // Navigation
@@ -52,10 +69,14 @@ extension ClientViewModel  {
         sceneCoordinator.pop(source: source, animated: true)
     }
     func passClientToNewInvoiceView(client: ClientModel) {
-        delegate?.shareClient(client: client)
+        delegate.shareClient(client: client)
     }
     
     func pushToEditClientView(source: UIViewController, client: ClientModel) {
         sceneCoordinator.transition(to: StartupScene.editClientView(client: client), type: .push, source: source)
+    }
+    
+    func searchClient(searchClient: String) {
+        searchingClient = searchClient
     }
 }

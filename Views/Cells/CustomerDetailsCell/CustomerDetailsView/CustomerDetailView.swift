@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomerDetailView: UIView {
+class CustomerDetailView: NibLoadingView {
     
     var changeTitle: (() -> Void)?
     
@@ -22,24 +22,5 @@ class CustomerDetailView: UIView {
         name.text = client.name
         email.text = client.email
         phone.text = client.phone
-    }
-    // MARK: OUTLETS
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        let bundle = Bundle.init(for: type(of: self))
-        let nib = UINib(nibName: "CustomerDetailView", bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(contentView)
     }
 }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ClientCollectionViewCell: UICollectionViewCell {
+class ClientCollectionViewCell: UICollectionViewCell
+{
     var cellIndex: Int?
     var callback: (() -> Void)?
     
@@ -16,6 +17,10 @@ class ClientCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var customView: ClientCellView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
     
     // MARK: Setup View
     func prepareView(client: ClientModel) {
