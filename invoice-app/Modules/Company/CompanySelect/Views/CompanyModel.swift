@@ -15,7 +15,6 @@ struct CompanyModel {
     let address: String
     let phone: String
     let email: String
-    var isExpanded: Bool
 }
 
 
