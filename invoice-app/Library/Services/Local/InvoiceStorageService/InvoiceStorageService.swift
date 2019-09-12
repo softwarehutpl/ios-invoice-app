@@ -15,7 +15,6 @@ class InvoiceStorageService: InvoiceStorageServiceType {
     init(persistanceManager: PersistanceManager) {
         self.persistanceManager = persistanceManager
     }
-    
 }
 
 extension InvoiceStorageService {
