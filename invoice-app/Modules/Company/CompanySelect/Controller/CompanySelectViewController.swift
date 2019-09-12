@@ -50,8 +50,7 @@ extension CompanySelectViewController: UITableViewDataSource {
         cell.prepareCell(company: viewModel.companyModel(indexPath: indexPath.item))
         cell.callback = { [weak self] in
             guard let `self` = self else { return }
-            self.viewModel.toggleIsExpanded(at: indexPath)
-            self.tableView.reloadRows(at: [indexPath], with: .fade)
+         
         }
         return cell
     }
