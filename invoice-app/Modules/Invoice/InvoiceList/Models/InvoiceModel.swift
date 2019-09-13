@@ -13,6 +13,7 @@ struct InvoiceModel {
     var dueDate: String
     var amount: String
     var status: Bool
+    var id: String
     var client: ClientModel
     var items: [ItemModel]
 }

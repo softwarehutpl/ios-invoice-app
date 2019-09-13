@@ -47,11 +47,12 @@ extension NewInvoiceViewModel {
         guard let invoice = invoiceFormModel, let client = clientModel else {
             print("Not all fields filled")
             return }
+        let idFactory = UUID().uuidString
         let newInvoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle,
                                       date: invoice.date,
                                       dueDate: invoice.dueDate,
                                       amount: invoice.amount,
-                                      status: false,
+                                      status: false, id: idFactory,
                                       client: client,
                                       items: [ItemModel(itemName: "testitem",
                                                         amount: "100",

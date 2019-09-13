@@ -53,6 +53,7 @@
 		590DBA67232ACA13006633C3 /* UITextField + Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DBA61232ACA12006633C3 /* UITextField + Padding.swift */; };
 		590DBA68232ACA13006633C3 /* UITextField + Placeholder color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DBA62232ACA13006633C3 /* UITextField + Placeholder color.swift */; };
 		590DBA69232ACA13006633C3 /* UILabel + Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DBA63232ACA13006633C3 /* UILabel + Padding.swift */; };
+		590DBA6B232B6921006633C3 /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DBA6A232B6921006633C3 /* Invoice+CoreDataProperties.swift */; };
 		5917FE38232125EB00540809 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917FE36232125EB00540809 /* EditClientViewController.swift */; };
 		5917FE39232125EB00540809 /* EditClientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5917FE37232125EB00540809 /* EditClientViewController.xib */; };
 		5917FE3E2321263D00540809 /* EditClientViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917FE3D2321263D00540809 /* EditClientViewModelType.swift */; };
@@ -129,7 +130,6 @@
 		59FF5BE32317140700CE051C /* Client+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF5BDF2317140700CE051C /* Client+CoreDataClass.swift */; };
 		59FF5BE42317140700CE051C /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF5BE02317140700CE051C /* Client+CoreDataProperties.swift */; };
 		59FF5BE52317140700CE051C /* Invoice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF5BE12317140700CE051C /* Invoice+CoreDataClass.swift */; };
-		59FF5BE62317140700CE051C /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF5BE22317140700CE051C /* Invoice+CoreDataProperties.swift */; };
 		59FF5BEA2317B03800CE051C /* InvoiceFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FF5BE92317B03800CE051C /* InvoiceFormModel.swift */; };
 		E12702C4B10F016B6EA6D44B /* Pods_invoice_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6095893B07F4534388E44CAF /* Pods_invoice_app.framework */; };
 /* End PBXBuildFile section */
@@ -184,6 +184,7 @@
 		590DBA61232ACA12006633C3 /* UITextField + Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Padding.swift"; sourceTree = "<group>"; };
 		590DBA62232ACA13006633C3 /* UITextField + Placeholder color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Placeholder color.swift"; sourceTree = "<group>"; };
 		590DBA63232ACA13006633C3 /* UILabel + Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel + Padding.swift"; sourceTree = "<group>"; };
+		590DBA6A232B6921006633C3 /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5917FE36232125EB00540809 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		5917FE37232125EB00540809 /* EditClientViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditClientViewController.xib; sourceTree = "<group>"; };
 		5917FE3D2321263D00540809 /* EditClientViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewModelType.swift; sourceTree = "<group>"; };
@@ -260,7 +261,6 @@
 		59FF5BDF2317140700CE051C /* Client+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataClass.swift"; sourceTree = "<group>"; };
 		59FF5BE02317140700CE051C /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		59FF5BE12317140700CE051C /* Invoice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataClass.swift"; sourceTree = "<group>"; };
-		59FF5BE22317140700CE051C /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		59FF5BE92317B03800CE051C /* InvoiceFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceFormModel.swift; sourceTree = "<group>"; };
 		6095893B07F4534388E44CAF /* Pods_invoice_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_invoice_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E080F474F34AB30220EEED /* Pods-invoice-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-invoice-app.debug.xcconfig"; path = "Target Support Files/Pods-invoice-app/Pods-invoice-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -351,8 +351,8 @@
 				5970B4DD232A646F0054FB17 /* SwipingCollectionViewCell */,
 				59AB9296230D0C4300AA747F /* Services */,
 				5930D06F2327C6C300739856 /* CustomViewHandler */,
+				59D5679C232B6AF0009DC780 /* Extensions */,
 				599C0C9D2303DB0200CA7DB4 /* Errors */,
-				592B11CE22FA98E30068772E /* NewClientAddressView */,
 				5934C8FC22F96C9A001A8292 /* Layouts */,
 				0FDB968122F819CB000781E5 /* Controllers */,
 				0FDB965622F80FDB000781E5 /* Coordinator */,
@@ -602,19 +602,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		592B11CE22FA98E30068772E /* NewClientAddressView */ = {
-			isa = PBXGroup;
-			children = (
-				590DBA5E232ACA12006633C3 /* UICollectionFlowLayout + "".swift */,
-				590DBA63232ACA13006633C3 /* UILabel + Padding.swift */,
-				590DBA60232ACA12006633C3 /* UITextField + Icon.swift */,
-				590DBA61232ACA12006633C3 /* UITextField + Padding.swift */,
-				590DBA62232ACA13006633C3 /* UITextField + Placeholder color.swift */,
-				590DBA5F232ACA12006633C3 /* UIView + Shadow.swift */,
-			);
-			path = NewClientAddressView;
 			sourceTree = "<group>";
 		};
 		592B11D222FAB7CC0068772E /* InvoiceDetails */ = {
@@ -961,6 +948,20 @@
 			path = CustomerItemsView;
 			sourceTree = "<group>";
 		};
+		59D5679C232B6AF0009DC780 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				590DBA5E232ACA12006633C3 /* UICollectionFlowLayout + "".swift */,
+				590DBA63232ACA13006633C3 /* UILabel + Padding.swift */,
+				590DBA60232ACA12006633C3 /* UITextField + Icon.swift */,
+				590DBA61232ACA12006633C3 /* UITextField + Padding.swift */,
+				590DBA62232ACA13006633C3 /* UITextField + Placeholder color.swift */,
+				590DBA5F232ACA12006633C3 /* UIView + Shadow.swift */,
+			);
+			name = Extensions;
+			path = "invoice-app/Library/Extensions";
+			sourceTree = SOURCE_ROOT;
+		};
 		59DCCBB02313E1E500C56542 /* CellModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,7 +1122,7 @@
 				59FF5BDF2317140700CE051C /* Client+CoreDataClass.swift */,
 				59FF5BE02317140700CE051C /* Client+CoreDataProperties.swift */,
 				59FF5BE12317140700CE051C /* Invoice+CoreDataClass.swift */,
-				59FF5BE22317140700CE051C /* Invoice+CoreDataProperties.swift */,
+				590DBA6A232B6921006633C3 /* Invoice+CoreDataProperties.swift */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -1304,6 +1305,7 @@
 				59026368230411AB0017C4D5 /* CustomerAddressCell.swift in Sources */,
 				59AB929D230D0C4C00AA747F /* Company+CoreDataClass.swift in Sources */,
 				59DCCBB523150B0800C56542 /* ClientDetailsModel.swift in Sources */,
+				590DBA6B232B6921006633C3 /* Invoice+CoreDataProperties.swift in Sources */,
 				599331B323014F8A00C024EC /* InvoiceDetailTopView.swift in Sources */,
 				590B98FF2302BA2E0006FCA6 /* CustomerDetailView.swift in Sources */,
 				590B98F62302B7F80006FCA6 /* CustomerDetailsCell.swift in Sources */,
@@ -1318,7 +1320,6 @@
 				0FDB966422F81598000781E5 /* ViewControllerAssembly.swift in Sources */,
 				592B11CB22F997E60068772E /* InvoiceCollectionFlowLayout.swift in Sources */,
 				596214A923118DF7007611A0 /* ClientDetailsTableViewCell.swift in Sources */,
-				59FF5BE62317140700CE051C /* Invoice+CoreDataProperties.swift in Sources */,
 				0FDB966822F81611000781E5 /* CoordinatorAssembly.swift in Sources */,
 				0FDB968B22F81BD7000781E5 /* InvoiceListViewModel.swift in Sources */,
 				0FDB965C22F813F1000781E5 /* SceneCoordinatorType.swift in Sources */,

@@ -1,9 +1,8 @@
 //
 //  Invoice+CoreDataProperties.swift
-//  invoice-app
+//  
 //
-//  Created by Damian Szejnoch on 28/08/2019.
-//  Copyright © 2019 Softwarehut. All rights reserved.
+//  Created by Damian Szejnoch on 13/09/2019.
 //
 //
 
@@ -22,6 +21,7 @@ extension Invoice {
     @NSManaged public var dueDate: String
     @NSManaged public var invoiceTitle: String
     @NSManaged public var status: Bool
+    @NSManaged public var id: String
     @NSManaged public var client: Client
 
 }
