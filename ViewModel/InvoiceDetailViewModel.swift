@@ -12,13 +12,15 @@ import UIKit
 class InvoiceDetailViewModel: InvoiceDetailViewModelType {
     
         // MARK: - Private
+        private let invoiceStorageService: InvoiceStorageServiceType
         private let sceneCoordinator: SceneCoordinatorType
         private let invoice: InvoiceModel
         
         // MARK: - Lifecycle
-        init(sceneCoordinator: SceneCoordinatorType,invoice: InvoiceModel) {
+    init(sceneCoordinator: SceneCoordinatorType,invoice: InvoiceModel, invoiceStorageService: InvoiceStorageServiceType ) {
             self.sceneCoordinator = sceneCoordinator
             self.invoice = invoice
+            self.invoiceStorageService = invoiceStorageService
         }
 }
 
@@ -42,5 +44,13 @@ extension InvoiceDetailViewModel {
     
     func getItemsCount() -> Int {
         return invoice.items.count
+    }
+    
+    func deleteInvoice() {
+        invoiceStorageService.deleteInvoice(invoice: self.invoice)
+    }
+    
+    func popToInvoiceList(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
     }
 }

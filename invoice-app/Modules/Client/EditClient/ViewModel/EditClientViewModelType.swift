@@ -12,7 +12,8 @@ import UIKit
 protocol EditClientViewModelType {
     func fetchClientDetails() -> ClientDetailsModel
     func fetchClientAddressDetails() -> ClientAddressModel
-    func editClientInCoreData()
+    func editClient()
+    func deleteClient()
     func popToClientList(source: UIViewController)
     func getEditedClientDetails(clientDetails: ClientDetailsModel)
     func getEditedClientAddress(clientAddress: ClientAddressModel)

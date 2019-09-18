@@ -44,6 +44,7 @@ class ClientsViewController: BaseViewController {
     }
     
     private func setupCollectionView() {
+        collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         let nib = UINib(nibName: ClientCollectionViewCell.identyfier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: ClientCollectionViewCell.identyfier)
     }
@@ -91,7 +92,12 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getClientCount()
+        if viewModel.getClientsCount() == 0 {
+            self.collectionView.setEmptyMessage("No clients to show")
+        } else {
+            self.collectionView.restore()
+        }
+        return viewModel.getClientsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

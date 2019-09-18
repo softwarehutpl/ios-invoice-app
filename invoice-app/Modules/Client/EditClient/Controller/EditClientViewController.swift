@@ -20,12 +20,17 @@ class EditClientViewController: BaseViewController {
         self.viewModel = viewModel
         super.init()
     }
+    
     //MARK: - Setup Views
     private func setupNavigationBar() {
         navigationItem.title = "Edit Client"
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
         navigationController?.navigationBar.barStyle = .black
+        let rightNavBarItemImage = UIImage(named: "hamburgericon")
+        let rightNavBarItem = UIBarButtonItem(image: rightNavBarItemImage, style: .plain, target: self, action: #selector(clientOptionsTapped))
+        rightNavBarItem.tintColor = .white
+        navigationItem.rightBarButtonItem = rightNavBarItem
     }
     
     private func setupTableView() {
@@ -48,8 +53,26 @@ class EditClientViewController: BaseViewController {
     //MARK: - Actions
     @IBAction func saveClientTap(_ sender: UIButton) {
         view.endEditing(true)
-        viewModel.editClientInCoreData()
+        viewModel.editClient()
         viewModel.popToClientList(source: self)
+    }
+    
+    @objc func clientOptionsTapped() {
+        alertControl.alert(title: "Choose option", msg: "", target: self, alerts:[
+            UIAlertAction(title: "Email", style: .default, handler: { (alert) in
+                print("Sended by email")
+            }),
+            UIAlertAction(title: "Share", style: .default, handler: { (alert) in
+                print("Shared")
+            }),
+            UIAlertAction(title: "Delete", style: .destructive, handler: { (alert) in
+                self.viewModel.deleteClient()
+                self.viewModel.popToClientList(source: self)
+            }),
+            UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+                print("Cancelled")
+            })
+            ])
     }
     
     //MARK: - Lifecycle

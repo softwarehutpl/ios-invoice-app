@@ -8,10 +8,13 @@
 
 import UIKit
 
-
 class NewInvoiceViewController: BaseViewController {
     
-    var clientSelected = false
+    var titles: [String] = ["abc"]
+    let item = "added"
+    
+    var clientSelected = false // variable holds state which is showing correct
+                                //view depending whether user is selected
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +36,7 @@ class NewInvoiceViewController: BaseViewController {
             viewModel.createNewInvoice()
             viewModel.popToInvoiceList(source: self)
         } else {
-          viewModel.selectClient(source: self)
+            viewModel.selectClient(source: self)
         }
     }
     
@@ -51,19 +54,24 @@ class NewInvoiceViewController: BaseViewController {
             bottomButton.setTitle("Select Client", for: .normal)
         }
         // Setup View
+        
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         tableView.clipsToBounds = true
+        
         
         // Cell register
         
         let clientDetailsView = UINib(nibName: ClientDetailsTableViewCell.identyfier, bundle: nil)
         tableView.register(clientDetailsView, forCellReuseIdentifier: ClientDetailsTableViewCell.identyfier)
-        let InvoiceFormView = UINib(nibName: InvoiceFormTableViewCell.identyfier, bundle: nil)
-        tableView.register(InvoiceFormView, forCellReuseIdentifier: InvoiceFormTableViewCell.identyfier)
+        let invoiceFormView = UINib(nibName: InvoiceFormTableViewCell.identyfier, bundle: nil)
+        tableView.register(invoiceFormView, forCellReuseIdentifier: InvoiceFormTableViewCell.identyfier)
+        let itemsView = UINib(nibName: ItemsTableViewCell.identyfier, bundle: nil)
+        tableView.register(itemsView, forCellReuseIdentifier: ItemsTableViewCell.identyfier)
         let noClientAddedView = UINib(nibName: NoClientAddedTableViewCell.identyfier, bundle: nil)
         tableView.register(noClientAddedView, forCellReuseIdentifier: NoClientAddedTableViewCell.identyfier)
     }
@@ -91,7 +99,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if clientSelected == true {
-            return 2
+            return 3
         } else {
             return 1
         }
@@ -101,7 +109,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0: return 1
         case 1: return 1
-        case 2: return 3
+        case 2: return titles.count
         default: fatalError("Sections loading error")
         }
     }
@@ -118,19 +126,39 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 clientDetailCell.prepareCell(client: viewModel.getClient()!)
                 return clientDetailCell
+            
             case 1:
                 guard let invoiceFormCell = tableView.dequeueReusableCell(withIdentifier: InvoiceFormTableViewCell.identyfier) as? InvoiceFormTableViewCell else {
                     fatalError(cellError.showError(cellTitle: InvoiceFormTableViewCell.self, cellID: InvoiceFormTableViewCell.identyfier))
-                    
                 }
+                
                 invoiceFormCell.callback = { [weak self] invoiceForm in
                     guard let `self` = self else { return }
                     self.viewModel.getInvoiceFormModel(invoiceForm: invoiceForm)
                 }
                 return invoiceFormCell
-            case 2: return UITableViewCell()
+                
+            case 2:
+                guard let itemsCell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.identyfier) as? ItemsTableViewCell else {
+                    fatalError(cellError.showError(cellTitle: ItemsTableViewCell.self, cellID: ItemsTableViewCell.identyfier))
+                }
+                
+                
+                itemsCell.layoutMargins = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+                
+                itemsCell.callback = {
+                    let indexToScroll = IndexPath(row: self.titles.count - 1, section: 2)
+                    let indexpath = IndexPath(row: self.titles.count - 1, section: 2)
+                    self.titles.append(self.item)
+                    tableView.beginUpdates()
+                    tableView.insertRows(at: [indexpath], with: .automatic)
+                    tableView.endUpdates()
+                    self.tableView.scrollToRow(at: indexToScroll, at: .bottom, animated: true)
+                }
+                return itemsCell
             default: return UITableViewCell()
             }
+            
         } else {
             guard let noClientAddedView = tableView.dequeueReusableCell(withIdentifier: NoClientAddedTableViewCell.identyfier) as? NoClientAddedTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NoClientAddedTableViewCell.self, cellID: NoClientAddedTableViewCell.identyfier))
@@ -139,18 +167,46 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = NewInvoiceCellHeader()
         if clientSelected == true {
-            switch indexPath.section {
-            case 0: return 200
-            case 1: return 620
-            default: fatalError()
+            switch section {
+            case 0 : view.headerTitle.text = "Client Details"
+            case 1: view.headerTitle.text = "Invoice Details"
+            case 2: view.headerTitle.text = "Items"
+            default: view.headerTitle.text = ""
             }
         } else {
-            switch indexPath.section {
-            case 0: return tableView.frame.height
-            default: fatalError()
-            }
+            view.isHidden = true
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if clientSelected == false {
+            return tableView.frame.height
+        } else {
+            return UITableView.automaticDimension
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    //
+    //
+    //    private func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //        if editingStyle == .delete {
+    //            titles.remove(at: indexPath.row)
+    //
+    //            tableView.beginUpdates()
+    //            tableView.deleteRows(at: [indexPath], with: .automatic)
+    //            tableView.endUpdates()
+    //        }
+    //    }
 }

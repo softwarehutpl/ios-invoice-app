@@ -17,7 +17,8 @@ class ViewModelAssembly: Assembly {
         }
         container.register(InvoiceDetailViewModel.self) { (r, invoice: InvoiceModel) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice)
+            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
+            return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice, invoiceStorageService: invoiceStorageService)
         }
         container.register(NewInvoiceViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!

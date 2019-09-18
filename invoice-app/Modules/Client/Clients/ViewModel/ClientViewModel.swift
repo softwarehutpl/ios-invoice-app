@@ -60,7 +60,7 @@ extension ClientViewModel  {
         clientsToShow = clients
     }
     
-    func getClientCount() -> Int {
+    func getClientsCount() -> Int {
         return clientsToShow.count
     }
     

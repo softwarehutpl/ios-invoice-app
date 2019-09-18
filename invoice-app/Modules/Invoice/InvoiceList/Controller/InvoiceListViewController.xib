@@ -24,13 +24,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qa3-rX-Mwm">
-                    <rect key="frame" x="10" y="146" width="394" height="706"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KvF-Tg-OJe">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
+                    <rect key="frame" x="0.0" y="146" width="414" height="716"/>
+                    <collectionViewLayout key="collectionViewLayout" id="eie-Sp-9H9" customClass="InvoiceCollectionFlowLayout" customModule="invoice_app" customModuleProvider="target"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="rvW-gq-8rv"/>
                         <outlet property="delegate" destination="-1" id="zay-I9-3ZD"/>
@@ -45,7 +40,7 @@
                     </connections>
                 </searchBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9D-f5-s3f" userLabel="topBar" customClass="menuBar" customModule="invoice_app" customModuleProvider="target">
-                    <rect key="frame" x="10" y="106" width="394" height="40"/>
+                    <rect key="frame" x="0.0" y="106" width="414" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="9cR-Xc-g6l"/>
@@ -59,15 +54,15 @@
                 <constraint firstItem="j9D-f5-s3f" firstAttribute="top" secondItem="VQu-fF-1dt" secondAttribute="bottom" constant="5" id="88A-ft-frp"/>
                 <constraint firstItem="VQu-fF-1dt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Dzc-mc-Rfy"/>
                 <constraint firstItem="VQu-fF-1dt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="E0p-4E-Avm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j9D-f5-s3f" secondAttribute="trailing" constant="10" id="N7G-LI-p4R"/>
-                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="Xw8-t4-NSI"/>
-                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bJX-Jm-aNj"/>
-                <constraint firstItem="j9D-f5-s3f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="k1a-dv-pgB"/>
-                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-10" id="tAR-N5-Icv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j9D-f5-s3f" secondAttribute="trailing" id="N7G-LI-p4R"/>
+                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Xw8-t4-NSI"/>
+                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bJX-Jm-aNj"/>
+                <constraint firstItem="j9D-f5-s3f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="k1a-dv-pgB"/>
+                <constraint firstItem="Qa3-rX-Mwm" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tAR-N5-Icv"/>
                 <constraint firstItem="VQu-fF-1dt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="1" id="wPB-Gd-jP6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+            <point key="canvasLocation" x="183" y="346"/>
         </view>
     </objects>
 </document>

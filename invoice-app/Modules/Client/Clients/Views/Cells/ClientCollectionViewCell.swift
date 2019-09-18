@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ClientCollectionViewCell: UICollectionViewCell
-{
-    var cellIndex: Int?
-    var callback: (() -> Void)?
+class ClientCollectionViewCell: UICollectionViewCell {
     
     static let identyfier = "ClientCollectionViewCell"
     
+    var cellIndex: Int?
+    var callback: (() -> Void)?
+
     // MARK: - Outlets
     @IBOutlet weak var customView: ClientCellView!
     

@@ -13,4 +13,6 @@ protocol InvoiceDetailViewModelType {
     func getItemsDescriptions(indexPath: Int) -> ItemModel
     func getItemsCount() -> Int
     func getDataForTopView() -> InvoiceModel
+    func deleteInvoice()
+    func popToInvoiceList(source: UIViewController)
 }

@@ -13,7 +13,7 @@ protocol ClientViewModelType {
     // Operations on Core Data
     func createNewClient(source: UIViewController)
     func fetchClientsFromCoreData()
-    func getClientCount() -> Int
+    func getClientsCount() -> Int
     func fetchClients(index: Int) -> ClientModel
     func passClientToNewInvoiceView(client: ClientModel)
     func searchClient(searchClient: String)

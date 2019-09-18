@@ -35,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bv0-Qk-6Dl">
-                    <rect key="frame" x="106" y="101" width="470.5" height="90"/>
+                    <rect key="frame" x="106" y="101" width="481" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
@@ -49,7 +49,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO5-dN-jpy">
-                    <rect key="frame" x="581.5" y="135" width="38.5" height="60.5"/>
+                    <rect key="frame" x="592" y="151" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="aRr-df-7D6"/>
+                        <constraint firstAttribute="width" constant="28" id="fMQ-T0-WOb"/>
+                    </constraints>
                     <color key="tintColor" red="0.02910782583" green="0.41016668080000002" blue="0.30797731880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button" image="editbutton"/>
                     <connections>
@@ -66,7 +70,6 @@
                 <constraint firstItem="bv0-Qk-6Dl" firstAttribute="top" secondItem="s8R-Nj-csr" secondAttribute="bottom" id="AgV-6m-prE"/>
                 <constraint firstItem="I5V-zl-V9f" firstAttribute="leading" secondItem="5I2-ca-r0w" secondAttribute="trailing" constant="5" id="Dgj-4u-jO6"/>
                 <constraint firstItem="5I2-ca-r0w" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gdu-9j-JMv"/>
-                <constraint firstItem="aO5-dN-jpy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.25" id="I6H-Og-ge9"/>
                 <constraint firstItem="aO5-dN-jpy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Obu-CF-5Zl"/>
                 <constraint firstItem="5I2-ca-r0w" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Qp9-2S-Lve"/>
                 <constraint firstItem="I5V-zl-V9f" firstAttribute="height" secondItem="bv0-Qk-6Dl" secondAttribute="height" id="SUn-Ml-QaE"/>
@@ -75,7 +78,6 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I5V-zl-V9f" secondAttribute="trailing" constant="60" id="cXM-pg-hvr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="I5V-zl-V9f" secondAttribute="bottom" constant="5" id="eFE-gs-zZy"/>
                 <constraint firstItem="s8R-Nj-csr" firstAttribute="leading" secondItem="5I2-ca-r0w" secondAttribute="trailing" constant="5" id="goA-fP-qmN"/>
-                <constraint firstItem="aO5-dN-jpy" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.06" id="nyr-au-2ig"/>
                 <constraint firstItem="s8R-Nj-csr" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="sLF-Ih-efF"/>
                 <constraint firstItem="s8R-Nj-csr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="v2J-vp-ue3"/>
                 <constraint firstItem="bv0-Qk-6Dl" firstAttribute="leading" secondItem="5I2-ca-r0w" secondAttribute="trailing" constant="5" id="zDM-XY-tYB"/>

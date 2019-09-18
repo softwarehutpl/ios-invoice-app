@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+
 class NibLoadingView: UIView {
     
     @IBOutlet weak var view: UIView!

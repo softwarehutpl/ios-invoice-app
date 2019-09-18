@@ -1,5 +1,6 @@
 import UIKit
 
+@IBDesignable
 class InvoiceListViewController: BaseViewController{
     
     // MARK: - Outlets
@@ -38,7 +39,7 @@ class InvoiceListViewController: BaseViewController{
     
     private func setupCollectionView() {
         collectionView.collectionViewLayout = InvoiceCollectionFlowLayout()
-        collectionView.backgroundColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         //Cells register
         let nib = UINib(nibName: InvoiceCollectionViewCell.identyfier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: InvoiceCollectionViewCell.identyfier)
@@ -87,6 +88,11 @@ class InvoiceListViewController: BaseViewController{
 extension InvoiceListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if viewModel.getInvoiceCount == 0 {
+            self.collectionView.setEmptyMessage("No invoices to show")
+        } else {
+            self.collectionView.restore()
+        }
         return viewModel.getInvoiceCount
     }
     

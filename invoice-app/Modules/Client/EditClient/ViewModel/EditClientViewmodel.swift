@@ -56,13 +56,19 @@ extension EditClientViewModel {
         self.client.country = clientAddress.country
     }
     
-    // Saving in Core Data & Navigation
-    func editClientInCoreData() {
-        clientStorageService.editClient(client: client)
+    // Managing client in Core Data
+    func editClient() {
+        clientStorageService.editClient(client: self.client)
     }
     
+    func deleteClient() {
+        clientStorageService.deleteClient(client: self.client)
+    }
+    
+    // Navigation
     func popToClientList(source: UIViewController) {
         sceneCoordinator.pop(source: source, animated: true)
     }
+    
 }
 

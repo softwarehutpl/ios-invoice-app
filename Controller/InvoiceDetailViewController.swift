@@ -22,6 +22,25 @@ class InvoiceDetailViewController: BaseViewController {
         self.viewModel = viewmodel
         super.init()
     }
+    //MARK: - Actions
+    
+    @objc func invoiceOptionsTapped() {
+        alertControl.alert(title: "Choose option", msg: "", target: self, alerts:[
+            UIAlertAction(title: "Email", style: .default, handler: { (alert) in
+                print("Sended by email")
+            }),
+            UIAlertAction(title: "Share", style: .default, handler: { (alert) in
+                print("Shared")
+            }),
+            UIAlertAction(title: "Delete", style: .destructive, handler: { (alert) in
+                self.viewModel.deleteInvoice()
+                self.viewModel.popToInvoiceList(source: self)
+            }),
+            UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+                print("Cancelled")
+            })
+            ])
+    }
     
     //MARK: - Setup Views
     private func setupTableView() {
@@ -45,6 +64,10 @@ class InvoiceDetailViewController: BaseViewController {
     
     private func setupNavigationBar() {
         navigationItem.title = "Invoice Details"
+        let rightNavBarItemImage = UIImage(named: "hamburgericon")
+        let rightNavBarItem = UIBarButtonItem(image: rightNavBarItemImage, style: .plain, target: self, action: #selector(invoiceOptionsTapped))
+        rightNavBarItem.tintColor = .white
+        navigationItem.rightBarButtonItem = rightNavBarItem
     }
     
     func loadTopViewData() {

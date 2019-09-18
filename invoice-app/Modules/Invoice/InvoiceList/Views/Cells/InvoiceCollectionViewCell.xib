@@ -12,59 +12,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InvoiceCollectionViewCell" id="gTV-IL-0wX" customClass="InvoiceCollectionViewCell" customModule="invoice_app" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="367" height="119"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="InvoiceCollectionViewCell" customModule="invoice_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="223"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="119"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="223"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dl3-CV-CoB" customClass="EdgeInsetLabel" customModule="invoice_app" customModuleProvider="target">
-                        <rect key="frame" x="264.5" y="20" width="82.5" height="16"/>
-                        <attributedString key="attributedText">
-                            <fragment content="PLN 3500.00">
-                                <attributes>
-                                    <color key="NSColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" size="14" name="Arial-BoldMT"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 Mar 19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="abc-Wu-kTf">
-                        <rect key="frame" x="20" y="49" width="65" height="23.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damian Szejnoch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="crP-IK-tnP">
-                        <rect key="frame" x="20" y="20" width="141" height="24"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nO-49-NJb" customClass="InvoiceCellView" customModule="invoice_app" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="223"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dl3-CV-CoB" secondAttribute="trailing" constant="20" id="2ma-aX-6gF"/>
-                <constraint firstItem="crP-IK-tnP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="Rge-l4-XSj"/>
-                <constraint firstItem="abc-Wu-kTf" firstAttribute="top" secondItem="crP-IK-tnP" secondAttribute="bottom" constant="5" id="RhI-Hi-he3"/>
-                <constraint firstItem="dl3-CV-CoB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="SjS-vS-7Ld"/>
-                <constraint firstItem="abc-Wu-kTf" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.2" id="TaD-Ih-FbT"/>
-                <constraint firstItem="crP-IK-tnP" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.2" id="X7o-NZ-dKK"/>
-                <constraint firstItem="abc-Wu-kTf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="kGW-zV-aLN"/>
-                <constraint firstItem="crP-IK-tnP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="rhO-9Z-qBZ"/>
+                <constraint firstItem="3nO-49-NJb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DDO-4f-TXH"/>
+                <constraint firstAttribute="bottom" secondItem="3nO-49-NJb" secondAttribute="bottom" id="Wxm-db-Wj4"/>
+                <constraint firstItem="3nO-49-NJb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hB6-Hn-th4"/>
+                <constraint firstAttribute="trailing" secondItem="3nO-49-NJb" secondAttribute="trailing" id="tYp-N3-elW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="367" height="119"/>
+            <size key="customSize" width="600" height="223"/>
             <connections>
-                <outlet property="amount" destination="dl3-CV-CoB" id="yZp-ud-9OD"/>
-                <outlet property="clientName" destination="crP-IK-tnP" id="hbZ-pX-bFw"/>
-                <outlet property="date" destination="abc-Wu-kTf" id="r6A-xO-nI7"/>
+                <outlet property="customView" destination="3nO-49-NJb" id="vk4-q1-8ax"/>
             </connections>
-            <point key="canvasLocation" x="205.07246376811597" y="76.004464285714278"/>
+            <point key="canvasLocation" x="530.43478260869574" y="78.683035714285708"/>
         </collectionViewCell>
     </objects>
 </document>

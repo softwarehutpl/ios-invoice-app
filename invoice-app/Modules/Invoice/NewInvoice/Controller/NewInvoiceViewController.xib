@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z0I-19-Uey">
-                    <rect key="frame" x="10" y="54" width="394" height="738"/>
+                    <rect key="frame" x="0.0" y="49" width="414" height="743"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="cFS-Nh-igc"/>
@@ -47,11 +47,11 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="z0I-19-Uey" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="763-qR-SRb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z0I-19-Uey" secondAttribute="trailing" constant="10" id="Arp-xa-HXk"/>
+                <constraint firstItem="z0I-19-Uey" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="763-qR-SRb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z0I-19-Uey" secondAttribute="trailing" id="Arp-xa-HXk"/>
                 <constraint firstItem="hfo-9B-5w9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="BRp-qW-69M"/>
                 <constraint firstItem="hfo-9B-5w9" firstAttribute="top" secondItem="z0I-19-Uey" secondAttribute="bottom" constant="10" id="Jav-WW-56z"/>
-                <constraint firstItem="z0I-19-Uey" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="KpM-L7-Itk"/>
+                <constraint firstItem="z0I-19-Uey" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KpM-L7-Itk"/>
                 <constraint firstItem="hfo-9B-5w9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="oGN-Sw-tyh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hfo-9B-5w9" secondAttribute="bottom" constant="10" id="oYh-qe-vLB"/>
             </constraints>

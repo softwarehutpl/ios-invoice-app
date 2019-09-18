@@ -15,10 +15,12 @@ class InvoiceForm: NibLoadingView {
     // MARK: - Outlets
     let dateFormatter = DateFormatter()
     let datePicker = UIDatePicker()
+    
     @IBOutlet weak var invoiceTitle: UITextField!
     @IBOutlet weak var invoiceDate: UITextField!
     @IBOutlet weak var invoiceDueDate: UITextField!
     @IBOutlet weak var invoiceAmount: UITextField!
+    @IBOutlet weak var currency: UITextField!
     @IBOutlet var contentView: UIView!
     
     private func textFieldDelegate() {
@@ -26,23 +28,16 @@ class InvoiceForm: NibLoadingView {
         invoiceDate.delegate = self
         invoiceDueDate.delegate = self
         invoiceAmount.delegate = self
+        currency.delegate = self
     }
     
-    // MARK: - Actions
-    private func setupTextFieldIcons() {
-        invoiceTitle.setIcon(#imageLiteral(resourceName: "editbutton"), iconColor: #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1))
-        invoiceDate.setIcon(#imageLiteral(resourceName: "editbutton"), iconColor: #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1))
-        invoiceDueDate.setIcon(#imageLiteral(resourceName: "editbutton"), iconColor: #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1))
-        invoiceAmount.setIcon(#imageLiteral(resourceName: "editbutton"), iconColor: #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1))
-    }
-    
+    // MARK: - Setup Views
     private func createDatePicker() {
         datePicker.datePickerMode = .date
         invoiceDate.inputView = datePicker
         invoiceDueDate.inputView = datePicker
         datePicker.timeZone = NSTimeZone.local
         datePicker.backgroundColor = UIColor.white
-//        datePicker.addTarget(self, action: #selector(datePickerAction), for: .valueChanged)
     }
     
     private func addShadowToViews(views: [UITextField]) {
@@ -51,17 +46,17 @@ class InvoiceForm: NibLoadingView {
         }
     }
     
+    //MARK: - Lifecycle
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupTextFieldIcons()
         createDatePicker()
         textFieldDelegate()
-        addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoiceAmount])
+        addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoiceAmount,currency])
     }
 }
 
 extension InvoiceForm: UITextFieldDelegate {
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let invoiceTitle = invoiceTitle.text,
             let invoiceDate = invoiceDate.text,
@@ -71,7 +66,7 @@ extension InvoiceForm: UITextFieldDelegate {
         let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, amount: invoiceAmount)
         callback?(invoiceForm)
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if invoiceDate.text == nil || invoiceDate.text?.isEmpty ?? false && invoiceDueDate.text == nil || invoiceDueDate.text?.isEmpty ?? false {
             dateFormatter.dateFormat = "dd/MM/yyyy"
