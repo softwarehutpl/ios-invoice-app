@@ -11,5 +11,4 @@ protocol InvoiceListViewModelType {
     func changeFilteringType(index: Int)
     func getFilteringIndex()
     func searchingText(searchingText: String)
-    
 }

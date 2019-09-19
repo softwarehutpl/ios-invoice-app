@@ -36,7 +36,6 @@ extension NewInvoiceViewModel {
     func getClient() -> ClientModel?{
         return clientModel
     }
-    
     // Invoice Form Data
     
     func getInvoiceFormModel(invoiceForm: InvoiceFormModel) {
@@ -72,6 +71,10 @@ extension NewInvoiceViewModel {
     
     func selectClient(source: UIViewController) {
         sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self), type: .push, source: source)
+    }
+    
+    func showNewItemView(source: UIViewController) {
+        sceneCoordinator.transition(to: StartupScene.newItem, type: .modal, source: source)
     }
 }
 

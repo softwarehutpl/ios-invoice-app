@@ -11,6 +11,7 @@ protocol NewInvoiceViewModelType {
     // Navigation
     func selectClient(source: UIViewController)
     func popToInvoiceList(source: UIViewController)
+    func showNewItemView(source: UIViewController)
     
     // Fetching data from forms
     func addInvoice(invoice: InvoiceModel)

@@ -8,13 +8,21 @@
 
 import UIKit
 
+enum InvoiceFormSectionType {
+    case clientDetails
+    case invoiceForm
+    case items
+}
+
 class NewInvoiceViewController: BaseViewController {
+    
+    var clientSelected = false // variable holds state which is showing correct
+    //view depending whether user is selected
+    let sections = [InvoiceFormSectionType.clientDetails, InvoiceFormSectionType.invoiceForm, InvoiceFormSectionType.items]
+    
     
     var titles: [String] = ["abc"]
     let item = "added"
-    
-    var clientSelected = false // variable holds state which is showing correct
-                                //view depending whether user is selected
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -106,18 +114,20 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 1
-        case 1: return 1
-        case 2: return titles.count
-        default: fatalError("Sections loading error")
+        let sectionType = sections[section]
+        switch sectionType {
+        case .clientDetails: return 1
+        case .invoiceForm: return 1
+        case .items: return titles.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let sectionType = sections[indexPath.section]
+        
         if clientSelected == true {
-            switch indexPath.section {
-            case 0:
+            switch sectionType {
+            case .clientDetails:
                 guard let clientDetailCell = tableView.dequeueReusableCell(withIdentifier: ClientDetailsTableViewCell.identyfier) as? ClientDetailsTableViewCell else {
                     fatalError(cellError.showError(cellTitle: ClientDetailsTableViewCell.self, cellID: ClientDetailsTableViewCell.identyfier))
                 }
@@ -127,7 +137,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 clientDetailCell.prepareCell(client: viewModel.getClient()!)
                 return clientDetailCell
             
-            case 1:
+            case .invoiceForm:
                 guard let invoiceFormCell = tableView.dequeueReusableCell(withIdentifier: InvoiceFormTableViewCell.identyfier) as? InvoiceFormTableViewCell else {
                     fatalError(cellError.showError(cellTitle: InvoiceFormTableViewCell.self, cellID: InvoiceFormTableViewCell.identyfier))
                 }
@@ -138,7 +148,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 return invoiceFormCell
                 
-            case 2:
+            case .items:
                 guard let itemsCell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.identyfier) as? ItemsTableViewCell else {
                     fatalError(cellError.showError(cellTitle: ItemsTableViewCell.self, cellID: ItemsTableViewCell.identyfier))
                 }
@@ -156,7 +166,6 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                     self.tableView.scrollToRow(at: indexToScroll, at: .bottom, animated: true)
                 }
                 return itemsCell
-            default: return UITableViewCell()
             }
             
         } else {
@@ -168,13 +177,13 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionType = sections[section]
         let view = NewInvoiceCellHeader()
         if clientSelected == true {
-            switch section {
-            case 0 : view.headerTitle.text = "Client Details"
-            case 1: view.headerTitle.text = "Invoice Details"
-            case 2: view.headerTitle.text = "Items"
-            default: view.headerTitle.text = ""
+            switch sectionType {
+            case .clientDetails : view.headerTitle.text = "Client Details"
+            case .invoiceForm: view.headerTitle.text = "Invoice Details"
+            case .items: view.headerTitle.text = "Items"
             }
         } else {
             view.isHidden = true
@@ -197,9 +206,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
-    //
-    //
-    //    private func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     //
     //        if editingStyle == .delete {
     //            titles.remove(at: indexPath.row)

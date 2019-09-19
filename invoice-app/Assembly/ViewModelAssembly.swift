@@ -6,10 +6,13 @@ class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         ServiceAssembly().assemble(container: container)
         
+        // Overview
         container.register(CompanySelectViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             return CompanySelectViewModel(sceneCoordinator: sceneCoordinator)
         }
+        
+        // Invoice Views
         container.register(InvoiceListViewModel.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
@@ -25,6 +28,12 @@ class ViewModelAssembly: Assembly {
             let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
             return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
         }
+        container.register(NewItemViewModel.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            return NewItemViewModel(sceneCoordinator: sceneCoordinator)
+        }
+        
+        // Clients Views
         container.register(ClientViewModel.self) { (r,delegate: ClientViewModelDelegate) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let clientStorageService = r.resolve(ClientStorageService.self)!

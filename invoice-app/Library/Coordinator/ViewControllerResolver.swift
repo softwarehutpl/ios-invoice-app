@@ -18,6 +18,8 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func companySelectController() -> CompanySelectViewController? {
         return assembler.resolver.resolve(CompanySelectViewController.self)
     }
+    
+    // InvoiceViews
     func invoiceListController() -> InvoiceListViewController? {
         return assembler.resolver.resolve(InvoiceListViewController.self)
     }
@@ -27,6 +29,11 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func newInvoiceViewController() -> NewInvoiceViewController? {
         return assembler.resolver.resolve(NewInvoiceViewController.self)
     }
+    func newItemViewController() -> NewItemViewController? {
+        return assembler.resolver.resolve(NewItemViewController.self)
+    }
+    
+    // ClientViews
     func clientsViewControler(delegate: ClientViewModelDelegate) -> ClientsViewController? {
         return assembler.resolver.resolve(ClientsViewController.self, argument: delegate)
     }

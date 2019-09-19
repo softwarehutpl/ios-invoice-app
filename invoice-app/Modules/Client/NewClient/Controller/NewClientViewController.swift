@@ -8,8 +8,14 @@
 
 import UIKit
 
+enum NewClientFormSectionType {
+    case clientDetails
+    case addressDetails
+}
+
 class NewClientViewController: BaseViewController {
     
+    let sections = [NewClientFormSectionType.clientDetails, NewClientFormSectionType.addressDetails]
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addClientButton: UIButton!
@@ -74,17 +80,17 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 1
-        case 1: return 1
-        default: fatalError("Sections loading error")
+        let sectionType = sections[section]
+        switch sectionType {
+        case .clientDetails: return 1
+        case .addressDetails: return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.section {
-        case 0:
+        let sectionType = sections[indexPath.section]
+        switch sectionType {
+        case .clientDetails:
             guard let newClientDetailsCell = tableView.dequeueReusableCell(withIdentifier: NewClientDetailsTableViewCell.identyfier) as? NewClientDetailsTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientDetailsTableViewCell.self, cellID: NewClientDetailsTableViewCell.identyfier))
             }
@@ -93,7 +99,8 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
                 self.viewModel.getNewClientDetailModel(clientDetails: client)
             }
             return newClientDetailsCell
-        case 1:
+            
+        case .addressDetails:
             guard let newClientAddressCell = tableView.dequeueReusableCell(withIdentifier: NewClientAddressTableViewCell.identyfier) as? NewClientAddressTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NewClientAddressTableViewCell.self, cellID: NewClientAddressTableViewCell.identyfier))
             }
@@ -102,9 +109,6 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
                 self.viewModel.getNewClientAddressModel(clientAddress: clientAddress)
             }
             return newClientAddressCell
-            
-        default: return UITableViewCell()
-            
         }
     }
 }
