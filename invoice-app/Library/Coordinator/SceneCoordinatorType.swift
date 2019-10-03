@@ -1,11 +1,12 @@
 import UIKit
 import RxSwift
 import Swinject
+import UIKit
 
 protocol SceneCoordinatorType {
-    var currentViewController: UIViewController? { get }
     
     @discardableResult
+    
     func transition(to scene: SceneType, type: SceneTransitionType, source: UIViewController?) -> Completable
 
     @discardableResult
@@ -17,3 +18,5 @@ protocol SceneCoordinatorType {
     @discardableResult
     func openURL(_ url: URL) -> Completable
 }
+
+

@@ -14,12 +14,9 @@ protocol ClientViewModelDelegate: AnyObject {
 
 class ClientViewModel: ClientViewModelType {
     
-    
-   
-    
     // MARK: - Private
     var delegate: ClientViewModelDelegate
-   
+    
     private let clientStorageService: ClientStorageServiceType
     private let sceneCoordinator: SceneCoordinatorType
     

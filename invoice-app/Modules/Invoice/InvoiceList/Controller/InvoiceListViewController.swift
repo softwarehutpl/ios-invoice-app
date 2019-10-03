@@ -3,11 +3,26 @@ import UIKit
 @IBDesignable
 class InvoiceListViewController: BaseViewController{
     
+    let validator = Validation()
     // MARK: - Outlets
     let refreshControl = UIRefreshControl()
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var topBar: menuBar!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
+                textField.borderStyle = .none
+                textField.layer.borderWidth = 1
+                textField.layer.borderColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
+            }
+        }
+    }
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.collectionViewLayout = InvoiceCollectionFlowLayout()
+            collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        }
+    }
+    
     
     // MARK: - Private
     private let viewModel: InvoiceListViewModelType
@@ -18,29 +33,7 @@ class InvoiceListViewController: BaseViewController{
         super.init()
     }
     
-    // MARK: - Actions
-    @objc private func rightNavBarButtonTap() {
-        viewModel.showNewInvoiceView(source: self)
-    }
-    
-    @objc func refresh() {
-        viewModel.fetchInvoicesFromCoreData()
-        collectionView.reloadData()
-        refreshControl.endRefreshing()
-    }
-    
-    // MARK: - Views Setup
-    private func refreshControlSetup() {
-        refreshControl.tintColor = .white
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        collectionView.addSubview(refreshControl)
-        collectionView.alwaysBounceVertical = true
-    }
-    
-    private func setupCollectionView() {
-        collectionView.collectionViewLayout = InvoiceCollectionFlowLayout()
-        collectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        //Cells register
+    private func cellRegister() {
         let nib = UINib(nibName: InvoiceCollectionViewCell.identyfier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: InvoiceCollectionViewCell.identyfier)
     }
@@ -55,33 +48,53 @@ class InvoiceListViewController: BaseViewController{
         navigationItem.rightBarButtonItem = rightNavBarItem
     }
     
-    private func setupSearchBar() {
-        if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
-            textField.borderStyle = .none
-            textField.layer.borderWidth = 1
-            textField.layer.borderColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
-        }
+    //MARK: - Actions
+    @objc private func rightNavBarButtonTap() {
+        viewModel.showNewInvoiceView(source: self)
     }
     
     //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchInvoicesFromCoreData()
         collectionView.reloadData()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let email = "nbgsagsa@wp.pl"
+        let response = Validation.shared.validate(values: (type: ValidationType.email, inputValue: email), target: self)
+        switch response {
+        case .success:
+            break
+        case .failure:
+            print("error")
+        }
+        
         viewModel.fetchInvoicesFromCoreData()
-        setupCollectionView()
+        cellRegister()
         setupNavigationBar()
-        setupSearchBar()
         topBar.delegate = self
         refreshControlSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Setup Views
+extension InvoiceListViewController {
+    @objc func refresh() {
+        viewModel.fetchInvoicesFromCoreData()
+        collectionView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    private func refreshControlSetup() {
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
     }
 }
 
@@ -122,7 +135,6 @@ extension InvoiceListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchingText(searchingText: searchText)
         collectionView.reloadData()
-        
     }
 }
 

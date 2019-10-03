@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +26,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5wW-Sn-kkN"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -69,7 +65,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="kVX-c7-iDN"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -88,7 +83,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5hx-Dx-VVh"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -107,7 +101,6 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="rFu-56-emJ"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -127,7 +120,7 @@
                 <constraint firstItem="kzv-NB-02g" firstAttribute="top" secondItem="gNr-Kl-7wP" secondAttribute="bottom" constant="5" id="027-rR-2Ue"/>
                 <constraint firstItem="ItY-bt-WbO" firstAttribute="top" secondItem="kzv-NB-02g" secondAttribute="bottom" constant="5" id="10P-GL-LZe"/>
                 <constraint firstItem="36c-q5-cCk" firstAttribute="top" secondItem="SMa-Ij-aTd" secondAttribute="bottom" constant="5" id="258-bc-2TJ"/>
-                <constraint firstItem="tlt-mP-rGk" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="22" id="3yz-SR-ly4"/>
+                <constraint firstAttribute="bottom" secondItem="tlt-mP-rGk" secondAttribute="bottom" constant="12" id="5sx-a0-lGX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pae-xi-BFV" secondAttribute="trailing" constant="10" id="6Jl-7d-vfZ"/>
                 <constraint firstItem="Ah2-bc-2Jx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="7c4-N0-A03"/>
                 <constraint firstItem="tlt-mP-rGk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="BMU-zg-PiL"/>
@@ -136,7 +129,6 @@
                 <constraint firstItem="Ah2-bc-2Jx" firstAttribute="top" secondItem="pae-xi-BFV" secondAttribute="bottom" constant="5" id="Gl0-wQ-6Um"/>
                 <constraint firstItem="kzv-NB-02g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="NpC-gV-Beo"/>
                 <constraint firstItem="pae-xi-BFV" firstAttribute="top" secondItem="36c-q5-cCk" secondAttribute="bottom" constant="5" id="QAO-le-4k3"/>
-                <constraint firstItem="tlt-mP-rGk" firstAttribute="top" secondItem="Ah2-bc-2Jx" secondAttribute="bottom" constant="5" id="QuP-E3-F6e"/>
                 <constraint firstItem="SMa-Ij-aTd" firstAttribute="top" secondItem="ItY-bt-WbO" secondAttribute="bottom" constant="5" id="V9Y-8E-WCO"/>
                 <constraint firstItem="SMa-Ij-aTd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="YCq-aJ-lJM"/>
                 <constraint firstItem="pae-xi-BFV" firstAttribute="top" secondItem="36c-q5-cCk" secondAttribute="bottom" constant="5" id="YnF-6p-cwz"/>

@@ -15,7 +15,6 @@ class AddItemView: NibLoadingView {
     @IBOutlet var contentView: UIView!
     
     @IBAction func addRowTapped(_ sender: UIButton) {
-        print("tapped")
         callback?()
     }
 }

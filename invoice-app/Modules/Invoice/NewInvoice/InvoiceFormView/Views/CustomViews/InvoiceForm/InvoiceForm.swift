@@ -10,7 +10,7 @@ import UIKit
 
 class InvoiceForm: NibLoadingView {
     
-    var callback: ((InvoiceFormModel) -> Void)?
+    var passInvoiceForm: ((InvoiceFormModel) -> Void)?
     
     // MARK: - Outlets
     let dateFormatter = DateFormatter()
@@ -20,7 +20,7 @@ class InvoiceForm: NibLoadingView {
     @IBOutlet weak var invoiceDate: UITextField!
     @IBOutlet weak var invoiceDueDate: UITextField!
     @IBOutlet weak var invoiceAmount: UITextField!
-    @IBOutlet weak var currency: UITextField!
+    @IBOutlet weak var invoiceCurrency: UITextField!
     @IBOutlet var contentView: UIView!
     
     private func textFieldDelegate() {
@@ -28,7 +28,7 @@ class InvoiceForm: NibLoadingView {
         invoiceDate.delegate = self
         invoiceDueDate.delegate = self
         invoiceAmount.delegate = self
-        currency.delegate = self
+        invoiceCurrency.delegate = self
     }
     
     // MARK: - Setup Views
@@ -42,7 +42,7 @@ class InvoiceForm: NibLoadingView {
     
     private func addShadowToViews(views: [UITextField]) {
         views.forEach { (view) in
-            view.addShadow(offset: CGSize.init(width: 0, height: 3), color: UIColor.gray, radius: 2.0, opacity: 0.35)
+            view.addShadow(offset: CGSize.init(width: 0, height: 1), color: UIColor.gray, radius: 2.0, opacity: 0.35)
         }
     }
     
@@ -51,20 +51,21 @@ class InvoiceForm: NibLoadingView {
         super.init(coder: aDecoder)
         createDatePicker()
         textFieldDelegate()
-        addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoiceAmount,currency])
+        addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoiceAmount,invoiceCurrency])
     }
 }
 
 extension InvoiceForm: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let invoiceTitle = invoiceTitle.text,
-            let invoiceDate = invoiceDate.text,
-            let invoiceDueDate = invoiceDueDate.text,
-            let invoiceAmount = invoiceAmount.text
+        guard let invoiceTitle = invoiceTitle.text, !invoiceTitle.isEmpty,
+            let invoiceDate = invoiceDate.text, !invoiceDate.isEmpty,
+            let invoiceDueDate = invoiceDueDate.text, !invoiceDueDate.isEmpty,
+            let invoiceAmount = invoiceAmount.text, !invoiceAmount.isEmpty,
+            let currency = invoiceCurrency.text, !currency.isEmpty
             else { return }
-        let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, amount: invoiceAmount)
-        callback?(invoiceForm)
+        let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, amount: invoiceAmount, currency: currency)
+        passInvoiceForm?(invoiceForm)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -73,6 +74,8 @@ extension InvoiceForm: UITextFieldDelegate {
             invoiceDate.text = dateFormatter.string(from: Date())
             guard let proposedDate = Calendar.current.date(byAdding: .day, value: 14, to: Date()) else { return }
             invoiceDueDate.text = dateFormatter.string(from: proposedDate)
+            invoiceAmount.text = "0"
+            invoiceCurrency.text = "PLN"
         }
     }
 }

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Softwarehut. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol NewItemViewModelType {
-    
+    func popToNewInvoiceForm(source: UIViewController)
 }

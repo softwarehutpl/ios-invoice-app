@@ -1,9 +1,9 @@
 PODS:
-  - IQKeyboardManager (6.4.0)
+  - IQKeyboardManager (6.5.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
-  - Swinject (2.6.2)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -19,10 +19,10 @@ SPEC REPOS:
     - Swinject
 
 SPEC CHECKSUMS:
-  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
 PODFILE CHECKSUM: 9e3966c6744c7fce00f7396dd144fcca377cbcaa
 

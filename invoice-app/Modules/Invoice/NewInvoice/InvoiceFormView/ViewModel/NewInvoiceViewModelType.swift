@@ -8,18 +8,26 @@
 import UIKit
 
 protocol NewInvoiceViewModelType {
+    
+    // Setting view depending on whether client is selected
+    func getClientStatus() -> Bool
+    
     // Navigation
     func selectClient(source: UIViewController)
     func popToInvoiceList(source: UIViewController)
     func showNewItemView(source: UIViewController)
     
     // Fetching data from forms
-    func addInvoice(invoice: InvoiceModel)
     func getInvoiceFormModel(invoiceForm: InvoiceFormModel)
+    func getItemFormModel(itemModel: ItemModel)
     
+    // Creating Invoice
+    func checkInvoiceElements(source: UIViewController)
     func createNewInvoice()
-    func getClient() -> ClientModel?
-    // Passing client to invoice view
-    func getClientStatus() -> Bool
     
-}
+    // Showing fetched client in form
+    func getClient() -> ClientModel?
+    
+    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController)
+    }
+

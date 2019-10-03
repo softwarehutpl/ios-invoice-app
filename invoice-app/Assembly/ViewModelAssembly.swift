@@ -7,51 +7,46 @@ class ViewModelAssembly: Assembly {
         ServiceAssembly().assemble(container: container)
         
         // Overview
-        container.register(CompanySelectViewModel.self) { r in
+        container.register(CompanySelectViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             return CompanySelectViewModel(sceneCoordinator: sceneCoordinator)
         }
         
         // Invoice Views
-        container.register(InvoiceListViewModel.self) { r in
+        container.register(InvoiceListViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
             return InvoiceListViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
         }
-        container.register(InvoiceDetailViewModel.self) { (r, invoice: InvoiceModel) in
+        container.register(InvoiceDetailViewModelType.self) { (r, invoice: InvoiceModel) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
             return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice, invoiceStorageService: invoiceStorageService)
         }
-        container.register(NewInvoiceViewModel.self) { r in
+        container.register(NewInvoiceViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
             return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
         }
-        container.register(NewItemViewModel.self) { r in
+        container.register(NewItemViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             return NewItemViewModel(sceneCoordinator: sceneCoordinator)
-        }
+        } 
         
         // Clients Views
-        container.register(ClientViewModel.self) { (r,delegate: ClientViewModelDelegate) in
+        container.register(ClientViewModelType.self) { (r,delegate: ClientViewModelDelegate) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
             return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, delegate: delegate)
         }
-        container.register(NewClientViewModel.self) { r in
+        container.register(NewClientViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
             return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
         }
-        container.register(NewClientViewModel.self) { r in
+        container.register(EditClientViewModelType.self) { (r, client: ClientModel) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
-            return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
-        }
-        container.register(EditClientViewModel.self) { (r, client: ClientModel) in
-            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
             return EditClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, client: client)
         }
         

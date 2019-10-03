@@ -18,8 +18,3 @@ struct InvoiceModel {
     var items: [ItemModel]
 }
 
-struct ItemModel {
-    var itemName: String
-    var amount: String
-    var price: String
-}

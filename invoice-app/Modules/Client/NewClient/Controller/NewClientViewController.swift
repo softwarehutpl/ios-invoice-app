@@ -17,7 +17,17 @@ class NewClientViewController: BaseViewController {
     
     let sections = [NewClientFormSectionType.clientDetails, NewClientFormSectionType.addressDetails]
     //MARK: - Outlet
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.allowsSelection = false
+            tableView.separatorStyle = .none
+            tableView.backgroundColor = .white
+            tableView.showsVerticalScrollIndicator = false
+            tableView.showsHorizontalScrollIndicator = false
+            tableView.layer.cornerRadius = 10
+            tableView.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var addClientButton: UIButton!
     
     //MARK: - Private
@@ -44,16 +54,7 @@ class NewClientViewController: BaseViewController {
         navigationController?.navigationBar.barStyle = .black
     }
     
-    private func setupTableView() {
-        // Setup table view
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .white
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.layer.cornerRadius = 10
-        tableView.clipsToBounds = true
-        
+    private func cellRegister() {
         // Register Cells
         let newClientDetailViewCell = UINib(nibName: NewClientDetailsTableViewCell.identyfier, bundle: nil)
         tableView.register(newClientDetailViewCell, forCellReuseIdentifier: NewClientDetailsTableViewCell.identyfier)
@@ -65,7 +66,7 @@ class NewClientViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        setupTableView()
+        cellRegister()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -110,5 +111,8 @@ extension NewClientViewController: UITableViewDelegate, UITableViewDataSource{
             }
             return newClientAddressCell
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

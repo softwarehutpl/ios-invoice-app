@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,16 +14,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="601" height="30"/>
+            <rect key="frame" x="0.0" y="0.0" width="566" height="29"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2e-m1-zxn">
-                    <rect key="frame" x="0.0" y="0.0" width="601" height="30"/>
+                    <rect key="frame" x="10" y="-1" width="546" height="30"/>
                     <color key="backgroundColor" red="0.1453877687" green="0.41337579489999998" blue="0.3077362776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="aln-Jq-pfZ"/>
+                        <constraint firstAttribute="height" constant="30" id="Pea-yz-tGb"/>
                     </constraints>
-                    <state key="normal" title="Add Item">
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <state key="normal" title="Add New Item">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -36,15 +34,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="o2e-m1-zxn" secondAttribute="trailing" id="n84-pe-SEr"/>
-                <constraint firstItem="o2e-m1-zxn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oUo-fQ-gXk"/>
-                <constraint firstItem="o2e-m1-zxn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="r6B-oc-Ufg"/>
-                <constraint firstItem="o2e-m1-zxn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xet-jk-Cia"/>
-                <constraint firstItem="o2e-m1-zxn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zGw-F7-6jX"/>
+                <constraint firstAttribute="trailing" secondItem="o2e-m1-zxn" secondAttribute="trailing" constant="10" id="3aZ-cW-Eho"/>
+                <constraint firstAttribute="bottom" secondItem="o2e-m1-zxn" secondAttribute="bottom" id="KLJ-ea-UPW"/>
+                <constraint firstItem="o2e-m1-zxn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="f8G-dq-p1c"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="173.18840579710147" y="98.4375"/>
+            <point key="canvasLocation" x="137.68115942028987" y="72.65625"/>
         </view>
     </objects>
 </document>

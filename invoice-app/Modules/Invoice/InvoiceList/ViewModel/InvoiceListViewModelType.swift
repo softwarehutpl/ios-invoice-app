@@ -3,7 +3,6 @@ import UIKit
 
 protocol InvoiceListViewModelType {
     var getInvoiceCount: Int { get }
-    
     func showInvoiceDetailView(source: UIViewController, invoice: InvoiceModel)
     func showNewInvoiceView(source: UIViewController)
     func fetchInvoicesFromCoreData()

@@ -10,7 +10,7 @@ import UIKit
 
 class InvoiceFormTableViewCell: UITableViewCell {
     
-    var callback: ((InvoiceFormModel) -> Void)?
+    var passInvoiceForm: ((InvoiceFormModel) -> Void)?
     static let identyfier = "InvoiceFormTableViewCell"
     
     // Mark: - Outlets
@@ -18,8 +18,9 @@ class InvoiceFormTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        customView.callback = { invoiceForm in
-            self.callback?(invoiceForm)
+        customView.passInvoiceForm = { [weak self] invoiceForm in
+            guard let `self` = self else { return }
+            self.passInvoiceForm?(invoiceForm)
         }
     }
 }

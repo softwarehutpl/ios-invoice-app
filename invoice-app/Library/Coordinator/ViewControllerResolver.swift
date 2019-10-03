@@ -2,12 +2,12 @@ import Foundation
 import Swinject
 import RxCocoa
 import RxSwift
+import UIKit
 
 class ViewControllerResolver {
     
     // MARK: - Private Properties
     private let assembler: Assembler
-    
     // MARK: - Lifecycle
     init(assembler: Assembler) {
         self.assembler = assembler

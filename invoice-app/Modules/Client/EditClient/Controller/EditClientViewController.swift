@@ -15,10 +15,20 @@ enum EditClientFormSectionType {
 
 class EditClientViewController: BaseViewController {
     
-    let sections = [EditClientFormSectionType.clientDetails, EditClientFormSectionType.clientDetails]
+    let sections = [EditClientFormSectionType.clientDetails, EditClientFormSectionType.addressDetails]
     
     //MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.allowsSelection = false
+            tableView.separatorStyle = .none
+            tableView.backgroundColor = .white
+            tableView.showsVerticalScrollIndicator = false
+            tableView.showsHorizontalScrollIndicator = false
+            tableView.layer.cornerRadius = 10
+            tableView.clipsToBounds = true
+        }
+    }
     
     //MARK: - Private
     private let viewModel: EditClientViewModelType
@@ -40,16 +50,7 @@ class EditClientViewController: BaseViewController {
         navigationItem.rightBarButtonItem = rightNavBarItem
     }
     
-    private func setupTableView() {
-        // Setup table view
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .white
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.layer.cornerRadius = 10
-        tableView.clipsToBounds = true
-        
+    private func cellRegister() {
         // Register Cells
         let newClientDetailViewCell = UINib(nibName: NewClientDetailsTableViewCell.identyfier, bundle: nil)
         tableView.register(newClientDetailViewCell, forCellReuseIdentifier: NewClientDetailsTableViewCell.identyfier)
@@ -65,7 +66,7 @@ class EditClientViewController: BaseViewController {
     }
     
     @objc func clientOptionsTapped() {
-        alertControl.alert(title: "Choose option", msg: "", target: self, alerts:[
+        alertControl.showAlert(title: "Choose option", msg: "", target: self, alerts:[
             UIAlertAction(title: "Email", style: .default, handler: { (alert) in
                 print("Sended by email")
             }),
@@ -90,11 +91,12 @@ class EditClientViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        setupTableView()
+        cellRegister()
     }
 }
 
-extension EditClientViewController: UITableViewDelegate, UITableViewDataSource{
+extension EditClientViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

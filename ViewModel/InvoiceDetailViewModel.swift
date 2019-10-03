@@ -11,17 +11,17 @@ import UIKit
 
 class InvoiceDetailViewModel: InvoiceDetailViewModelType {
     
-        // MARK: - Private
-        private let invoiceStorageService: InvoiceStorageServiceType
-        private let sceneCoordinator: SceneCoordinatorType
-        private let invoice: InvoiceModel
-        
-        // MARK: - Lifecycle
+    // MARK: - Private
+    private let invoiceStorageService: InvoiceStorageServiceType
+    private let sceneCoordinator: SceneCoordinatorType
+    private let invoice: InvoiceModel
+    
+    // MARK: - Lifecycle
     init(sceneCoordinator: SceneCoordinatorType,invoice: InvoiceModel, invoiceStorageService: InvoiceStorageServiceType ) {
-            self.sceneCoordinator = sceneCoordinator
-            self.invoice = invoice
-            self.invoiceStorageService = invoiceStorageService
-        }
+        self.sceneCoordinator = sceneCoordinator
+        self.invoice = invoice
+        self.invoiceStorageService = invoiceStorageService
+    }
 }
 
 extension InvoiceDetailViewModel {

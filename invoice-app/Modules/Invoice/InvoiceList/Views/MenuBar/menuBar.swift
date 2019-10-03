@@ -29,13 +29,15 @@ class menuBar: NibLoadingView {
     
     // MARK: - SegmentController setup
     func setupTopBarSegmentControl() {
-        topBarSegmentControl.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        topBarSegmentControl.layer.cornerRadius = 0
-        topBarSegmentControl.layer.borderWidth = 1.5
+        topBarSegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:
+                   UIColor.white], for: UIControl.State.normal)
+        topBarSegmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:
+            #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)], for: UIControl.State.selected)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTopBarSegmentControl()
+        layoutSubviews()
     }
 }

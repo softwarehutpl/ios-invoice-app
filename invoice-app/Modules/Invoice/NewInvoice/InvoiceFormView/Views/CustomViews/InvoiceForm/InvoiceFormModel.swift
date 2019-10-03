@@ -11,4 +11,5 @@ struct InvoiceFormModel {
     let date: String
     let dueDate: String
     let amount: String
+    let currency: String
 }

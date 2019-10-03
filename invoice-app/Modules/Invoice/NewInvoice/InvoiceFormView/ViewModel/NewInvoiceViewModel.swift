@@ -8,8 +8,9 @@
 
 import UIKit
 
-
 class NewInvoiceViewModel: NewInvoiceViewModelType {
+    
+    let validator = Validation()
     
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
@@ -19,6 +20,7 @@ class NewInvoiceViewModel: NewInvoiceViewModelType {
     // MARK: - Data From Cells
     private var invoiceFormModel: InvoiceFormModel?
     var clientModel: ClientModel?
+    var items: [ItemModel]?
     
     // MARK: - Lifecycle
     init(sceneCoordinator: SceneCoordinatorType, invoiceStorageService: InvoiceStorageServiceType) {
@@ -29,19 +31,32 @@ class NewInvoiceViewModel: NewInvoiceViewModelType {
 
 extension NewInvoiceViewModel {
     
-    func addInvoice(invoice: InvoiceModel) {
-        invoiceStorageService.createInvoice(invoice: invoice)
+    // Setting view depending on whether client is selected
+    func getClientStatus() -> Bool {
+        return clientModel == nil ? false : true
     }
     
-    func getClient() -> ClientModel?{
-        return clientModel
+    // Navigation
+    func selectClient(source: UIViewController) {
+        sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self), type: .push, source: source)
     }
-    // Invoice Form Data
+    func popToInvoiceList(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
+    }
     
+    // Fetching data from forms
     func getInvoiceFormModel(invoiceForm: InvoiceFormModel) {
         invoiceFormModel = invoiceForm
     }
+    func getItemFormModel(itemModel: ItemModel) {
+        items?.append(itemModel)
+    }
     
+    // Creating invoice
+    func checkInvoiceElements(source: UIViewController) {
+           
+    }
+       
     func createNewInvoice() {
         guard let invoice = invoiceFormModel, let client = clientModel else {
             print("Not all fields filled")
@@ -60,21 +75,22 @@ extension NewInvoiceViewModel {
         invoiceStorageService.createInvoice(invoice: newInvoice)
     }
     
-    func getClientStatus() -> Bool {
-       return clientModel == nil ? false : true
+    // Showing fetched client in form
+    func getClient() -> ClientModel?{
+        return clientModel
     }
-    
-    // Navigation
-    func popToInvoiceList(source: UIViewController) {
-        sceneCoordinator.pop(source: source, animated: true)
-    }
-    
-    func selectClient(source: UIViewController) {
-        sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self), type: .push, source: source)
-    }
-    
     func showNewItemView(source: UIViewController) {
-        sceneCoordinator.transition(to: StartupScene.newItem, type: .modal, source: source)
+    }
+    
+    
+    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController) {
+        let validate = validator.validate(values: (type: ValidationType.email, inputValue: invoiceForm.invoiceTitle), target: source)
+        switch validate {
+        case .success:
+            invoiceFormModel = invoiceForm
+        case .failure:
+            print("failed")
+        }
     }
 }
 

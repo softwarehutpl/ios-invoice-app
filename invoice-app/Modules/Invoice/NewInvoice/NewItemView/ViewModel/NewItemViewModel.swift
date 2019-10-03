@@ -6,7 +6,7 @@
 //  Copyright © 2019 Softwarehut. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewItemViewModel: NewItemViewModelType {
     
@@ -18,5 +18,7 @@ class NewItemViewModel: NewItemViewModelType {
 }
 
 extension NewItemViewModel {
-    
+    func popToNewInvoiceForm(source: UIViewController) {
+        sceneCoordinator.pop(source: source, animated: true)
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  ItemsTableViewCell.swift
+//  AddItemTableViewCell.swift
 //  invoice-app
 //
 //  Created by Damian Szejnoch on 18/09/2019.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ItemsTableViewCell: UITableViewCell {
+class AddItemTableViewCell: UITableViewCell {
     
-    static let identyfier = "ItemsTableViewCell"
+    static let identyfier = "AddItemTableViewCell"
     
     var callback: (() -> Void)?
     
     //MARK: - Outlets
+    
     @IBOutlet weak var customView: AddItemView!
     
     //MARK: - Lifecycle

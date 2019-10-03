@@ -7,10 +7,10 @@ class ServiceAssembly: Assembly {
         container.register(PersistanceManager.self) { _ in
             return PersistanceManager()
         }
-        container.register(ClientStorageService.self) { r in
+        container.register(ClientStorageServiceType.self) { r in
             return ClientStorageService(persistanceManager: r.resolve(PersistanceManager.self)!)
         }
-        container.register(InvoiceStorageService.self) { r in
+        container.register(InvoiceStorageServiceType.self) { r in
             return InvoiceStorageService(persistanceManager: r.resolve(PersistanceManager.self)!)
         }
     }
