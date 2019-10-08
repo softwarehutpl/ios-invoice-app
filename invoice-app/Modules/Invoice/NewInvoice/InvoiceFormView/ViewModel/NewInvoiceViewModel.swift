@@ -51,13 +51,13 @@ extension NewInvoiceViewModel {
         switch validate {
         case .success:
             invoiceFormData = invoiceForm
-            print(invoiceFormData)
         case .failure:
             print("")
         }
     }
     
     func getItemFormModel(itemModel: ItemModel,index: Int) {
+        
         if itemsFormData.isEmpty {
             itemsFormData.append(itemModel)
         } else {
@@ -68,13 +68,14 @@ extension NewInvoiceViewModel {
     
     // Creating Invoice
     func createNewInvoice() {
+
         guard let invoice = invoiceFormData, let client = clientFormData else { return }
-        
         let idFactory = UUID().uuidString
         let newInvoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle,
                                       date: invoice.date,
                                       dueDate: invoice.dueDate,
-                                      amount: invoice.paymentMethod,
+                                      currency: invoice.currency,
+                                      paymentMethod: invoice.paymentMethod,
                                       status: false, id: idFactory,
                                       client: client,
                                       items: itemsFormData)
@@ -87,7 +88,38 @@ extension NewInvoiceViewModel {
         return clientFormData
     }
     
-    func showNewItemView(source: UIViewController) {
+    // Showing fetched items in form
+    func passItemsToSection(indexPath: Int) -> ItemModel {
+        return itemsFormData[indexPath]
+    }
+    
+    func addEmptyRow() {
+        
+        if itemsFormData.isEmpty {
+            for _ in 0...2 {
+                itemsFormData.append(ItemModel(itemName: "", amount: "", price: ""))
+                print(itemsFormData.count)
+            }
+        } else if itemsFormData.count == 1 {
+            for _ in 0...1 {
+                itemsFormData.append(ItemModel(itemName: "", amount: "", price: ""))
+            }
+        } else {
+            itemsFormData.append(ItemModel(itemName: "", amount: "", price: ""))
+        }
+      print(itemsFormData.count)
+    }
+    
+    func itemsCount() -> Int {
+        return itemsFormData.count
+    }
+    // Delete item from form
+    func deleteItemFromForm(indexPath: Int) {
+        if itemsFormData.count > 2 {
+        itemsFormData.remove(at: indexPath)
+        } else {
+            print("cant delete object")
+        }
     }
 }
 

@@ -15,7 +15,6 @@ protocol NewInvoiceViewModelType {
     // Navigation
     func selectClient(source: UIViewController)
     func popToInvoiceList(source: UIViewController)
-    func showNewItemView(source: UIViewController)
     
     // Fetching data from forms
     func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController)
@@ -26,5 +25,13 @@ protocol NewInvoiceViewModelType {
     
     // Showing fetched client in form
     func getClient() -> ClientModel?
+    
+    // Showing data from viewModel in items section
+    func addEmptyRow()
+    func passItemsToSection(indexPath: Int) -> ItemModel
+    func itemsCount() -> Int
+    
+    //Deleting rows
+    func deleteItemFromForm(indexPath: Int)
 }
 

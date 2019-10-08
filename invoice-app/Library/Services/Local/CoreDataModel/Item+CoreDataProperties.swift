@@ -17,9 +17,9 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
-    @NSManaged public var amount: String?
-    @NSManaged public var itemName: String?
-    @NSManaged public var price: String?
-    @NSManaged public var invoice: Invoice?
+    @NSManaged public var amount: String
+    @NSManaged public var itemName: String
+    @NSManaged public var price: String
+    @NSManaged public var invoice: Invoice
 
 }

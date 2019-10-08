@@ -17,15 +17,15 @@ extension Invoice {
         return NSFetchRequest<Invoice>(entityName: "Invoice")
     }
 
-    @NSManaged public var currency: String?
-    @NSManaged public var date: String?
-    @NSManaged public var dueDate: String?
-    @NSManaged public var id: String?
-    @NSManaged public var invoiceTitle: String?
-    @NSManaged public var paymentMethod: String?
+    @NSManaged public var currency: String
+    @NSManaged public var date: String
+    @NSManaged public var dueDate: String
+    @NSManaged public var id: String
+    @NSManaged public var invoiceTitle: String
+    @NSManaged public var paymentMethod: String
     @NSManaged public var status: Bool
-    @NSManaged public var client: Client?
-    @NSManaged public var items: NSSet?
+    @NSManaged public var client: Client
+    @NSManaged public var items: NSSet
 
 }
 

@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Client" representedClassName=".Client" syncable="YES">
-        <attribute name="address" attributeType="String" syncable="YES"/>
-        <attribute name="city" attributeType="String" syncable="YES"/>
-        <attribute name="country" attributeType="String" syncable="YES"/>
-        <attribute name="email" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="phone" attributeType="String" syncable="YES"/>
-        <attribute name="postcode" attributeType="String" syncable="YES"/>
-        <relationship name="invoices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Invoice" inverseName="client" inverseEntity="Invoice" syncable="YES"/>
-    </entity>
-    <entity name="Company" representedClassName=".Company" syncable="YES">
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="address" attributeType="String"/>
+        <attribute name="city" attributeType="String"/>
+        <attribute name="country" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="postcode" attributeType="String"/>
+        <relationship name="invoices" toMany="YES" deletionRule="Cascade" destinationEntity="Invoice" inverseName="client" inverseEntity="Invoice"/>
     </entity>
     <entity name="Invoice" representedClassName=".Invoice" syncable="YES">
-        <attribute name="amount" attributeType="String" syncable="YES"/>
-        <attribute name="date" attributeType="String" syncable="YES"/>
-        <attribute name="dueDate" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="invoiceTitle" attributeType="String" syncable="YES"/>
-        <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="invoices" inverseEntity="Client" syncable="YES"/>
+        <attribute name="currency" attributeType="String"/>
+        <attribute name="date" attributeType="String"/>
+        <attribute name="dueDate" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="invoiceTitle" attributeType="String"/>
+        <attribute name="paymentMethod" attributeType="String"/>
+        <attribute name="status" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="client" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="invoices" inverseEntity="Client"/>
+        <relationship name="items" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="invoice" inverseEntity="Item"/>
     </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES">
-        <attribute name="amount" attributeType="String" syncable="YES"/>
-        <attribute name="itemName" attributeType="String" syncable="YES"/>
-        <attribute name="price" attributeType="String" syncable="YES"/>
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="itemName" attributeType="String"/>
+        <attribute name="price" attributeType="String"/>
+        <relationship name="invoice" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="items" inverseEntity="Invoice"/>
     </entity>
     <elements>
-        <element name="Client" positionX="277.26953125" positionY="-59.4453125" width="128" height="178"/>
-        <element name="Company" positionX="-144.046875" positionY="-97.3671875" width="128" height="58"/>
-        <element name="Invoice" positionX="95.77734375" positionY="-59.04296875" width="128" height="148"/>
-        <element name="Item" positionX="-146.73046875" positionY="55.515625" width="128" height="88"/>
+        <element name="Client" positionX="304.94140625" positionY="128.015625" width="128" height="178"/>
+        <element name="Invoice" positionX="30.45703125" positionY="-188.16796875" width="128" height="178"/>
+        <element name="Item" positionX="-255.29296875" positionY="206.828125" width="128" height="103"/>
     </elements>
 </model>
