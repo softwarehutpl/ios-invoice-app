@@ -28,10 +28,6 @@ class ViewControllerAssembly: Assembly {
             let viewModel = r.resolve(NewInvoiceViewModelType.self)!
             return NewInvoiceViewController(with: viewModel)
         }
-        container.register(NewItemViewController.self) { r in
-            let viewModel = r.resolve(NewItemViewModelType.self)!
-            return NewItemViewController(with: viewModel)
-        }
         
         // Client Views
         container.register(ClientsViewController.self) { (r,delegate: ClientViewModelDelegate) in

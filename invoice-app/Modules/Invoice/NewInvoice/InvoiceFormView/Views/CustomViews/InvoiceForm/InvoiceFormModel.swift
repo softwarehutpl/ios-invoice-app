@@ -10,6 +10,6 @@ struct InvoiceFormModel {
     let invoiceTitle: String
     let date: String
     let dueDate: String
-    let amount: String
+    let paymentMethod: String
     let currency: String
 }

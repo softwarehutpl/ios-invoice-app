@@ -18,16 +18,13 @@ protocol NewInvoiceViewModelType {
     func showNewItemView(source: UIViewController)
     
     // Fetching data from forms
-    func getInvoiceFormModel(invoiceForm: InvoiceFormModel)
-    func getItemFormModel(itemModel: ItemModel)
+    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController)
+    func getItemFormModel(itemModel: ItemModel,index: Int)
     
     // Creating Invoice
-    func checkInvoiceElements(source: UIViewController)
     func createNewInvoice()
     
     // Showing fetched client in form
     func getClient() -> ClientModel?
-    
-    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController)
-    }
+}
 

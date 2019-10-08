@@ -11,10 +11,11 @@ struct InvoiceModel {
     var invoiceTitle: String
     var date: String
     var dueDate: String
-    var amount: String
+    var currency: String
+    var paymentMethod: String
     var status: Bool
     var id: String
     var client: ClientModel
-    var items: [ItemModel]
+    var items = [ItemModel]()
 }
 

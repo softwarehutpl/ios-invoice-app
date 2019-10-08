@@ -14,6 +14,10 @@ class ItemTableViewCell: UITableViewCell {
     static let identyfier = "ItemTableViewCell"
     @IBOutlet weak var customView: CellItemView!
     
+    func prepareCell(item: ItemModel) {
+        customView.prepareView(item: item)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         customView.passItem = { [weak self] item in

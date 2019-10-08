@@ -18,9 +18,9 @@ class NewInvoiceViewModel: NewInvoiceViewModelType {
     
     
     // MARK: - Data From Cells
-    private var invoiceFormModel: InvoiceFormModel?
-    var clientModel: ClientModel?
-    var items: [ItemModel]?
+    private var invoiceFormData: InvoiceFormModel?
+    var clientFormData: ClientModel?
+    var itemsFormData = [ItemModel]()
     
     // MARK: - Lifecycle
     init(sceneCoordinator: SceneCoordinatorType, invoiceStorageService: InvoiceStorageServiceType) {
@@ -33,7 +33,7 @@ extension NewInvoiceViewModel {
     
     // Setting view depending on whether client is selected
     func getClientStatus() -> Bool {
-        return clientModel == nil ? false : true
+        return clientFormData == nil ? false : true
     }
     
     // Navigation
@@ -45,58 +45,55 @@ extension NewInvoiceViewModel {
     }
     
     // Fetching data from forms
-    func getInvoiceFormModel(invoiceForm: InvoiceFormModel) {
-        invoiceFormModel = invoiceForm
-    }
-    func getItemFormModel(itemModel: ItemModel) {
-        items?.append(itemModel)
+    
+    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController) {
+        let validate = validator.validate(values: (type: ValidationType.title, inputValue: invoiceForm.invoiceTitle), target: source)
+        switch validate {
+        case .success:
+            invoiceFormData = invoiceForm
+            print(invoiceFormData)
+        case .failure:
+            print("")
+        }
     }
     
-    // Creating invoice
-    func checkInvoiceElements(source: UIViewController) {
-           
+    func getItemFormModel(itemModel: ItemModel,index: Int) {
+        if itemsFormData.isEmpty {
+            itemsFormData.append(itemModel)
+        } else {
+            let indexIsValid = itemsFormData.indices.contains(index)
+            indexIsValid == true ? itemsFormData[index] = itemModel : itemsFormData.append(itemModel)
+        }
     }
-       
+    
+    // Creating Invoice
     func createNewInvoice() {
-        guard let invoice = invoiceFormModel, let client = clientModel else {
-            print("Not all fields filled")
-            return }
+        guard let invoice = invoiceFormData, let client = clientFormData else { return }
+        
         let idFactory = UUID().uuidString
         let newInvoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle,
                                       date: invoice.date,
                                       dueDate: invoice.dueDate,
-                                      amount: invoice.amount,
+                                      amount: invoice.paymentMethod,
                                       status: false, id: idFactory,
                                       client: client,
-                                      items: [ItemModel(itemName: "testitem",
-                                                        amount: "100",
-                                                        price: "1000")])
-        
+                                      items: itemsFormData)
+        print(newInvoice)
         invoiceStorageService.createInvoice(invoice: newInvoice)
     }
     
     // Showing fetched client in form
     func getClient() -> ClientModel?{
-        return clientModel
+        return clientFormData
     }
+    
     func showNewItemView(source: UIViewController) {
-    }
-    
-    
-    func checkInvoiceForm(invoiceForm: InvoiceFormModel,source: UIViewController) {
-        let validate = validator.validate(values: (type: ValidationType.email, inputValue: invoiceForm.invoiceTitle), target: source)
-        switch validate {
-        case .success:
-            invoiceFormModel = invoiceForm
-        case .failure:
-            print("failed")
-        }
     }
 }
 
 extension NewInvoiceViewModel: ClientViewModelDelegate {
     func shareClient(client: ClientModel) {
-        clientModel = client
+        clientFormData = client
     }
 }
 

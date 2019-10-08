@@ -16,7 +16,7 @@ enum InvoiceDetailsSectionType {
 
 class InvoiceDetailViewController: BaseViewController {
     
-    let sections = [InvoiceDetailsSectionType.customerItems, InvoiceDetailsSectionType.customerAddress, InvoiceDetailsSectionType.customerItems]
+    let sections = [InvoiceDetailsSectionType.customerDetails, InvoiceDetailsSectionType.customerAddress, InvoiceDetailsSectionType.customerItems]
     
     // MARK: - Outlets
     @IBOutlet weak var topView: InvoiceDetailTopView!
@@ -84,7 +84,7 @@ class InvoiceDetailViewController: BaseViewController {
     
     //MARK: - Lifecycle
     override func viewDidAppear(_ animated: Bool) {
-    topView.loadData(invoice: viewModel.getDataForTopView())
+        topView.loadData(invoice: viewModel.getDataForTopView())
     }
     
     override func viewDidLoad() {
@@ -157,15 +157,6 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             }
             customerItemsCell.prepareView(item: viewModel.getItemsDescriptions(indexPath: indexPath.row))
             return customerItemsCell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let sectionType = sections[indexPath.section]
-        switch sectionType {
-        case .customerDetails: return 150
-        case .customerAddress: return 60
-        case .customerItems: return 70
         }
     }
     

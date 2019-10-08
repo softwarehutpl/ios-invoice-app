@@ -14,7 +14,6 @@ class CustomerItemsCell: UITableViewCell {
     
     @IBOutlet weak var customView: CustomerItemsView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

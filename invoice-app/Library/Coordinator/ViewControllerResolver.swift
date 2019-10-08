@@ -29,9 +29,6 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func newInvoiceViewController() -> NewInvoiceViewController? {
         return assembler.resolver.resolve(NewInvoiceViewController.self)
     }
-    func newItemViewController() -> NewItemViewController? {
-        return assembler.resolver.resolve(NewItemViewController.self)
-    }
     
     // ClientViews
     func clientsViewControler(delegate: ClientViewModelDelegate) -> ClientsViewController? {

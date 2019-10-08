@@ -1,5 +1,5 @@
 //
-//  Client+CoreDataClass.swift
+//  Item+CoreDataClass.swift
 //  invoice-app
 //
 //  Created by Damian Szejnoch on 08/10/2019.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class Client: NSManagedObject {
+public class Item: NSManagedObject {
 
 }

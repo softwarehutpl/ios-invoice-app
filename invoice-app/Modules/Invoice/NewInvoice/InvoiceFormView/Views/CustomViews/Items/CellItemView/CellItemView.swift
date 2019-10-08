@@ -34,6 +34,11 @@ class CellItemView: NibLoadingView {
     }
     
     // MARK: - Actions
+    func prepareView(item: ItemModel) {
+        itemTitleTextField.text = item.itemName
+        amountTextField.text = item.amount
+        priceTextField.text = item.price
+    }
     
     //MARK: - Lifecycle
     required init?(coder aDecoder: NSCoder) {
@@ -52,7 +57,7 @@ extension CellItemView: UITextFieldDelegate {
         else { return }
         let item = ItemModel(itemName: name, amount: amount, price: price)
         passItem?(item)
-    }
+        }
 }
 
 

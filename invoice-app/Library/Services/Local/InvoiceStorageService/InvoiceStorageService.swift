@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class InvoiceStorageService: InvoiceStorageServiceType {
     
@@ -19,64 +20,89 @@ class InvoiceStorageService: InvoiceStorageServiceType {
 
 extension InvoiceStorageService {
     
+    func clearData() {
+        let items = Item(context: persistanceManager.context)
+        persistanceManager.context.delete(items)
+    }
+    
     func createInvoice(invoice: InvoiceModel) {
+        
         let invoiceToAdd = Invoice(context: persistanceManager.context)
         
         invoiceToAdd.invoiceTitle = invoice.invoiceTitle
         invoiceToAdd.date = invoice.date
         invoiceToAdd.dueDate = invoice.dueDate
-        invoiceToAdd.amount = invoice.amount
+        invoiceToAdd.currency = invoice.currency
+        invoiceToAdd.paymentMethod = invoice.paymentMethod
         invoiceToAdd.id = invoice.id
         invoiceToAdd.status = invoice.status
         
         let clientsFromCoreData = persistanceManager.fetch(Client.self)
         let clientToConnectWithInvoice = clientsFromCoreData.first(where:{$0.id == invoice.client.id})
-        
         guard let client = clientToConnectWithInvoice else { return }
         invoiceToAdd.client = client
-        persistanceManager.save()
-        print("saved invoice")
-    }
-    
-    func fetchInvoice() -> [InvoiceModel] {
-        var invoices = [InvoiceModel]()
-        let invoicesFromCoreData = persistanceManager.fetch(Invoice.self)
-        invoicesFromCoreData.forEach { (invoice) in
-            let invoice = InvoiceModel(invoiceTitle: invoice.invoiceTitle, date: invoice.date, dueDate: invoice.dueDate, amount: invoice.amount, status: true, id: invoice.id, client: ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.country, id: invoice.client.id), items: [ItemModel(itemName: "item", amount: "1", price: "300")])
-            invoices.append(invoice)
+        
+        invoice.items.forEach { (item) in
+            let itemToConnect = Item(context: persistanceManager.context)
+            itemToConnect.itemName = item.itemName
+            itemToConnect.amount = item.amount
+            itemToConnect.price = item.price
+            itemToConnect.invoice = invoiceToAdd
+            print("saved invoice")
         }
-        return invoices
-    }
-    
-    // Finding invoice which is matching ID to make operations.
-    func findInvoice(invoice: InvoiceModel) -> Invoice? {
-        let invoicesFromCoreData = persistanceManager.fetch(Invoice.self)
-        let editingInvoice = invoicesFromCoreData.first(where: {$0.id == invoice.id})
-        return editingInvoice
-    }
-    
-    func editInvoice(invoice: InvoiceModel) {
-        guard let invoiceToEdit = findInvoice(invoice: invoice) else { return }
-        invoiceToEdit.invoiceTitle = invoice.invoiceTitle
-        invoiceToEdit.date = invoice.date
-        invoiceToEdit.dueDate = invoice.dueDate
-        invoiceToEdit.amount = invoice.amount
-        invoiceToEdit.id = invoice.id
-        invoiceToEdit.status = invoice.status
         persistanceManager.save()
     }
-    
-    func deleteInvoice(invoice: InvoiceModel) {
-        guard let invoiceToDelete = findInvoice(invoice: invoice) else { return }
-        persistanceManager.context.delete(invoiceToDelete)
-        persistanceManager.save()
+        
+        func fetchInvoice() -> [InvoiceModel] {
+            
+            var invoices = [InvoiceModel]()
+            
+            let invoicesFromCoreData = persistanceManager.fetch(Invoice.self)
+            
+            invoicesFromCoreData.forEach { (invoice) in
+                var itemsModel = [ItemModel]()
+                for case let item as Item in invoice.items {
+                    let itemModel = ItemModel(itemName: item.itemName, amount: item.amount, price: item.price)
+                    itemsModel.append(itemModel)
+                }
+                
+                let invoiceModel = InvoiceModel(invoiceTitle: invoice.invoiceTitle, date: invoice.date, dueDate: invoice.dueDate, currency: invoice.currency, paymentMethod: invoice.paymentMethod, status: invoice.status, id: invoice.id, client: ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.country, id: invoice.client.id),items: itemsModel)
+                invoices.append(invoiceModel)
+                print(invoiceModel)
+            }
+        
+            print("fetched invoices")
+            return invoices
+        }
+        
+        // Finding invoice which is matching ID to make operations.
+        func findInvoice(invoice: InvoiceModel) -> Invoice? {
+            let invoicesFromCoreData = persistanceManager.fetch(Invoice.self)
+            let editingInvoice = invoicesFromCoreData.first(where: {$0.id == invoice.id})
+            return editingInvoice
+        }
+        
+        func editInvoice(invoice: InvoiceModel) {
+            guard let invoiceToEdit = findInvoice(invoice: invoice) else { return }
+            invoiceToEdit.invoiceTitle = invoice.invoiceTitle
+            invoiceToEdit.date = invoice.date
+            invoiceToEdit.dueDate = invoice.dueDate
+            invoiceToEdit.currency = invoice.currency
+            invoiceToEdit.id = invoice.id
+            invoiceToEdit.status = invoice.status
+            invoiceToEdit.paymentMethod = invoice.paymentMethod
+            persistanceManager.save()
+        }
+        
+        func deleteInvoice(invoice: InvoiceModel) {
+            guard let invoiceToDelete = findInvoice(invoice: invoice) else { return }
+            persistanceManager.context.delete(invoiceToDelete)
+            persistanceManager.save()
+        }
+        
+        func changeInvoiceStatus(invoice: InvoiceModel) {
+            guard let invoiceToChangeStatus = findInvoice(invoice: invoice) else { return }
+            invoiceToChangeStatus.status = invoice.status
+            persistanceManager.save()
+        }
     }
-    
-    func changeInvoiceStatus(invoice: InvoiceModel) {
-        guard let invoiceToChangeStatus = findInvoice(invoice: invoice) else { return }
-        invoiceToChangeStatus.status = invoice.status
-        persistanceManager.save()
-    }
-}
-
-

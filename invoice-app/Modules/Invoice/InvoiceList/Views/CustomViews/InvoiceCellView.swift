@@ -20,9 +20,16 @@ class InvoiceCellView: NibLoadingView {
     @IBOutlet weak var status: EdgeInsetLabel!
     
     func prepareView(invoice: InvoiceModel) {
+        var countedAmount = 0.0
+        invoice.items.forEach { (item) in
+            guard let amount = Double(item.amount) else { return }
+            guard let price = Double(item.price) else { return }
+                   countedAmount += countedAmount + (amount * price)
+        }
+        
         invoiceTitle.text = invoice.invoiceTitle
         clientName.text = invoice.client.name
-        amount.text = invoice.amount
+        amount.text = String("\(invoice.currency) \(countedAmount)")
         dueDate.text = invoice.dueDate
         status.backgroundColor = invoice.status ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 0.7476998731, green: 0, blue: 0.05588565574, alpha: 1)
         status.text = invoice.status ? "Paid" : "Unpaid"

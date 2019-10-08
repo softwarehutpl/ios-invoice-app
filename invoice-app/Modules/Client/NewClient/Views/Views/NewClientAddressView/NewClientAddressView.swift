@@ -28,7 +28,7 @@ class NewClientAddressView: NibLoadingView {
     // MARK: - Setup View
     private func addShadowToViews(views: [UITextField]) {
         views.forEach { (view) in
-            view.addShadow(offset: CGSize.init(width: 0, height: 3), color: UIColor.gray, radius: 2.0, opacity: 0.35)
+            view.addShadow(offset: CGSize.init(width: 0, height: 1), color: UIColor.gray, radius: 2.0, opacity: 0.35)
         }
     }
     

@@ -26,7 +26,6 @@ class NewInvoiceViewController: BaseViewController {
     //view depending whether user is selected
     
     let sections = [InvoiceFormSectionType.clientDetails, InvoiceFormSectionType.invoiceForm, InvoiceFormSectionType.items]
-    let items = [InvoiceItemsCellType.newCellButton, InvoiceItemsCellType.itemForm]
     
     var titles: [String] = ["abc","abc"]
     let item = "added"
@@ -101,14 +100,15 @@ class NewInvoiceViewController: BaseViewController {
     
     // test function
     func insertNewItemCell() {
-        titles.append(item)
-        tableView.reloadData()
+        viewModel.addEmptyRow()
+//        tableView.reloadData()
         tableView.layoutIfNeeded()
         scrollToBottom()
         
     }
     func scrollToBottom(){
-        let indexPath = IndexPath(row: self.titles.count - 1, section: 2)
+        tableView.reloadData()
+        let indexPath = IndexPath(row: viewModel.itemsCount() - 1, section: 2)
         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
@@ -122,15 +122,6 @@ class NewInvoiceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-//        let nr = "694320"
-//        let email = "emaildgsgdsgdsgdsgs"
-//        let validate = validator.validate(values: (type: ValidationType.email, inputValue: email),(type: ValidationType.phoneNumber, inputValue: nr), target: self)
-//        switch validate {
-//        case .success:
-//            print("success")
-//        case .failure:
-//            print("failed")
-//        }
     }
 }
 
@@ -145,7 +136,11 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
         switch sectionType {
         case .clientDetails: return 1
         case .invoiceForm: return 1
-        case .items: return titles.count
+        case .items: if viewModel.itemsCount() == 0 {
+                return 2
+            } else {
+                return viewModel.itemsCount()
+            }
         }
     }
     
@@ -171,8 +166,12 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 invoiceFormCell.passInvoiceForm = { [weak self] invoiceForm in
                     guard let `self` = self else { return }
-                    print(invoiceForm)
-                    self.viewModel.getInvoiceFormModel(invoiceForm: invoiceForm)
+                    if self.presentedViewController as? UIAlertController != nil {
+                    
+                    } else {
+                        print(invoiceForm)
+                        self.viewModel.checkInvoiceForm(invoiceForm: invoiceForm, source: self)
+                    }
                 }
                 return invoiceFormCell
                 
@@ -182,19 +181,30 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 addItemCell.callback = { [weak self ] in
                     guard let `self` = self else { return }
+                    tableView.endEditing(true)
                     self.insertNewItemCell()
-                
                 }
                 
                 guard let itemCell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identyfier) as? ItemTableViewCell else {
                     fatalError(cellError.showError(cellTitle: ItemTableViewCell.self, cellID: ItemTableViewCell.identyfier))
+                    
                 }
+                if viewModel.itemsCount() != 0 {
+                itemCell.prepareCell(item: viewModel.passItemsToSection(indexPath: indexPath.row))
+                }
+                
                 itemCell.callback = { [weak self] item in
                     guard let `self` = self else { return }
-                    print(item)
+                    self.viewModel.getItemFormModel(itemModel: item, index: indexPath.row)
                 }
-                  return indexPath.item == titles.count - 1 ? addItemCell : itemCell
+                
+                if viewModel.itemsCount() > 0 {
+                    return indexPath.item == viewModel.itemsCount() - 1 ? addItemCell : itemCell
+                } else {
+                    return indexPath.item == 1 ? addItemCell : itemCell
+                }
             }
+            
         } else {
             guard let noClientAddedView = tableView.dequeueReusableCell(withIdentifier: NoClientAddedTableViewCell.identyfier) as? NoClientAddedTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NoClientAddedTableViewCell.self, cellID: NoClientAddedTableViewCell.identyfier))
@@ -234,10 +244,16 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let sectionType = sections[indexPath.section]
-        if sectionType == .items && indexPath.row != titles.count - 1 {
+        switch sectionType {
+        case .invoiceForm:
+          return false
+        case .clientDetails:
+          return false
+        case .items where indexPath.row != tableView.numberOfRows(inSection: 2) - 1 && viewModel.itemsCount() > 2:
             return true
+        default:
+            return false
         }
-        return false
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -249,11 +265,15 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 && indexPath.row != titles.count - 1{
+        let sectionType = sections[indexPath.section]
+        
+        if sectionType == .items && indexPath.row != viewModel.itemsCount() - 1{
             guard editingStyle == .delete else { return }
-            titles.remove(at: indexPath.row)
-            tableView.reloadData()
-            scrollToBottom()
+                if viewModel.itemsCount() > 2 {
+                    viewModel.deleteItemFromForm(indexPath: indexPath.row)
+                    tableView.reloadData()
+                    scrollToBottom()
+            }
         }
     }
 }

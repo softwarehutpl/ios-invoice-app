@@ -30,7 +30,7 @@
                     <color key="textColor" red="0.02910782583" green="0.41016668080000002" blue="0.30797731880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-1c-Mwc">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter item title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-1c-Mwc">
                     <rect key="frame" x="10" y="30" width="365" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="wra-8f-LoZ"/>
@@ -47,7 +47,7 @@
                     <color key="textColor" red="0.02910782583" green="0.41016668080000002" blue="0.30797731880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTO-k7-5c2">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTO-k7-5c2">
                     <rect key="frame" x="10" y="95" width="365" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="FOx-hI-nst"/>
@@ -64,7 +64,7 @@
                     <color key="textColor" red="0.02910782583" green="0.41016668080000002" blue="0.30797731880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH3-3d-1HT">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH3-3d-1HT">
                     <rect key="frame" x="10" y="160" width="365" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="PMY-xT-v62"/>

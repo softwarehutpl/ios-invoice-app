@@ -31,11 +31,13 @@ class PersistanceManager {
         return self.persistentContainer.viewContext
     }
     
+    
     func save() {
         if context.hasChanges {
             do {
                 try context.save()
                 print("Saved")
+                context.reset()
                 
             } catch {
                 let nserror = error as NSError

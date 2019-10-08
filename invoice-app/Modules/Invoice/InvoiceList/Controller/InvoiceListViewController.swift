@@ -61,15 +61,6 @@ class InvoiceListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let email = "nbgsagsa@wp.pl"
-        let response = Validation.shared.validate(values: (type: ValidationType.email, inputValue: email), target: self)
-        switch response {
-        case .success:
-            break
-        case .failure:
-            print("error")
-        }
-        
         viewModel.fetchInvoicesFromCoreData()
         cellRegister()
         setupNavigationBar()
