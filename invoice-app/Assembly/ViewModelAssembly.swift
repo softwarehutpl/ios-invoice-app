@@ -23,10 +23,10 @@ class ViewModelAssembly: Assembly {
             let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
             return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice, invoiceStorageService: invoiceStorageService)
         }
-        container.register(NewInvoiceViewModelType.self) { r in
+        container.register(NewInvoiceViewModelType.self) { (r,invoice: InvoiceModel?, formState: FormState) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
-            return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
+            return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService, invoiceModel: invoice, formState: formState)
         }
         
         // Clients Views

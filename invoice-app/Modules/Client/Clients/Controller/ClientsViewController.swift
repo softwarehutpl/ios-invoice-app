@@ -121,6 +121,7 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
         let client = viewModel.fetchClients(index: indexPath.item)
         viewModel.popToNewInvoiceView(source: self)
         viewModel.passClientToNewInvoiceView(client: client)
+        viewModel.passFormStateToInvoiceView(formState: .clientSelected)
     }
 }
 

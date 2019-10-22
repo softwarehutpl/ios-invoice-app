@@ -5,7 +5,7 @@ enum StartupScene {
     // Invoice
     case invoiceList
     case invoiceDetail(invoice: InvoiceModel)
-    case newInvoice
+    case newInvoice(invoice: InvoiceModel?,formState: FormState)
     // Client
     case clientsView(delegate: ClientViewModelDelegate)
     case newClientView
@@ -22,7 +22,7 @@ extension StartupScene: SceneType {
         //Invoice Views
         case .invoiceList: return resolver.invoiceListController()
         case .invoiceDetail(let invoice): return resolver.invoiceDetailController(invoice: invoice)
-        case .newInvoice: return resolver.newInvoiceViewController()
+        case .newInvoice(let invoice, let formState): return resolver.newInvoiceViewController(invoice: invoice, formState: formState)
         //Client Views
         case .clientsView(let delegate): return resolver.clientsViewControler(delegate: delegate)
         case .newClientView: return resolver.newClientViewController()

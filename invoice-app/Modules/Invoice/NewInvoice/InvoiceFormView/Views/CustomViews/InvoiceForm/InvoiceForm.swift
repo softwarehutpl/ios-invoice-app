@@ -14,7 +14,8 @@ class InvoiceForm: NibLoadingView {
     
     // MARK: - Picker Values
     let currencies = ["PLN", "USD", "EUR", "GBP", "CHF"]
-    let paymentMethods = ["Cash","Credit Card", "Pay Pal", "Bank Transfer", "Other"]
+    let paymentMethods = ["Cash","Credit Card", "PayPal", "Bank Transfer", "Other"]
+    var activeTextField: UITextField?
     
     // MARK: - Outlets
     let dateFormatter = DateFormatter()
@@ -30,6 +31,42 @@ class InvoiceForm: NibLoadingView {
     @IBOutlet weak var invoiceCurrency: UITextField!
     @IBOutlet var contentView: UIView!
     
+    // Passing data to viewModel
+    @IBAction func passInvoiceFormToViewModel(_ sender: UITextField) {
+          print("end editing invoice form")
+//          guard let startDate = invoiceDate.text else { return }
+//          guard let date = dateFormatter.date(from: startDate) else { return }
+//          guard let proposedDate = Calendar.current.date(byAdding: .day, value: 14, to: date) else { return }
+//
+//          if activeTextField == invoiceDate {
+//              invoiceDate.text = dateFormatter.string(from: datePicker.date)
+//              invoiceDueDate.text = dateFormatter.string(from: proposedDate)
+//              datePicker.date = proposedDate
+//              //Addinng 14 days difference to InvoiceDueDate after completed choosing invoice date.
+//          } else if activeTextField == invoiceDueDate {
+//              invoiceDueDate.text = dateFormatter.string(from: datePicker.date)
+//          }
+
+          // Passing invoice form by callback
+          guard let invoiceTitle = invoiceTitle.text,
+              let invoiceDate = invoiceDate.text,
+              let invoiceDueDate = invoiceDueDate.text,
+              let invoicePaymentMethod = invoicePaymentMethod.text,
+              let invoiceCurrency = invoiceCurrency.text
+              else { return }
+              
+          let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, paymentMethod: invoicePaymentMethod, currency: invoiceCurrency)
+          passInvoiceForm?(invoiceForm)
+      }
+
+    func prepareView(invoiceForm: InvoiceFormModel) {
+        invoiceTitle.text = invoiceForm.invoiceTitle
+        invoiceDate.text = invoiceForm.date
+        invoiceDueDate.text = invoiceForm.dueDate
+        invoicePaymentMethod.text = invoiceForm.paymentMethod
+        invoiceCurrency.text = invoiceForm.currency
+    }
+    
     private func textFieldDelegate() {
         invoiceTitle.delegate = self
         invoiceDate.delegate = self
@@ -39,7 +76,6 @@ class InvoiceForm: NibLoadingView {
     }
     
     // MARK: - Setup Pickers
-
     func createCurrencyPicker() {
         invoiceCurrency.inputView = currencyPicker
         invoicePaymentMethod.inputView = paymentPicker
@@ -50,6 +86,8 @@ class InvoiceForm: NibLoadingView {
         datePicker.datePickerMode = .date
         invoiceDate.inputView = datePicker
         invoiceDueDate.inputView = datePicker
+        invoiceDate.delegate = self
+        invoiceDueDate.delegate = self
         datePicker.timeZone = NSTimeZone.local
         datePicker.backgroundColor = UIColor.white
     }
@@ -70,29 +108,38 @@ class InvoiceForm: NibLoadingView {
         addShadowToViews(views: [invoiceTitle,invoiceDate,invoiceDueDate,invoicePaymentMethod,invoiceCurrency])
     }
 }
+extension InvoiceForm {
+    
+  
+}
 
 extension InvoiceForm: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let invoiceTitle = invoiceTitle.text,
-            let invoiceDate = invoiceDate.text,
-            let invoiceDueDate = invoiceDueDate.text,
-            let invoicePaymentMethod = invoicePaymentMethod.text,
-            let invoiceCurrency = invoiceCurrency.text
-            else { return }
         
-        let invoiceForm = InvoiceFormModel(invoiceTitle: invoiceTitle, date: invoiceDate, dueDate: invoiceDueDate, paymentMethod: invoicePaymentMethod, currency: invoiceCurrency)
-        passInvoiceForm?(invoiceForm)
-    }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if invoiceDate.text == nil || invoiceDate.text?.isEmpty ?? false && invoiceDueDate.text == nil || invoiceDueDate.text?.isEmpty ?? false {
+            activeTextField = textField
+        
+        let fieldsEmptyStatus = invoiceDate.text == nil || invoiceDate.text?.isEmpty ?? false &&
+            invoiceDueDate.text == nil || invoiceDueDate.text?.isEmpty ?? false &&
+            invoicePaymentMethod.text == nil || invoicePaymentMethod.text?.isEmpty ?? false &&
+            invoiceCurrency.text == nil || invoiceCurrency.text?.isEmpty ?? false
+        switch fieldsEmptyStatus {
+        case true:
+            // Filling data when start editing textfields
+            invoicePaymentMethod.text = paymentMethods[0]
+            invoiceCurrency.text = currencies[0]
             dateFormatter.dateFormat = "dd/MM/yyyy"
             invoiceDate.text = dateFormatter.string(from: Date())
             guard let proposedDate = Calendar.current.date(byAdding: .day, value: 14, to: Date()) else { return }
             invoiceDueDate.text = dateFormatter.string(from: proposedDate)
-            invoicePaymentMethod.text = "Credit Card"
-            invoiceCurrency.text = "PLN"
+        case false:
+            // Targeting date picker for correct textfield
+            guard let activeTextField = activeTextField?.text else { return }
+            guard let date = dateFormatter.date(from: activeTextField) else { return }
+            if activeTextField == invoiceDate.text {
+                datePicker.date = date
+            } else if activeTextField == invoiceDueDate.text {
+                datePicker.date = date
+            }
         }
     }
 }

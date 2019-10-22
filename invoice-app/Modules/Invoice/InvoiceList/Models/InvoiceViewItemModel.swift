@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct ItemModel {
+struct ItemModel: Equatable {
     var itemName: String
     var amount: String
     var price: String
+    var tax: String
+    var id: String
 }

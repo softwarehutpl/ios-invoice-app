@@ -10,6 +10,7 @@ import UIKit
 
 protocol ClientViewModelDelegate: AnyObject {
     func shareClient(client: ClientModel)
+    func passFormState(formState: FormState)
 }
 
 class ClientViewModel: ClientViewModelType {
@@ -39,6 +40,9 @@ class ClientViewModel: ClientViewModelType {
         self.clientStorageService = clientStorageService
         self.delegate = delegate
     }
+    deinit {
+        print("deinit done")
+    }
 }
 
 extension ClientViewModel  {
@@ -67,6 +71,10 @@ extension ClientViewModel  {
     }
     func passClientToNewInvoiceView(client: ClientModel) {
         delegate.shareClient(client: client)
+    }
+    
+    func passFormStateToInvoiceView(formState: FormState) {
+        delegate.passFormState(formState: formState)
     }
     
     func pushToEditClientView(source: UIViewController, client: ClientModel) {

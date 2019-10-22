@@ -81,7 +81,7 @@ extension InvoiceListViewModel: InvoiceListViewModelType, SegmentControllerProto
     }
     
     @objc func showNewInvoiceView(source: UIViewController) {
-        sceneCoordinator.transition(to: StartupScene.newInvoice, type: .push, source: source)
+        sceneCoordinator.transition(to: StartupScene.newInvoice(invoice: nil, formState: .clientUnselected), type: .push, source: source)
     }
     
     func searchingText(searchingText: String) {

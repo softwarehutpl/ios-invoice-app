@@ -13,22 +13,21 @@ enum InvoiceFormSectionType {
     case invoiceForm
     case items
 }
-enum InvoiceItemsCellType {
-    case newCellButton
-    case itemForm
+
+enum FormState {
+    case editInvoice
+    case clientSelected
+    case clientUnselected
 }
 
 class NewInvoiceViewController: BaseViewController {
     
-    let validator = Validation()
+    let validator = Validation() // di soon
     
-    var clientSelected = false // variable holds state which is showing correct
-    //view depending whether user is selected
+    var clientSelected = false
+    var invoicePassed = false
     
     let sections = [InvoiceFormSectionType.clientDetails, InvoiceFormSectionType.invoiceForm, InvoiceFormSectionType.items]
-    
-    var titles: [String] = ["abc","abc"]
-    let item = "added"
     
     //MARK: - Outlets
     @IBOutlet weak var bottomButton: UIButton!
@@ -42,6 +41,7 @@ class NewInvoiceViewController: BaseViewController {
             tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
             tableView.clipsToBounds = true
             tableView.setEditing(true, animated: true)
+            bottomButton.layer.cornerRadius = 5
         }
     }
     
@@ -52,33 +52,43 @@ class NewInvoiceViewController: BaseViewController {
     init(with viewModel: NewInvoiceViewModelType) {
         self.viewModel = viewModel
         super.init()
-    }
+    } 
     
     // MARK: - Actions
     @IBAction func tapBottomButton(_ sender: UIButton) {
-        view.endEditing(true)
-        if clientSelected == true {
-            viewModel.createNewInvoice()
-            viewModel.popToInvoiceList(source: self)
-        } else {
-            viewModel.selectClient(source: self)
+        tableView.endEditing(true)
+        let formState = viewModel.getFormState()
+        switch formState {
+        case .clientSelected:
+            self.viewModel.createNewInvoice()
+            self.viewModel.popToInvoiceList(source: self)
+        case .editInvoice:
+            self.viewModel.editInvoice()
+//            self.viewModel.popToInvoiceList(source:self)
+        case .clientUnselected:
+            self.viewModel.selectClient(source: self)
         }
     }
     
     //MARK: - Setup Views
-    private func setupNavigationBar() {
-        navigationItem.title = "New Invoice"
-    }
-    
-    private func cellRegister() {
-        
-        if clientSelected == true {
+    private func setupView() {
+        switch viewModel.getFormState() {
+        case .clientSelected:
+            navigationItem.title = "New Invoice"
             tableView.isScrollEnabled = true
             bottomButton.setTitle("Add Invoice", for: .normal)
-        } else {
+        case .editInvoice:
+            navigationItem.title = "Edit Invoice"
+            tableView.isScrollEnabled = true
+            bottomButton.setTitle("Save Invoice", for: .normal)
+        case .clientUnselected:
+            navigationItem.title = "New Invoice"
             tableView.isScrollEnabled = false
             bottomButton.setTitle("Select Client", for: .normal)
         }
+    }
+    
+    private func cellRegister() {
         
         let clientDetailsView = UINib(nibName: ClientDetailsTableViewCell.identyfier, bundle: nil)
         tableView.register(clientDetailsView, forCellReuseIdentifier: ClientDetailsTableViewCell.identyfier)
@@ -101,7 +111,6 @@ class NewInvoiceViewController: BaseViewController {
     // test function
     func insertNewItemCell() {
         viewModel.addEmptyRow()
-//        tableView.reloadData()
         tableView.layoutIfNeeded()
         scrollToBottom()
         
@@ -114,21 +123,31 @@ class NewInvoiceViewController: BaseViewController {
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
-        clientSelected = viewModel.getClientStatus()
+        if viewModel.getFormState() == .editInvoice {
+            viewModel.fillFormsFromEditView()
+        }
+        setupView()
+        clientSelected = viewModel.getClientTest()
         cellRegister()
         tableView.reloadData()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
     }
 }
 
 extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return clientSelected ? 3 : 1
+        let formState = viewModel.getFormState()
+        switch formState {
+        case .clientSelected, .editInvoice:
+        return 3
+        case .clientUnselected:
+        return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,18 +155,15 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
         switch sectionType {
         case .clientDetails: return 1
         case .invoiceForm: return 1
-        case .items: if viewModel.itemsCount() == 0 {
-                return 2
-            } else {
-                return viewModel.itemsCount()
-            }
+        case .items: return viewModel.itemsCount()
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionType = sections[indexPath.section]
-        
-        if clientSelected == true {
+        let formState = viewModel.getFormState()
+        switch formState {
+        case .clientSelected, .editInvoice:
             switch sectionType {
             case .clientDetails:
                 guard let clientDetailCell = tableView.dequeueReusableCell(withIdentifier: ClientDetailsTableViewCell.identyfier) as? ClientDetailsTableViewCell else {
@@ -156,7 +172,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                 clientDetailCell.callback = { 
                     self.viewModel.selectClient(source: self)
                 }
-                clientDetailCell.prepareCell(client: viewModel.getClient()!)
+                clientDetailCell.prepareCell(client: viewModel.fetchClientForm()!)
                 return clientDetailCell
                 
             case .invoiceForm:
@@ -164,15 +180,15 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                     fatalError(cellError.showError(cellTitle: InvoiceFormTableViewCell.self, cellID: InvoiceFormTableViewCell.identyfier))
                 }
                 
-                invoiceFormCell.passInvoiceForm = { [weak self] invoiceForm in
+                        invoiceFormCell.passInvoiceForm = { [weak self] invoiceForm in
                     guard let `self` = self else { return }
                     if self.presentedViewController as? UIAlertController != nil {
                     
                     } else {
-                        print(invoiceForm)
-                        self.viewModel.checkInvoiceForm(invoiceForm: invoiceForm, source: self)
+                        self.viewModel.fetchInvoiceForm(invoiceForm: invoiceForm, source: self)
                     }
                 }
+                invoiceFormCell.prepareCell(invoiceForm: viewModel.passInvoiceFormToSection())
                 return invoiceFormCell
                 
             case .items:
@@ -189,23 +205,16 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
                     fatalError(cellError.showError(cellTitle: ItemTableViewCell.self, cellID: ItemTableViewCell.identyfier))
                     
                 }
-                if viewModel.itemsCount() != 0 {
-                itemCell.prepareCell(item: viewModel.passItemsToSection(indexPath: indexPath.row))
-                }
                 
+                itemCell.prepareCell(item: viewModel.passItemsToSection(indexPath: indexPath.row))
                 itemCell.callback = { [weak self] item in
                     guard let `self` = self else { return }
-                    self.viewModel.getItemFormModel(itemModel: item, index: indexPath.row)
+                    self.viewModel.fetchItemsForm(itemModel: item, index: indexPath.row)
                 }
-                
-                if viewModel.itemsCount() > 0 {
-                    return indexPath.item == viewModel.itemsCount() - 1 ? addItemCell : itemCell
-                } else {
-                    return indexPath.item == 1 ? addItemCell : itemCell
-                }
+                return indexPath.item == viewModel.itemsCount() - 1 ? addItemCell : itemCell
             }
             
-        } else {
+        case .clientUnselected:
             guard let noClientAddedView = tableView.dequeueReusableCell(withIdentifier: NoClientAddedTableViewCell.identyfier) as? NoClientAddedTableViewCell else {
                 fatalError(cellError.showError(cellTitle: NoClientAddedTableViewCell.self, cellID: NoClientAddedTableViewCell.identyfier))
             }
@@ -215,8 +224,10 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionType = sections[section]
+        let formState = viewModel.getFormState()
         let view = NewInvoiceCellHeader()
-        if clientSelected == true {
+        switch formState {
+        case .editInvoice, .clientSelected:
             switch sectionType {
             case .clientDetails : view.headerTitle.text = "Client Details"
             case .invoiceForm: view.headerTitle.text = "Invoice Details"
@@ -224,7 +235,7 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
             case .items: view.headerTitle.text = "Items"
                                 view.edit.isHidden = true
             }
-        } else {
+        case .clientUnselected:
             view.isHidden = true
         }
         
@@ -257,7 +268,13 @@ extension NewInvoiceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return clientSelected ? UITableView.automaticDimension : tableView.frame.height
+        let formState = viewModel.getFormState()
+        switch formState {
+        case .clientSelected, .editInvoice:
+            return UITableView.automaticDimension
+        case .clientUnselected:
+            return tableView.frame.height
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

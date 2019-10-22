@@ -16,8 +16,13 @@ class InvoiceFormTableViewCell: UITableViewCell {
     // Mark: - Outlets
     @IBOutlet weak var customView: InvoiceForm!
     
+    func prepareCell(invoiceForm: InvoiceFormModel) {
+        customView.prepareView(invoiceForm: invoiceForm)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         customView.passInvoiceForm = { [weak self] invoiceForm in
             guard let `self` = self else { return }
             self.passInvoiceForm?(invoiceForm)

@@ -24,9 +24,10 @@ class ViewControllerAssembly: Assembly {
             let viewModel = r.resolve(InvoiceDetailViewModelType.self, argument: invoice)!
             return InvoiceDetailViewController(with: viewModel)
         }
-        container.register(NewInvoiceViewController.self) { r in
-            let viewModel = r.resolve(NewInvoiceViewModelType.self)!
-            return NewInvoiceViewController(with: viewModel)
+        container.register(NewInvoiceViewController.self) { (r, invoice: InvoiceModel?, formState: FormState) in
+            let newInvoiceViewModel = r.resolve(NewInvoiceViewModelType.self, arguments: invoice, formState)!
+//            let editInvoiceViewModel = r.resolve(EditInvoiceViewModelType.self, arguments: invoice, formState)!
+            return NewInvoiceViewController(with: newInvoiceViewModel)
         }
         
         // Client Views

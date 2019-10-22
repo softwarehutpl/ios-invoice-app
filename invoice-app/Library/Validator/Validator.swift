@@ -32,7 +32,7 @@ enum RegEx: String {
     case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}" // Email
     case password = "^.{6,15}$" // Password length 6-15
     case phoneNumber = "[0-7]{10,14}" // PhoneNo -14 Digits
-    case title = "^.{3,15}$"
+    case title = "^.{0,15}$"
 }
 
 enum AlertMessages: String {

@@ -29,6 +29,7 @@ extension ClientStorageService {
         clientToAdd.city = client.city
         clientToAdd.country = client.country
         clientToAdd.id = client.id
+        clientToAdd.invoices = nil
         persistanceManager.save()
         print("saved client")
     }

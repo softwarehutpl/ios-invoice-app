@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum state {
+    case editInvoice
+    case newInvoice
+}
+
 enum InvoiceDetailsSectionType {
     case customerDetails
     case customerAddress
@@ -66,6 +71,10 @@ class InvoiceDetailViewController: BaseViewController {
     //MARK: - Actions
     @objc func invoiceOptionsTapped() {
         alertControl.showAlert(title: "Choose option", msg: "", target: self, alerts:[
+            UIAlertAction(title: "Edit", style: .default, handler: {[weak self] (alert) in
+                guard let `self` = self else { return }
+                self.viewModel.editInvoiceView(source: self)
+            }),
             UIAlertAction(title: "Email", style: .default, handler: { (alert) in
                 print("Sended by email")
             }),
@@ -77,7 +86,7 @@ class InvoiceDetailViewController: BaseViewController {
                 self.viewModel.popToInvoiceList(source: self)
             }),
             UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
-                print("Cancelled")
+                print("Canceled")
             })
             ])
     }
@@ -108,13 +117,13 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             label.textInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
             label.backgroundColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
-            label.font = UIFont.boldSystemFont(ofSize: 13)
+            label.font = UIFont.boldSystemFont(ofSize: 14)
             return label
         }()
         switch sectionType {
-        case .customerDetails: label.text = "CLIENT DETAILS"
-        case .customerAddress: label.text = "CLIENT ADDRESS"
-        case .customerItems: label.text = "ITEMS DESCRIPTION"
+        case .customerDetails: label.text = "Client Details"
+        case .customerAddress: label.text = "Client Address"
+        case .customerItems: label.text = "Items"
         }
         return label
     }

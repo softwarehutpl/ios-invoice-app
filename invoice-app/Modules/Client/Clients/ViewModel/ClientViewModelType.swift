@@ -16,6 +16,7 @@ protocol ClientViewModelType {
     func getClientsCount() -> Int
     func fetchClients(index: Int) -> ClientModel
     func passClientToNewInvoiceView(client: ClientModel)
+    func passFormStateToInvoiceView(formState: FormState)
     func searchClient(searchClient: String)
     // Navigation
     func popToNewInvoiceView(source: UIViewController)

@@ -11,7 +11,7 @@ import CoreData
 
 class PersistanceManager {
     
-    let persistentContainer = NSPersistentContainer(name: "CoreData")
+    lazy var persistentContainer = NSPersistentContainer(name: "CoreData")
     
      init() {
         self.initalizeStack()
@@ -23,7 +23,6 @@ class PersistanceManager {
                 print("could not load store \(error.localizedDescription)")
                 return
             }
-            print("store loaded")
         }
     }
     

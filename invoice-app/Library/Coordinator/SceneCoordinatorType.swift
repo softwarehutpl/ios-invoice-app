@@ -6,7 +6,6 @@ import UIKit
 protocol SceneCoordinatorType {
     
     @discardableResult
-    
     func transition(to scene: SceneType, type: SceneTransitionType, source: UIViewController?) -> Completable
 
     @discardableResult
@@ -17,6 +16,7 @@ protocol SceneCoordinatorType {
     
     @discardableResult
     func openURL(_ url: URL) -> Completable
+    
 }
 
 
