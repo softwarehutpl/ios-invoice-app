@@ -47,7 +47,7 @@ extension NewInvoiceViewModel {
     
     // Navigation
     func selectClient(source: UIViewController) {
-        sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self), type: .push, source: source)
+        sceneCoordinator.transition(to: StartupScene.clientsView(delegate: self, listState: .selectingClientToInvoice), type: .push, source: source)
     }
     func popToInvoiceList(source: UIViewController) {
         sceneCoordinator.pop(source: source, animated: true)

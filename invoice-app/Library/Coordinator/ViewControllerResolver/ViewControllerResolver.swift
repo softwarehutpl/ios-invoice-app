@@ -8,17 +8,22 @@ class ViewControllerResolver {
     
     // MARK: - Private Properties
     private let assembler: Assembler
+    
     // MARK: - Lifecycle
     init(assembler: Assembler) {
         self.assembler = assembler
     }
 }
+
 extension ViewControllerResolver: ViewControllerResolverType {
-    
+    // Base Tabbar
+    func baseTabBarController() -> BaseTabBarController? {
+        return assembler.resolver.resolve(BaseTabBarController.self)
+    }
     // Overview
-    func companySelectController() -> CompanySelectViewController? {
-           return assembler.resolver.resolve(CompanySelectViewController.self)
-       }
+    func overViewViewController() -> OverViewViewController? {
+        return assembler.resolver.resolve(OverViewViewController.self)
+    }
     
     // InvoiceViews
     func invoiceListController() -> InvoiceListViewController? {
@@ -32,8 +37,8 @@ extension ViewControllerResolver: ViewControllerResolverType {
     }
     
     // ClientViews
-    func clientsViewControler(delegate: ClientViewModelDelegate) -> ClientsViewController? {
-        return assembler.resolver.resolve(ClientsViewController.self, argument: delegate)
+    func clientsViewControler(delegate: ClientViewModelDelegate?, listState: ClientListState) -> ClientsViewController? {
+        return assembler.resolver.resolve(ClientsViewController.self, arguments: delegate, listState)
     }
     func newClientViewController() -> NewClientViewController? {
         return assembler.resolver.resolve(NewClientViewController.self)

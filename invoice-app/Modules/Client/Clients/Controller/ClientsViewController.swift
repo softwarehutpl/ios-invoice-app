@@ -53,6 +53,7 @@ class ClientsViewController: BaseViewController {
         let rightNavBarItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapRightNavBarItem))
         navigationItem.rightBarButtonItem = rightNavBarItem
         navigationItem.title = "Clients"
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1136931852, green: 0.4413411915, blue: 0.3557595909, alpha: 1)
         navigationController?.navigationBar.barStyle = .black
@@ -118,10 +119,12 @@ extension ClientsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let client = viewModel.fetchClients(index: indexPath.item)
-        viewModel.popToNewInvoiceView(source: self)
-        viewModel.passClientToNewInvoiceView(client: client)
-        viewModel.passFormStateToInvoiceView(formState: .clientSelected)
+        if viewModel.getListState() == .selectingClientToInvoice {
+            let client = viewModel.fetchClients(index: indexPath.item)
+            viewModel.popToNewInvoiceView(source: self)
+            viewModel.passClientToNewInvoiceView(client: client)
+            viewModel.passFormStateToInvoiceView(formState: .clientSelected)
+        }
     }
 }
 

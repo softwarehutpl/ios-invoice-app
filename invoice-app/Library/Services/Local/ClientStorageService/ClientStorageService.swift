@@ -20,18 +20,9 @@ class ClientStorageService: ClientStorageServiceType {
 extension ClientStorageService {
     
     func addClient(client: ClientModel) {
-        let clientToAdd = Client(context: persistanceManager.context)
-        clientToAdd.name = client.name
-        clientToAdd.email = client.email
-        clientToAdd.phone = client.phone
-        clientToAdd.address = client.address
-        clientToAdd.postcode = client.postcode
-        clientToAdd.city = client.city
-        clientToAdd.country = client.country
-        clientToAdd.id = client.id
+        let clientToAdd = Client.create(context: persistanceManager.context, client: client)
         clientToAdd.invoices = nil
         persistanceManager.save()
-        print("saved client")
     }
     
     func fetchClients() -> [ClientModel] {
@@ -41,7 +32,6 @@ extension ClientStorageService {
             let clientmodel = ClientModel(name: client.name, email: client.email, phone: client.phone, address: client.address, postcode: client.postcode, city: client.city, country: client.country, id: client.id)
             clients.append(clientmodel)
         }
-        print("fetched clients")
         return clients
     }
     

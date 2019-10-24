@@ -20,7 +20,7 @@ class InvoiceListViewModel {
     private let sceneCoordinator: SceneCoordinatorType
     private let invoiceStorageService: InvoiceStorageServiceType
     
-    // MARK: - Lifecycle
+    // MARK: - Inits
     init(sceneCoordinator: SceneCoordinatorType, invoiceStorageService: InvoiceStorageServiceType) {
         self.sceneCoordinator = sceneCoordinator
         self.invoiceStorageService = invoiceStorageService

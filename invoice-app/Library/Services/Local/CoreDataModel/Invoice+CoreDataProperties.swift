@@ -26,6 +26,8 @@ extension Invoice {
     @NSManaged public var status: Bool
     @NSManaged public var client: Client
     @NSManaged public var items: NSSet
+    
+    
 
 }
 
@@ -44,4 +46,15 @@ extension Invoice {
     @objc(removeItems:)
     @NSManaged public func removeFromItems(_ values: NSSet)
 
+    class func create(context: NSManagedObjectContext, invoice: InvoiceModel) -> Invoice {
+        let invoiceToCreate = NSEntityDescription.insertNewObject(forEntityName: "Invoice", into: context) as! Invoice
+        invoiceToCreate.currency = invoice.currency
+        invoiceToCreate.date = invoice.date
+        invoiceToCreate.dueDate = invoice.dueDate
+        invoiceToCreate.id = invoice.id
+        invoiceToCreate.invoiceTitle = invoice.invoiceTitle
+        invoiceToCreate.paymentMethod = invoice.paymentMethod
+        invoiceToCreate.status = invoice.status
+        return invoiceToCreate
+    }
 }

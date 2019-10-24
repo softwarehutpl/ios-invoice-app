@@ -18,7 +18,6 @@ class SceneCoordinator {
         self.resolver = resolver
         self.presentationManager = presentationManager
     }
-    
 }
 
 extension SceneCoordinator: SceneCoordinatorType {
@@ -40,7 +39,8 @@ extension SceneCoordinator: SceneCoordinatorType {
                         .take(1)
                         .ignoreElements()
             }
-            let nvc = BaseNavigationController(rootViewController: viewController)
+            
+            let nvc = BaseNavigationController(rootViewController: resolver.baseTabBarController()!)
             app.window?.rootViewController = nvc
             subject.onCompleted()
 

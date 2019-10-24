@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ClientViewModelType {
-    var delegate: ClientViewModelDelegate { get set }
+    func getListState() -> ClientListState
+    var delegate: ClientViewModelDelegate? { get set }
     // Operations on Core Data
     func createNewClient(source: UIViewController)
     func fetchClientsFromCoreData()

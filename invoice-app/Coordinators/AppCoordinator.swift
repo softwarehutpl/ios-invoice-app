@@ -1,6 +1,7 @@
 import UIKit
 
 class AppCoordinator {
+    
     // MARK: - Private
     private let sceneCoordinator: SceneCoordinatorType
     private weak var window: UIWindow?
@@ -13,7 +14,7 @@ class AppCoordinator {
 
 extension AppCoordinator: AppCoordinatorType {
     func start(window: UIWindow) {
-        sceneCoordinator.transition(to: StartupScene.companySelect, type: .root, source: nil)
+        sceneCoordinator.transition(to: StartupScene.overView, type: .root, source: nil)
         self.window = window
     }
 }
