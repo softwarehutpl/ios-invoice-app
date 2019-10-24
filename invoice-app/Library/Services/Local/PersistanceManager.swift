@@ -11,7 +11,7 @@ import CoreData
 
 class PersistanceManager {
     
-    lazy var persistentContainer = NSPersistentContainer(name: "CoreData")
+    let persistentContainer = NSPersistentContainer(name: "CoreData")
     
      init() {
         self.initalizeStack()

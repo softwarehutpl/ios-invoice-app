@@ -16,7 +16,6 @@ protocol SceneCoordinatorType {
     
     @discardableResult
     func openURL(_ url: URL) -> Completable
-    
 }
 
 

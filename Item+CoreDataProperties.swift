@@ -24,4 +24,15 @@ extension Item {
     @NSManaged public var id: String
     @NSManaged public var invoice: Invoice
 
+    class func create(context: NSManagedObjectContext, items: [ItemModel], invoice: Invoice) {
+        items.forEach { (item) in
+            let itemToAdd = NSEntityDescription.insertNewObject(forEntityName: "Item", into: context) as! Item
+            itemToAdd.amount = item.amount
+            itemToAdd.itemName = item.itemName
+            itemToAdd.price = item.price
+            itemToAdd.tax = item.tax
+            itemToAdd.id = item.id
+            itemToAdd.invoice = invoice
+        }
+    }
 }

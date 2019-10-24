@@ -13,13 +13,20 @@ protocol ClientViewModelDelegate: AnyObject {
     func passFormState(formState: FormState)
 }
 
+enum ClientListState {
+    case selectingClientToInvoice
+    case none
+}
+
 class ClientViewModel: ClientViewModelType {
     
     // MARK: - Private
-    var delegate: ClientViewModelDelegate
+    var delegate: ClientViewModelDelegate?
     
+    private let listState: ClientListState
     private let clientStorageService: ClientStorageServiceType
     private let sceneCoordinator: SceneCoordinatorType
+    
     
     private var clients = [ClientModel]()
     private var clientsToShow = [ClientModel]()
@@ -35,13 +42,11 @@ class ClientViewModel: ClientViewModelType {
     }
     
     // MARK: - Lifecycle
-    init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType,delegate: ClientViewModelDelegate) {
+    init(sceneCoordinator: SceneCoordinatorType, clientStorageService: ClientStorageServiceType,delegate: ClientViewModelDelegate?, listState: ClientListState) {
         self.sceneCoordinator = sceneCoordinator
         self.clientStorageService = clientStorageService
         self.delegate = delegate
-    }
-    deinit {
-        print("deinit done")
+        self.listState = listState
     }
 }
 
@@ -70,11 +75,11 @@ extension ClientViewModel  {
         sceneCoordinator.pop(source: source, animated: true)
     }
     func passClientToNewInvoiceView(client: ClientModel) {
-        delegate.shareClient(client: client)
+        delegate?.shareClient(client: client)
     }
     
     func passFormStateToInvoiceView(formState: FormState) {
-        delegate.passFormState(formState: formState)
+        delegate?.passFormState(formState: formState)
     }
     
     func pushToEditClientView(source: UIViewController, client: ClientModel) {
@@ -83,5 +88,10 @@ extension ClientViewModel  {
     
     func searchClient(searchClient: String) {
         searchingClient = searchClient
+    }
+    
+    
+    func getListState() -> ClientListState {
+        return listState
     }
 }

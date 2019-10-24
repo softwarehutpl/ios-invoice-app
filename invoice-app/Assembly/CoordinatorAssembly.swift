@@ -8,8 +8,8 @@ class CoordinatorAssembly: Assembly {
     }
     
     func assemble(container: Container) {
-        ManagerAssembly().assemble(container: container)
-        container.register(ViewControllerResolver.self) { resolver in
+        PresentationManagerAssembly().assemble(container: container)
+        container.register(ViewControllerResolverType.self) { resolver in
             return ViewControllerResolver(assembler: self.coordinatorAssembler)
         }
         
@@ -20,7 +20,7 @@ class CoordinatorAssembly: Assembly {
         
         container.register(SceneCoordinatorType.self) { resolver in
             let presenter = resolver.resolve(PresentationManagerType.self)!
-            return SceneCoordinator(resolver: resolver.resolve(ViewControllerResolver.self)!, presentationManager: presenter)
+            return SceneCoordinator(resolver: resolver.resolve(ViewControllerResolverType.self)!, presentationManager: presenter)
         }
     }
-}
+}   

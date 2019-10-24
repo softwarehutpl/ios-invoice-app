@@ -9,10 +9,17 @@ class ViewControllerAssembly: Assembly {
 
     func assemble(container: Container) {
         ViewModelAssembly().assemble(container: container)
+        
         // Overview
-        container.register(CompanySelectViewController.self) { r in
-            let viewModel = r.resolve(CompanySelectViewModelType.self)!
-            return CompanySelectViewController(with: viewModel)
+        container.register(BaseTabBarController.self) { r in
+            let viewModel = r.resolve(BaseTabBarViewModelType.self)!
+            let resolver = r.resolve(ViewControllerResolverType.self)!
+            return BaseTabBarController(viewModel: viewModel, resolver: resolver)
+        }
+        
+        container.register(OverViewViewController.self) { r in
+            let viewModel = r.resolve(OverViewViewModelType.self)!
+            return OverViewViewController(viewModel: viewModel)
         }
         
         // Invoice Views
@@ -26,13 +33,12 @@ class ViewControllerAssembly: Assembly {
         }
         container.register(NewInvoiceViewController.self) { (r, invoice: InvoiceModel?, formState: FormState) in
             let newInvoiceViewModel = r.resolve(NewInvoiceViewModelType.self, arguments: invoice, formState)!
-//            let editInvoiceViewModel = r.resolve(EditInvoiceViewModelType.self, arguments: invoice, formState)!
             return NewInvoiceViewController(with: newInvoiceViewModel)
         }
         
         // Client Views
-        container.register(ClientsViewController.self) { (r,delegate: ClientViewModelDelegate) in
-            let viewModel = r.resolve(ClientViewModelType.self, argument: delegate)!
+        container.register(ClientsViewController.self) { (r,delegate: ClientViewModelDelegate?, listState: ClientListState) in
+            let viewModel = r.resolve(ClientViewModelType.self, arguments: delegate, listState)!
             return ClientsViewController(with: viewModel)
         }
         container.register(NewClientViewController.self) { r in

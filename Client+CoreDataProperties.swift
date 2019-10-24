@@ -44,4 +44,17 @@ extension Client {
     @objc(removeInvoices:)
     @NSManaged public func removeFromInvoices(_ values: NSSet)
 
+    class func create(context: NSManagedObjectContext, client: ClientModel) -> Client {
+        let clientToCreate = NSEntityDescription.insertNewObject(forEntityName: "Client", into: context) as! Client
+        clientToCreate.address = client.address
+        clientToCreate.city = client.city
+        clientToCreate.country = client.country
+        clientToCreate.email = client.email
+        clientToCreate.id = client.id
+        clientToCreate.name = client.name
+        clientToCreate.phone = client.phone
+        clientToCreate.postcode = client.postcode
+        clientToCreate.address = client.address
+        return clientToCreate
+    }
 }

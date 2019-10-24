@@ -6,10 +6,16 @@ class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         ServiceAssembly().assemble(container: container)
         
-        // Overview
-        container.register(CompanySelectViewModelType.self) { r in
+        //TabBar
+        container.register(BaseTabBarViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            return CompanySelectViewModel(sceneCoordinator: sceneCoordinator)
+            return BaseTabBarViewModel(sceneCoordinator: sceneCoordinator)
+        }
+        
+        //OverView
+        container.register(OverViewViewModelType.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            return OverViewModel(sceneCoordinator: sceneCoordinator)
         }
         
         // Invoice Views
@@ -30,10 +36,10 @@ class ViewModelAssembly: Assembly {
         }
         
         // Clients Views
-        container.register(ClientViewModelType.self) { (r,delegate: ClientViewModelDelegate) in
+        container.register(ClientViewModelType.self) { (r,delegate: ClientViewModelDelegate?,listState: ClientListState) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
             let clientStorageService = r.resolve(ClientStorageServiceType.self)!
-            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, delegate: delegate)
+            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, delegate: delegate, listState: listState)
         }
         container.register(NewClientViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!

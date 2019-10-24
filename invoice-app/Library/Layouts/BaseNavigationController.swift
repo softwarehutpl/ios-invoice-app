@@ -19,12 +19,8 @@ class BaseNavigationController: UINavigationController {
     // MARK: - Methods
     /// Setups all views
     private func setup() {
-        navigationBar.barStyle = .black
-        navigationBar.barTintColor = Colors.navigationBarTint
-        navigationBar.isTranslucent = false
-        navigationBar.shadowImage = UIImage()
+        navigationBar.isHidden = true
     }
-    
 }
 
 // MARK: - Extension with Constants

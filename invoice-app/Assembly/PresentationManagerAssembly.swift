@@ -1,5 +1,5 @@
 //
-//  ManagerAssembly.swift
+//  PresentationManager.swift
 //  invoice-app
 //
 //  Created by Damian Szejnoch on 24/09/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import Swinject
 
-class ManagerAssembly: Assembly {
+class PresentationManagerAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(PresentationManagerType.self) { _ in

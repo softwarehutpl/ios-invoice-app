@@ -20,38 +20,15 @@ class InvoiceStorageService: InvoiceStorageServiceType {
 
 extension InvoiceStorageService {
     
-    func clearData() {
-        let items = Item(context: persistanceManager.context)
-        persistanceManager.context.delete(items)
-    }
-    
     func createInvoice(invoice: InvoiceModel) {
         
-        let invoiceToAdd = Invoice(context: persistanceManager.context)
-        
-        invoiceToAdd.invoiceTitle = invoice.invoiceTitle
-        invoiceToAdd.date = invoice.date
-        invoiceToAdd.dueDate = invoice.dueDate
-        invoiceToAdd.currency = invoice.currency
-        invoiceToAdd.paymentMethod = invoice.paymentMethod
-        invoiceToAdd.id = invoice.id
-        invoiceToAdd.status = invoice.status
+        let invoiceToAdd = Invoice.create(context: persistanceManager.context, invoice: invoice)
         
         let clientsFromCoreData = persistanceManager.fetch(Client.self)
         let clientToConnectWithInvoice = clientsFromCoreData.first(where:{$0.id == invoice.client.id})
         guard let client = clientToConnectWithInvoice else { return }
         invoiceToAdd.client = client
-        
-        invoice.items.forEach { (item) in
-            let itemToConnect = Item(context: persistanceManager.context)
-            itemToConnect.itemName = item.itemName
-            itemToConnect.amount = item.amount
-            itemToConnect.price = item.price
-            itemToConnect.tax = item.tax
-            itemToConnect.id = item.id
-            itemToConnect.invoice = invoiceToAdd
-            print("saved invoice")
-        }
+        Item.create(context: persistanceManager.context, items: invoice.items, invoice: invoiceToAdd)
         persistanceManager.save()
     }
     
@@ -84,11 +61,18 @@ extension InvoiceStorageService {
     func compareItem(invoice: Invoice) -> [Item] {
         let items = persistanceManager.fetch(Item.self)
         let invoiceConnected = items.filter({$0.invoice == invoice})
+        
+            
+        
+        
+        
+        
         return invoiceConnected
     }
     
     func editInvoice(invoice: InvoiceModel) {
         guard let invoiceToEdit = findInvoice(invoice: invoice) else { return }
+        
         invoiceToEdit.invoiceTitle = invoice.invoiceTitle
         invoiceToEdit.date = invoice.date
         invoiceToEdit.dueDate = invoice.dueDate
