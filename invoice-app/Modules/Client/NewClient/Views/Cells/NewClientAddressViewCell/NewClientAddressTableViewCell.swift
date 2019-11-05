@@ -13,7 +13,9 @@ class NewClientAddressTableViewCell: UITableViewCell {
     //MARK: - Properties
     var callback: ((ClientAddressModel) -> Void)?
     @IBOutlet weak var customView: NewClientAddressView!
-    static let identyfier = "NewClientAddressTableViewCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     
     //MARK: - SetupView
     func prepareCell(clientAddress: ClientAddressModel) {

@@ -10,7 +10,9 @@ import UIKit
 
 class ClientCollectionViewCell: UICollectionViewCell {
     
-    static let identyfier = "ClientCollectionViewCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     
     var cellIndex: Int?
     var callback: (() -> Void)?

@@ -35,4 +35,13 @@ extension Item {
             itemToAdd.invoice = invoice
         }
     }
+    class func convert(context: NSManagedObjectContext, item: ItemModel) {
+        let itemToCheck = NSEntityDescription.insertNewObject(forEntityName: "Item", into: context) as! Item
+        itemToCheck.itemName = item.itemName
+        itemToCheck.amount = item.amount
+        itemToCheck.tax = item.tax
+        itemToCheck.price = item.price
+        itemToCheck.id = item.id
+        
+    }
 }

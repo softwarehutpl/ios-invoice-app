@@ -24,23 +24,17 @@ class InvoiceDetailTopView: UIView {
     
     func loadData(invoice: InvoiceModel) {
         
-//        // counted data
-//        var countedTotal = 0.0
-//        var totalTax = 0.0
-//        
-//        invoice.items.forEach { (item) in
-//            guard let amount = Double(item.amount) else { return }
-//            guard let price = Double(item.price) else { return }
-//            countedTotal += countedTotal + (amount * price)
-//            guard let tax = Double(item.tax) else { return }
-//            totalTax += tax
-//        }
-//        
-//        let countedWithTax = Double(countedTotal) * (Double(totalTax) / 100) + Double(countedTotal)
-//        dateLabel.text = invoice.dueDate
-//        invoiceWithoutTax.text = ("\(invoice.currency) \(Double(countedTotal)) netto")
-//        invoiceWithTax.text = ("PLN \(countedWithTax) brutto ")
-//        contentView.backgroundColor = invoice.status == true ? #colorLiteral(red: 0.1453877687, green: 0.4133757949, blue: 0.3077362776, alpha: 1) : #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1)
+        // counted data
+        var countedTotal = 0.0
+        
+        invoice.items.forEach { (item) in
+            guard let amount = Double(item.amount) else { return }
+            guard let price = Double(item.price) else { return }
+            countedTotal += amount * price
+        }
+        startDate.text = invoice.date
+        dueDate.text = invoice.dueDate
+        totalWithTax.text = ("PLN \(countedTotal)")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -47,7 +47,6 @@ extension InvoiceStorageService {
             let invoiceModel = InvoiceModel(invoiceTitle: invoice.invoiceTitle, date: invoice.date, dueDate: invoice.dueDate, currency: invoice.currency, paymentMethod: invoice.paymentMethod, status: invoice.status, id: invoice.id, client: ClientModel(name: invoice.client.name, email: invoice.client.email, phone: invoice.client.phone, address: invoice.client.address, postcode: invoice.client.postcode, city: invoice.client.city, country: invoice.client.country, id: invoice.client.id),items: itemsModel)
             invoices.append(invoiceModel)
         }
-        print("fetched invoices")
         return invoices
     }
     
@@ -58,21 +57,22 @@ extension InvoiceStorageService {
         return editingInvoice
     }
     
-    func compareItem(invoice: Invoice) -> [Item] {
-        let items = persistanceManager.fetch(Item.self)
-        let invoiceConnected = items.filter({$0.invoice == invoice})
+    func compareItem(invoice: Invoice) -> [Item]? {
+    var matchedItems = [Item]()
+      let fetchedItems = persistanceManager.fetch(Item.self)
+        for item in fetchedItems {
+            if item.invoice == invoice {
+            matchedItems.append(item)
+            }
+        }
         
-            
-        
-        
-        
-        
-        return invoiceConnected
+      return matchedItems
     }
     
-    func editInvoice(invoice: InvoiceModel) {
+    
+    func editInvoice(invoice: InvoiceModel) {   
+            
         guard let invoiceToEdit = findInvoice(invoice: invoice) else { return }
-        
         invoiceToEdit.invoiceTitle = invoice.invoiceTitle
         invoiceToEdit.date = invoice.date
         invoiceToEdit.dueDate = invoice.dueDate
@@ -86,25 +86,22 @@ extension InvoiceStorageService {
         guard let client = clientToConnectWithInvoice else { return }
         invoiceToEdit.client = client
         
-        let itemsToEdit = compareItem(invoice: invoiceToEdit)
-        
+        guard let items = compareItem(invoice: invoiceToEdit) else { return }
+        items.forEach { (item) in
+            persistanceManager.context.delete(item)
+        }
         
         invoice.items.forEach { (item) in
-            itemsToEdit.forEach { (itemToEdit) in
-                if itemToEdit.id == item.id {
-                   itemToEdit.itemName = item.itemName
-                   itemToEdit.price = item.price
-                   itemToEdit.id = item.id
-                   itemToEdit.amount = item.amount
-                   itemToEdit.tax = item.tax
-                }
-            }
+            let itemToAdd = Item(context: persistanceManager.context)
+            itemToAdd.itemName = item.itemName
+            itemToAdd.amount = item.amount
+            itemToAdd.price = item.price
+            itemToAdd.id = item.id
+            itemToAdd.tax = item.tax
+            itemToAdd.invoice = invoiceToEdit
         }
-        print(invoiceToEdit.items)
         persistanceManager.save()
     }
-        
-
     
     func deleteInvoice(invoice: InvoiceModel) {
         guard let invoiceToDelete = findInvoice(invoice: invoice) else { return }

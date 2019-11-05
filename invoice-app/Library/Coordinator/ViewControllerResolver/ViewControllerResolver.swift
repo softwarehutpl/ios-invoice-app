@@ -46,4 +46,9 @@ extension ViewControllerResolver: ViewControllerResolverType {
     func editClientViewController(client: ClientModel) -> EditClientViewController? {
         return assembler.resolver.resolve(EditClientViewController.self, argument: client)
     }
+    
+    //Profile
+    func profileViewController() -> ProfileViewController? {
+        return assembler.resolver.resolve(ProfileViewController.self)
+    }
 }

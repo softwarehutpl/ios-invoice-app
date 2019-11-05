@@ -13,6 +13,9 @@ enum StartupScene {
     case clientsView(delegate: ClientViewModelDelegate, listState: ClientListState)
     case newClientView
     case editClientView(client: ClientModel)
+    
+    //Profile
+    case profile
 }
 
 
@@ -32,6 +35,9 @@ extension StartupScene: SceneType {
         case .clientsView(let delegate, let listState): return resolver.clientsViewControler(delegate: delegate, listState: listState)
         case .newClientView: return resolver.newClientViewController()
         case .editClientView(let client): return resolver.editClientViewController(client: client)
+        
+        //Profile
+        case .profile: return resolver.profileViewController()
         }
     }
 }

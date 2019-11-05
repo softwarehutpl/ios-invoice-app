@@ -10,7 +10,9 @@ import UIKit
 
 class CustomerDetailsCell: UITableViewCell {
     
-    static let identyfier = "CustomerDetailsCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     
     @IBOutlet weak var customView: CustomerDetailView!
     override func awakeFromNib() {

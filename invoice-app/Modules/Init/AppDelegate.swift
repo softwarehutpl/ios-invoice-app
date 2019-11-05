@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         appCoordinator?.start(window: window!)
-        window!.makeKeyAndVisible()
         IQKeyboardManager.shared.enable = true
+        window!.makeKeyAndVisible()
         return true
     }
     

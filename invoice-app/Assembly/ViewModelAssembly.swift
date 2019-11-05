@@ -52,5 +52,10 @@ class ViewModelAssembly: Assembly {
             return EditClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, client: client)
         }
         
+        //Profile
+        container.register(ProfileViewModelType.self) { r in
+        let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+        return ProfileViewModel(sceneCoordinator: sceneCoordinator)
+        }
     }
 }

@@ -12,7 +12,9 @@ class NewClientDetailsTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     var callback: ((ClientDetailsModel) -> Void)?
-    static let identyfier = "NewClientDetailsViewCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     @IBOutlet weak var customView: NewClientDetailsView!
     
     //MARK: - Setup View

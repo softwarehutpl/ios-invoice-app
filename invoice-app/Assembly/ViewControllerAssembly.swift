@@ -49,5 +49,11 @@ class ViewControllerAssembly: Assembly {
             let viewModel = r.resolve(EditClientViewModelType.self, argument: client)!
             return EditClientViewController(with: viewModel)
         }
+        
+        // Profile Views
+        container.register(ProfileViewController.self) { r in
+            let viewModel = r.resolve(ProfileViewModelType.self)!
+            return ProfileViewController(with: viewModel)
+        }
     }
 }

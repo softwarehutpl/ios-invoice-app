@@ -10,7 +10,9 @@ import UIKit
 
 class CustomerItemsCell: UITableViewCell {
 
-    static let identyfier = "CustomerItemsCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     
     @IBOutlet weak var customView: CustomerItemsView!
     

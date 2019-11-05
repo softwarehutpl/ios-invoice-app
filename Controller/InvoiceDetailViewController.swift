@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum state {
-    case editInvoice
-    case newInvoice
-}
-
 enum InvoiceDetailsSectionType {
     case customerDetails
     case customerAddress
@@ -167,10 +162,6 @@ extension InvoiceDetailViewController: UITableViewDelegate, UITableViewDataSourc
             customerItemsCell.prepareView(item: viewModel.getItemsDescriptions(indexPath: indexPath.row))
             return customerItemsCell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row\(indexPath)")
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

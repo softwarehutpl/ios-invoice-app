@@ -11,7 +11,9 @@ import UIKit
 class CustomerAddressCell: UITableViewCell {
     
     @IBOutlet weak var customView: CustomerAddressView!
-    static let identyfier = "CustomerAddressCell"
+    static var identyfier: String {
+        return String(describing: self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,4 +14,6 @@ protocol ViewControllerResolverType {
     func clientsViewControler(delegate: ClientViewModelDelegate?,listState: ClientListState) -> ClientsViewController?
     func newClientViewController() -> NewClientViewController?
     func editClientViewController(client: ClientModel) -> EditClientViewController?
+    // ProfilesViews
+    func profileViewController() -> ProfileViewController?
 }
