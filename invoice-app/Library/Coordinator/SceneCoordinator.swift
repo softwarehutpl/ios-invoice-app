@@ -11,14 +11,17 @@ class SceneCoordinator {
     
     // MARK: - Private Properties
     private let resolver: ViewControllerResolverType
+    private var presentationManager: PresentationManagerType
     
     // MARK: - Lifecycle
-    init(resolver: ViewControllerResolverType) {
+    init(resolver: ViewControllerResolverType, presentationManager: PresentationManagerType) {
         self.resolver = resolver
+        self.presentationManager = presentationManager
     }
 }
 
 extension SceneCoordinator: SceneCoordinatorType {
+    
     @discardableResult
     func transition(to scene: SceneType, type: SceneTransitionType, source: UIViewController? = nil) -> Completable {
         let subject = PublishSubject<Void>()
@@ -36,7 +39,8 @@ extension SceneCoordinator: SceneCoordinatorType {
                         .take(1)
                         .ignoreElements()
             }
-            let nvc = UINavigationController(rootViewController: viewController)
+            
+            let nvc = BaseNavigationController(rootViewController: resolver.baseTabBarController()!)
             app.window?.rootViewController = nvc
             subject.onCompleted()
 
@@ -64,10 +68,28 @@ extension SceneCoordinator: SceneCoordinatorType {
             source.present(viewController, animated: true) {
                 subject.onCompleted()
             }
+            
+        case .customModal(let direction):
+            
+            guard let source = source else {
+                
+                subject.onError(CoordinatorError.navigationError(reason: ""))
+                return subject.asObservable()
+                        .take(1)
+                        .ignoreElements()
+                
+            }
+            presentationManager.direction = direction
+            viewController.transitioningDelegate = presentationManager as? UIViewControllerTransitioningDelegate
+            viewController.modalPresentationStyle = .custom
+            source.present(viewController, animated: true) {
+                subject.onCompleted()
+            }
         }
         return subject.asObservable()
                 .take(1)
                 .ignoreElements()
+        
     }
 
     @discardableResult
@@ -114,7 +136,7 @@ extension SceneCoordinator: SceneCoordinatorType {
                     .take(1)
                     .ignoreElements()
         }
-
+        
         if let _ = strongSource.presentingViewController {
             strongSource.dismiss(animated: animated) {
                 subject.onCompleted()

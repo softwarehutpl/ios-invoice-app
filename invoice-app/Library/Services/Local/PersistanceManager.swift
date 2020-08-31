@@ -13,7 +13,7 @@ class PersistanceManager {
     
     let persistentContainer = NSPersistentContainer(name: "CoreData")
     
-     init() {
+    init() {
         self.initalizeStack()
     }
     
@@ -23,7 +23,6 @@ class PersistanceManager {
                 print("could not load store \(error.localizedDescription)")
                 return
             }
-            print("store loaded")
         }
     }
     
@@ -31,11 +30,13 @@ class PersistanceManager {
         return self.persistentContainer.viewContext
     }
     
+    
     func save() {
         if context.hasChanges {
             do {
                 try context.save()
                 print("Saved")
+                context.reset()
                 
             } catch {
                 let nserror = error as NSError

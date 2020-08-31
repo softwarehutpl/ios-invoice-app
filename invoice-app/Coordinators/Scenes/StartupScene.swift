@@ -1,23 +1,43 @@
 import UIKit
 
 enum StartupScene {
-    case companySelect
+    // OverView
+    case overView
+    
+    // Invoice
     case invoiceList
     case invoiceDetail(invoice: InvoiceModel)
-    case newInvoice
-    case clientsView
+    case newInvoice(invoice: InvoiceModel?,formState: FormState)
+    
+    // Client
+    case clientsView(delegate: ClientViewModelDelegate, listState: ClientListState)
     case newClientView
+    case editClientView(client: ClientModel)
+    
+    //Profile
+    case profile
 }
+
+
 
 extension StartupScene: SceneType {
     func viewController(resolver: ViewControllerResolverType) -> UIViewController? {
         switch self {
-        case .companySelect: return resolver.companySelectController()
+        //Overview
+        case .overView: return resolver.overViewViewController()
+            
+        //Invoice Views
         case .invoiceList: return resolver.invoiceListController()
         case .invoiceDetail(let invoice): return resolver.invoiceDetailController(invoice: invoice)
-        case .newInvoice: return resolver.newInvoiceViewController()
-        case .clientsView: return resolver.clientsViewControler()
+        case .newInvoice(let invoice, let formState): return resolver.newInvoiceViewController(invoice: invoice, formState: formState)
+            
+        //Client Views
+        case .clientsView(let delegate, let listState): return resolver.clientsViewControler(delegate: delegate, listState: listState)
         case .newClientView: return resolver.newClientViewController()
+        case .editClientView(let client): return resolver.editClientViewController(client: client)
+        
+        //Profile
+        case .profile: return resolver.profileViewController()
         }
     }
 }

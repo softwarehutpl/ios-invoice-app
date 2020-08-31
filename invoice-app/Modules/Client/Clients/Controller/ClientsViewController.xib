@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClientsViewController" customModule="invoice_app" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="6y3-cO-Re1" id="iGc-WW-6Qd"/>
+                <outlet property="searchBar" destination="5Df-3s-wWt" id="zQm-3b-XDr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-cO-Re1">
+                    <rect key="frame" x="0.0" y="99" width="414" height="753"/>
+                    <color key="backgroundColor" red="0.1453877687" green="0.41337579489999998" blue="0.3077362776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewLayout key="collectionViewLayout" id="k0I-Bm-tBO" customClass="ClientCollectionFlowLayout" customModule="invoice_app" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zlD-Su-AFx"/>
+                        <outlet property="delegate" destination="-1" id="nOL-uZ-n6d"/>
+                    </connections>
+                </collectionView>
+                <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Df-3s-wWt">
+                    <rect key="frame" x="0.0" y="45" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="t0V-wJ-g8Z"/>
+                    </constraints>
+                    <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5Df-3s-wWt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="1" id="004-k6-eLx"/>
+                <constraint firstItem="5Df-3s-wWt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="OjN-Od-Ane"/>
+                <constraint firstItem="5Df-3s-wWt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SuC-8W-xzm"/>
+                <constraint firstItem="6y3-cO-Re1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YDt-WI-dYE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6y3-cO-Re1" secondAttribute="bottom" constant="10" id="mxe-JR-9SQ"/>
+                <constraint firstItem="6y3-cO-Re1" firstAttribute="top" secondItem="5Df-3s-wWt" secondAttribute="bottom" constant="10" id="qNO-oY-1oI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6y3-cO-Re1" secondAttribute="trailing" id="x6n-bh-PEQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
+        </view>
+    </objects>
+</document>

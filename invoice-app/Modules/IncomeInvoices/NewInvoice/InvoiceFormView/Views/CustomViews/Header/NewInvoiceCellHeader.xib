@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewInvoiceCellHeader" customModule="invoice_app" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="09F-We-gnT"/>
+                <outlet property="edit" destination="NfG-OS-Dsc" id="YAd-ei-xnQ"/>
+                <outlet property="headerTitle" destination="BB6-IV-Ccl" id="3Lq-s8-mSh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6V-if-OLH" userLabel="CientDetailsTitleView">
+                    <rect key="frame" x="0.0" y="0.0" width="423" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-IV-Ccl" userLabel="ClientDetailsLabel">
+                            <rect key="frame" x="15" y="0.0" width="393" height="40"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfG-OS-Dsc" userLabel="edit">
+                            <rect key="frame" x="381" y="9" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="NhF-Dq-E7o"/>
+                                <constraint firstAttribute="height" constant="22" id="qVl-ut-oRQ"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="editbutton">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qD3-eH-ybe" userLabel="editButton">
+                            <rect key="frame" x="363" y="0.0" width="60" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="cj2-l4-FVj"/>
+                            </constraints>
+                            <connections>
+                                <action selector="editButton:" destination="-1" eventType="touchUpInside" id="wi2-92-yHq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1453877687" green="0.41337579489999998" blue="0.3077362776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="NfG-OS-Dsc" secondAttribute="trailing" constant="20" id="7zL-4a-P3e"/>
+                        <constraint firstItem="BB6-IV-Ccl" firstAttribute="leading" secondItem="F6V-if-OLH" secondAttribute="leading" constant="15" id="DGs-XZ-3N8"/>
+                        <constraint firstAttribute="trailing" secondItem="qD3-eH-ybe" secondAttribute="trailing" id="Hqf-Ea-U5R"/>
+                        <constraint firstAttribute="bottom" secondItem="BB6-IV-Ccl" secondAttribute="bottom" id="Lp2-oP-v6k"/>
+                        <constraint firstAttribute="trailing" secondItem="BB6-IV-Ccl" secondAttribute="trailing" constant="15" id="MYb-7o-kyZ"/>
+                        <constraint firstItem="BB6-IV-Ccl" firstAttribute="top" secondItem="F6V-if-OLH" secondAttribute="top" id="P3n-c8-cFP"/>
+                        <constraint firstItem="qD3-eH-ybe" firstAttribute="top" secondItem="F6V-if-OLH" secondAttribute="top" id="SNL-nh-TpL"/>
+                        <constraint firstItem="NfG-OS-Dsc" firstAttribute="centerY" secondItem="BB6-IV-Ccl" secondAttribute="centerY" id="ZnS-1W-fhS"/>
+                        <constraint firstAttribute="height" constant="40" id="cQh-jp-iR9"/>
+                        <constraint firstAttribute="bottom" secondItem="qD3-eH-ybe" secondAttribute="bottom" id="gCN-Sh-bXm"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="F6V-if-OLH" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="GfX-J6-lFK"/>
+                <constraint firstItem="F6V-if-OLH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="S1z-1V-Ocu"/>
+                <constraint firstItem="F6V-if-OLH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="w1u-K9-MsU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40579710144928" y="359.59821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="editbutton" width="512" height="512"/>
+    </resources>
+</document>

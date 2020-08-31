@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewClientViewController" customModule="invoice_app" customModuleProvider="target">
+            <connections>
+                <outlet property="addClientButton" destination="yif-Gx-cpn" id="FSC-Vz-K9k"/>
+                <outlet property="tableView" destination="S2j-vx-aZp" id="wPw-mV-Se9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-vx-aZp">
+                    <rect key="frame" x="0.0" y="10" width="414" height="772"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="iRW-rx-wuL"/>
+                        <outlet property="delegate" destination="-1" id="NNr-N1-cXn"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yif-Gx-cpn" userLabel="AddClient">
+                    <rect key="frame" x="10" y="802" width="394" height="50"/>
+                    <color key="backgroundColor" red="0.02910782583" green="0.41016668080000002" blue="0.30797731880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="UIf-qq-k3f"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="Add Client">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addClientTap:" destination="-1" eventType="touchUpInside" id="COY-Nw-wVw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="S2j-vx-aZp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="JsO-zi-aUb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yif-Gx-cpn" secondAttribute="bottom" constant="10" id="Nvd-0I-sR1"/>
+                <constraint firstItem="yif-Gx-cpn" firstAttribute="top" secondItem="S2j-vx-aZp" secondAttribute="bottom" constant="20" id="PJh-AB-3Xh"/>
+                <constraint firstItem="yif-Gx-cpn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="h7t-2n-Tmw"/>
+                <constraint firstItem="S2j-vx-aZp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hVV-gn-LfI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S2j-vx-aZp" secondAttribute="trailing" id="iRx-rY-wUl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yif-Gx-cpn" secondAttribute="trailing" constant="10" id="qBx-Qf-gmV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="152.89855072463769" y="113.83928571428571"/>
+        </view>
+    </objects>
+</document>

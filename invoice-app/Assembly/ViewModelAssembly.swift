@@ -6,36 +6,56 @@ class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         ServiceAssembly().assemble(container: container)
         
-        container.register(CompanySelectViewModel.self) { r in
+        //TabBar
+        container.register(BaseTabBarViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let persistanceManager = r.resolve(PersistanceManager.self)!
-            return CompanySelectViewModel(sceneCoordinator: sceneCoordinator, persistanceManager: persistanceManager)
+            return BaseTabBarViewModel(sceneCoordinator: sceneCoordinator)
         }
-        container.register(InvoiceListViewModel.self) { r in
+        
+        //OverView
+        container.register(OverViewViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
+            return OverViewModel(sceneCoordinator: sceneCoordinator)
+        }
+        
+        // Invoice Views
+        container.register(InvoiceListViewModelType.self) { r in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
             return InvoiceListViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
         }
-        container.register(InvoiceDetailViewModel.self) { (r, invoice: InvoiceModel) in
+        container.register(InvoiceDetailViewModelType.self) { (r, invoice: InvoiceModel) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice)
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
+            return InvoiceDetailViewModel(sceneCoordinator: sceneCoordinator, invoice: invoice, invoiceStorageService: invoiceStorageService)
         }
-        container.register(NewInvoiceViewModel.self) { r in
+        container.register(NewInvoiceViewModelType.self) { (r,invoice: InvoiceModel?, formState: FormState) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let invoiceStorageService = r.resolve(InvoiceStorageService.self)!
-            return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService)
+            let invoiceStorageService = r.resolve(InvoiceStorageServiceType.self)!
+            return NewInvoiceViewModel(sceneCoordinator: sceneCoordinator, invoiceStorageService: invoiceStorageService, invoiceModel: invoice, formState: formState)
         }
-        container.register(ClientViewModel.self) { r in
+        
+        // Clients Views
+        container.register(ClientViewModelType.self) { (r,delegate: ClientViewModelDelegate?,listState: ClientListState) in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
-            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
+            return ClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, delegate: delegate, listState: listState)
         }
-        container.register(NewClientViewModel.self) { r in
+        container.register(NewClientViewModelType.self) { r in
             let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
-            let clientStorageService = r.resolve(ClientStorageService.self)!
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
             return NewClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService)
         }
+        container.register(EditClientViewModelType.self) { (r, client: ClientModel) in
+            let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+            let clientStorageService = r.resolve(ClientStorageServiceType.self)!
+            return EditClientViewModel(sceneCoordinator: sceneCoordinator, clientStorageService: clientStorageService, client: client)
+        }
         
-        
+        //Profile
+        container.register(ProfileViewModelType.self) { r in
+        let sceneCoordinator = r.resolve(SceneCoordinatorType.self)!
+        return ProfileViewModel(sceneCoordinator: sceneCoordinator)
+        }
     }
 }

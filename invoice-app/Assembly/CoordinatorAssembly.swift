@@ -1,7 +1,6 @@
 import Foundation
 import Swinject
 
-
 class CoordinatorAssembly: Assembly {
     
     var coordinatorAssembler: Assembler {
@@ -9,7 +8,8 @@ class CoordinatorAssembly: Assembly {
     }
     
     func assemble(container: Container) {
-        container.register(ViewControllerResolver.self) { resolver in
+        PresentationManagerAssembly().assemble(container: container)
+        container.register(ViewControllerResolverType.self) { resolver in
             return ViewControllerResolver(assembler: self.coordinatorAssembler)
         }
         
@@ -19,7 +19,8 @@ class CoordinatorAssembly: Assembly {
         }
         
         container.register(SceneCoordinatorType.self) { resolver in
-            return SceneCoordinator(resolver: resolver.resolve(ViewControllerResolver.self)!)
+            let presenter = resolver.resolve(PresentationManagerType.self)!
+            return SceneCoordinator(resolver: resolver.resolve(ViewControllerResolverType.self)!, presentationManager: presenter)
         }
     }
-}
+}   

@@ -1,5 +1,6 @@
 import UIKit
 
+@IBDesignable
 class BaseViewController: UIViewController {
     
     init() {
